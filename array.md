@@ -2,7 +2,10 @@ Array
 ---
 
 ```sh
-# convert 'string' to 'array' of individual characters
+# convert string from file to array of each line
+IFS=$'\n' read -d '' -r -a line < file # array=(line1 line2 line3 ...)
+
+# convert 'string' to 'array' of individual character
 string='abc'
 for (( i=0; i < ${#string}; i++ )); do
     array[i]=${string:i:1}
