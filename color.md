@@ -6,6 +6,7 @@ Terminal colors
 `\e`, `\033`, `\x1B` : \<escape\> character   
 `N` :  code  
 
+**style**  
 `0` : reset all  
 `1` : bold / bright  
 `2` : dim  
@@ -15,13 +16,18 @@ Terminal colors
 `8` : hidden  
 `21..28` : reset 1..8  
 
-`31..37` : foreground  
-`41..47` : background  
-
-`38;5;N` : foreground  
-`48;5;N` : background  
-
-**8 colors**
+**8 colors mode**  
+`30..37` : foreground  
+`40..47` : background  
+`n0` : black  
+`n1` : red  
+`n2` : green  
+`n3` : yellow  
+`n4` : blue  
+`n5` : magenta  
+`n6` : cyan  
+`n7` : white  
+**syntax**
 ```sh
 # 'setaf 7', 'setab 0' - reset to default
 # foreground 'setaf N'
@@ -39,7 +45,10 @@ echo -e "\e[4NmSTRING\e[0m"
 echo -e "\e[3N;4NmSTRING\e[0m"
 ``` 
 
-**256 colors**
+**256 colors mode**  
+`38;5;N` : foreground  
+`48;5;N` : background  
+**syntax**
 ```sh
 # foreground '\e[38;5;Nm'
 echo -e "\e[38;5;NmSTRING\e[0m"
