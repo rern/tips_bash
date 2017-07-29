@@ -7,7 +7,7 @@ LS_COLORS
 **show default colors**  
 `dircolors -p`  
 
-**show current customized colors**  
+**show customized colors**  
 origin: https://github.com/gkotian/gautam_linux/blob/master/scripts/colours.sh  
 ```sh
 IFS=:
@@ -16,13 +16,14 @@ for SET in $LS_COLORS; do
     COLOR=$(echo $SET | cut -d"=" -f2)
 
     case $TYPE in
-        rs) TEXT="Reset to normal color";;
-        no) TEXT="Global default";;
+        rs) TEXT="Reset to normal color (as assigned)";;
+        no) TEXT="Global default (for non-assigned)";;
         
         di) TEXT="Directory";;
-        tw) TEXT="Sticky other writable";;
-        ow) TEXT="Other writable";;
-        st) TEXT="Sticky";;
+        st) TEXT="Sticky (tmp)";;
+        ow) TEXT="Other writable (. .. etc root run tmp)";;
+        tw) TEXT="Sticky other writable (tmp)";;
+		
         fi) TEXT="Normal file";;
         ex) TEXT="Executable";;
         ca) TEXT="File with capability";;
@@ -35,11 +36,12 @@ for SET in $LS_COLORS; do
         pi) TEXT="Named pipe";;
         so) TEXT="Socket";;
         do) TEXT="Door";;
+		
         bd) TEXT="Block device";;
         cd) TEXT="Character device";;
+		
         su) TEXT="Set UID";;
-        sg) TEXT="Set GID";;
-        *) TEXT="${TYPE} (TODO: get description)";;
+        sg) TEXT="Set GID";
     esac
     printf "%12s=%-7s \e[${COLOR}m${TEXT}\e[0m\n" "${TYPE}" "${COLOR}"
 done
