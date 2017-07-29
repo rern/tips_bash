@@ -4,6 +4,7 @@ LS_COLORS
 **set custom LS_COLORS**  
 ```sh
 export LS_COLORS='fi=00;38;5;202:di=01;34'
+# export LS_COLORS='xx=nn;nn;n;nnn:xy=nn;nn'
 # 'xx=' element code,  'nn' color/style code,  ';' combine codes,  ':' elements separator
 ```
 
