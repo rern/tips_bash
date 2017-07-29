@@ -11,11 +11,11 @@ LS_COLORS
 origin: https://github.com/gkotian/gautam_linux/blob/master/scripts/colours.sh  
 ```sh
 IFS=:
-for set in $LS_COLORS; do
-    type=$(echo $set | cut -d"=" -f1)
-    color=$(echo $set | cut -d"=" -f2)
+for each in $LS_COLORS; do
+    element=$(echo $each | cut -d"=" -f1)
+    color=$(echo $each | cut -d"=" -f2)
 
-    case $type in
+    case $element in
         rs) text="Reset to default colors";;
         
         no) text="Global for non-assigned";;
@@ -43,8 +43,8 @@ for set in $LS_COLORS; do
         
         su) text="Set UID";;
         sg) text="Set GID";;
-        *)  text="(unknown)";;
+        *)  text="$element";;
     esac
-    printf "%12s=%-7s \e[${color}m$text\e[0m\n" $type $color
+    printf "%12s=%-7s \e[${color}m$text\e[0m\n" $element $color
 done
 ```
