@@ -4,8 +4,8 @@ LS_COLORS
 **set custom LS_COLORS**  
 ```sh
 export LS_COLORS='fi=00;38;5;202:di=01;34'
-# export LS_COLORS='xx=nn;nn;n;nnn:xy=nn;nn'
-# 'xx=' element code,  'nn' color/style code,  ';' combine codes,  ':' elements separator
+# export LS_COLORS='xx=nn;nn;n;nnn:*.xxx=nn;nn'
+# 'xx=' element code,  '*.xxx' file extension,  'nn' color/style code,  ';' combine codes,  ':' elements separator
 ```
 
 [**256 colors for terminal**](https://github.com/rern/bash_tips/blob/master/color.md)
