@@ -7,7 +7,7 @@ export LS_COLORS='fi=00;38;5;202:di=01;34'
 # 'xx=' element,  ';' combine,  ':' separator
 ```
 
-[**256 colors**](https://github.com/rern/bash_tips/blob/master/color.md)
+[**256 colors for terminal**](https://github.com/rern/bash_tips/blob/master/color.md)
 
 **show default LS_COLORS**  
 ```sh
