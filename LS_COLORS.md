@@ -28,8 +28,8 @@ for each in $LS_COLORS; do
         no) text="Global for non-assigned";;
         
         di) text="Directory - Normal";;
-        ow) text="Directory - Writable by others (drwxrwxrwx)";;
-        st) text="Directory - No delete/rename by others (drwxr-xr-t) 'sticky'";;
+        ow) text="Directory - Writable by others (drwxrw-rw-)";;
+        st) text="Directory - No delete/rename by others (drwxrw-r-t) 'sticky'";;
         tw) text="Directory - Writable + no delete/rename by others (drwxrwxrwt)";;
         su) text="Directory - set-user-ID";;
         sg) text="Directory - set-group-ID";;
@@ -38,19 +38,18 @@ for each in $LS_COLORS; do
         ex) text="File - Executable";;
         ca) text="File - With capability";;
         mi) text="File - Missing from orphaned link (or -> mi)";;
-        
+        pi) text="File - Named pipe (prwx------) 'fifo'";;
+        so) text="File - Socket (srwx------)";;
+        do) text="File - Door (Drwx------)";;
+                
         ln) text="Link - Symbolic";;
         or) text="Link - Orphaned";;
         mh) text="Link - Multi-Hardlink";;
         
-        pi) text="Named pipe";;
-        so) text="Socket";;
-        do) text="Door";;
-        
         bd) text="Device - Block";;
         cd) text="Device - Character";;
         
-        *)  text="$element";;
+        *)  text="File extension - $element";;
     esac
     printf "%12s=%-7s \e[${color}m$text\e[0m\n" $element $color
 done
