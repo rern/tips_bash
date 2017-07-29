@@ -31,6 +31,8 @@ for each in $LS_COLORS; do
         ow) text="Directory - Writable by others (drwxrwxrwx)";;
         st) text="Directory - No delete/rename by others (drwxr-xr-t) 'sticky'";;
         tw) text="Directory - Writable + no delete/rename by others (drwxrwxrwt)";;
+        su) text="Directory - set-user-ID";;
+        sg) text="Directory - set-group-ID";;
         
         fi) text="File - Normal";;
         ex) text="File - Executable";;
@@ -48,8 +50,6 @@ for each in $LS_COLORS; do
         bd) text="Device - Block";;
         cd) text="Device - Character";;
         
-        su) text="Set UID";;
-        sg) text="Set GID";;
         *)  text="$element";;
     esac
     printf "%12s=%-7s \e[${color}m$text\e[0m\n" $element $color
