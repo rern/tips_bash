@@ -28,7 +28,7 @@ for each in $LS_COLORS; do
         fi) text="File - Normal";;
         ex) text="File - Executable";;
         ca) text="File - With capability";;
-        mi) text="File - Missing from link (or -> mi)";;
+        mi) text="File - Missing from orphaned link (or -> mi)";;
         
         ln) text="Link - Symbolic";;
         or) text="Link - Orphaned";;
