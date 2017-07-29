@@ -8,29 +8,37 @@ LS_COLORS
 `dircolors -p`  
 
 **show current customized colors**  
+origin: https://github.com/gkotian/gautam_linux/blob/master/scripts/colours.sh  
 ```sh
-eval $( echo "no:global default;
-fi:normal file;
-di:directory;
-ln:symbolic link;
-pi:named pipe;
-so:socket;
-do:door;
-bd:block device;
-cd:character device;
-or:orphan symlink;
-mi:missing file;
-su:set uid;
-sg:set gid;
-tw:sticky other writable;
-ow:other writable;
-st:sticky;
-ex:executable;
-" | sed -e 's/:/="/g; s/\;/"\n/g' )     
-{
-    IFS=:
-    for i in $LS_COLORS; do
-        echo -e "\e[${i#*=}m$( x=${i%=*}; [ "${!x}" ] && echo "${!x}" || echo "$x" )\e[m"
-    done
-}
+IFS=:
+for SET in $LS_COLORS; do
+    TYPE=$(echo $SET | cut -d"=" -f1)
+    COLOR=$(echo $SET | cut -d"=" -f2)
+
+    case $TYPE in
+        no) TEXT="Global default";;
+        fi) TEXT="Normal file";;
+        di) TEXT="Directory";;
+        ln) TEXT="Symbolic link";;
+        pi) TEXT="Named pipe";;
+        so) TEXT="Socket";;
+        do) TEXT="Door";;
+        bd) TEXT="Block device";;
+        cd) TEXT="Character device";;
+        or) TEXT="Orphaned symbolic link";;
+        mi) TEXT="Missing file";;
+        su) TEXT="Set UID";;
+        sg) TEXT="Set GID";;
+        tw) TEXT="Sticky other writable";;
+        ow) TEXT="Other writable";;
+        st) TEXT="Sticky";;
+        ex) TEXT="Executable";;
+        rs) TEXT="Reset to \"normal\" color";;
+        mh) TEXT="Multi-Hardlink";;
+        ca) TEXT="File with capability";;
+        *) TEXT="${TYPE} (TODO: get description)";;
+    esac
+
+    printf "%-1s=%-5s \e[${COLOR}m${TEXT}\e[0m\n" "${TYPE}" "${COLOR}"
+done
 ```
