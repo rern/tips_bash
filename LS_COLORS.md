@@ -33,7 +33,7 @@ for SET in $LS_COLORS; do
         ow) TEXT="Other writable";;
         st) TEXT="Sticky";;
         ex) TEXT="Executable";;
-        rs) TEXT="Reset to \"normal\" color";;
+        rs) TEXT="Reset to normal color";;
         mh) TEXT="Multi-Hardlink";;
         ca) TEXT="File with capability";;
         *) TEXT="${TYPE} (TODO: get description)";;
