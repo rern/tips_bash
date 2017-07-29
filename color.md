@@ -50,7 +50,7 @@ echo -e "\e[48;5;NmSTRING\e[0m"
 # foreground + background '\e[38;5;Nm\e[48;5;Nm'
 echo -e "\e[38;5;Nm\e[48;5;NmSTRING\e[0m"
 ```
-![color](https://github.com/rern/tips/blob/master/bash/color_chart.png)  
+![color](https://github.com/rern/bash_tips/blob/master/color_chart.png)  
 image from:[Wikipedis](https://en.wikipedia.org/wiki/ANSI_escape_code#Colors)
 
 **Print color chart**
