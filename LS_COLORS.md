@@ -38,7 +38,6 @@ for SET in $LS_COLORS; do
         ca) TEXT="File with capability";;
         *) TEXT="${TYPE} (TODO: get description)";;
     esac
-
-    printf "%-1s=%-5s \e[${COLOR}m${TEXT}\e[0m\n" "${TYPE}" "${COLOR}"
+    printf "%12s=%-7s \e[${COLOR}m${TEXT}\e[0m\n" "${TYPE}" "${COLOR}"
 done
 ```
