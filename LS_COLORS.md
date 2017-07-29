@@ -29,15 +29,15 @@ for each in $LS_COLORS; do
         
         di) text="Directory - Normal";;
         ow) text="Directory - Writable by others (drwxrw-rw-)";;
-        st) text="Directory - No delete/rename by others (drwxrw-r-t) 'sticky'";;
+        st) text="Directory - No delete/rename by others (drwxrw-rwt) 'sticky'";;
         tw) text="Directory - Writable + no delete/rename by others (drwxrwxrwt)";;
         su) text="Directory - set-user-ID";;
         sg) text="Directory - set-group-ID";;
         
         fi) text="File - Normal";;
         ex) text="File - Executable";;
-        ca) text="File - With capability";;
         mi) text="File - Missing from orphaned link (or -> mi)";;
+        ca) text="File - With capability (-rwxrwxrwx+) 'xattr'";;
         pi) text="File - Named pipe (prwx------) 'fifo'";;
         so) text="File - Socket (srwx------)";;
         do) text="File - Door (Drwx------)";;
