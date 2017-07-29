@@ -2,10 +2,17 @@ LS_COLORS
 ---
 
 **set custom colors**  
-`export LS_COLORS='fi=00;37:di=01;34'`  
+```sh
+export LS_COLORS='fi=00;38;5;202:di=01;34'
+# 'xx=' element,  ';' combine,  ':' separator
+```
+
+[**256 colors**](https://github.com/rern/bash_tips/blob/master/color.md)
 
 **show default colors**  
-`dircolors -p`  
+```sh
+dircolors -p
+```
 
 **show current assigned colors**  
 origin: https://github.com/gkotian/gautam_linux/blob/master/scripts/colours.sh  
