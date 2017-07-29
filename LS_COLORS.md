@@ -7,7 +7,7 @@ LS_COLORS
 **show default colors**  
 `dircolors -p`  
 
-**show customized colors**  
+**show current assigned colors**  
 origin: https://github.com/gkotian/gautam_linux/blob/master/scripts/colours.sh  
 ```sh
 IFS=:
@@ -23,7 +23,7 @@ for SET in $LS_COLORS; do
         st) TEXT="Sticky (tmp)";;
         ow) TEXT="Other writable (. .. etc root run tmp)";;
         tw) TEXT="Sticky other writable (tmp)";;
-		
+        
         fi) TEXT="Normal file";;
         ex) TEXT="Executable";;
         ca) TEXT="File with capability";;
@@ -36,10 +36,10 @@ for SET in $LS_COLORS; do
         pi) TEXT="Named pipe";;
         so) TEXT="Socket";;
         do) TEXT="Door";;
-		
+        
         bd) TEXT="Block device";;
         cd) TEXT="Character device";;
-		
+        
         su) TEXT="Set UID";;
         sg) TEXT="Set GID";
     esac
