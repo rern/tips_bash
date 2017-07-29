@@ -43,7 +43,7 @@ for SET in $LS_COLORS; do
         
         su) TEXT="Set UID";;
         sg) TEXT="Set GID";;
-        *)  TEXT="(unknown)"
+        *)  TEXT="(unknown)";;
     esac
     printf "%12s=%-7s \e[${COLOR}m$TEXT\e[0m\n" $TYPE $COLOR
 done
