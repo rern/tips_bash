@@ -27,7 +27,6 @@ Terminal colors
 `n5` : magenta  
 `n6` : cyan  
 `n7` : white  
-**syntax**
 ```sh
 # 'setaf 7', 'setab 0' - reset to default
 # foreground 'setaf N'
@@ -48,7 +47,6 @@ echo -e "\e[3N;4NmSTRING\e[0m"
 **256 colors mode**  
 `38;5;N` : foreground  
 `48;5;N` : background  
-**syntax**
 ```sh
 # foreground '\e[38;5;Nm'
 echo -e "\e[38;5;NmSTRING\e[0m"
