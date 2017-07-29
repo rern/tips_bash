@@ -16,29 +16,30 @@ for SET in $LS_COLORS; do
     COLOR=$(echo $SET | cut -d"=" -f2)
 
     case $TYPE in
-        rs) TEXT="Reset to normal color (as assigned)";;
-        no) TEXT="Global default (for non-assigned)";;
+        rs) TEXT="Reset to default colors";;
         
-        di) TEXT="Directory";;
-        st) TEXT="Sticky (tmp)";;
-        ow) TEXT="Other writable (. .. etc root run tmp)";;
-        tw) TEXT="Sticky other writable (tmp)";;
+        no) TEXT="Global for non-assigned";;
         
-        fi) TEXT="Normal file";;
-        ex) TEXT="Executable";;
-        ca) TEXT="File with capability";;
-        mi) TEXT="Missing file";;
+        di) TEXT="Directory - Normal";;
+        st) TEXT="Directory - Sticky (tmp)";;
+        ow) TEXT="Directory - Other writable (. .. etc root run tmp)";;
+        tw) TEXT="Directory - Sticky + Other writable (tmp)";;
         
-        ln) TEXT="Symbolic link";;
-        or) TEXT="Orphaned symbolic link";;
-        mh) TEXT="Multi-Hardlink";;
+        fi) TEXT="File - Normal";;
+        ex) TEXT="File - Executable";;
+        ca) TEXT="File - With capability";;
+        mi) TEXT="File - Missing";;
+        
+        ln) TEXT="Link - Symbolic";;
+        or) TEXT="Link - Orphaned";;
+        mh) TEXT="Link - Multi-Hardlink";;
         
         pi) TEXT="Named pipe";;
         so) TEXT="Socket";;
         do) TEXT="Door";;
         
-        bd) TEXT="Block device";;
-        cd) TEXT="Character device";;
+        bd) TEXT="Device - Block";;
+        cd) TEXT="Device - Character";;
         
         su) TEXT="Set UID";;
         sg) TEXT="Set GID";
