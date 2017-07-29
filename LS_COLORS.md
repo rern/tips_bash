@@ -28,9 +28,9 @@ for each in $LS_COLORS; do
         no) text="Global for non-assigned";;
         
         di) text="Directory - Normal";;
-        st) text="Directory - Sticky (tmp)";;
-        ow) text="Directory - Other writable (. .. etc root run tmp)";;
-        tw) text="Directory - Sticky + Other writable (tmp)";;
+        st) text="Directory - Sticky (drwxr-xr-t)";;
+        ow) text="Directory - Writable by others (drwxrwxrwx)";;
+        tw) text="Directory - Sticky + Writable by others (drwxrwxrwt)";;
         
         fi) text="File - Normal";;
         ex) text="File - Executable";;
