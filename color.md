@@ -7,14 +7,12 @@ Terminal colors
 `N` :  code  
 
 **style**  
-`0` : reset all  
-`1` : bold / bright    
-`4` : underline    
+`0` : reset  
+`1` : bold / bright      
 `7` : reverse  
-`8` : hidden  
-`21..28` : reset 1..8  
 
 **8 colors mode**  
+`0` : reset  
 `30..37` : foreground  
 `40..47` : background  
 `n0` : black  
@@ -43,6 +41,7 @@ echo -e "\e[3N;4NmSTRING\e[0m"
 ``` 
 
 **256 colors mode**  
+`0` : reset  
 `38;5;N` : `38` foreground, `5` 256 colors mode  
 `48;5;N` : `48` background, `5` 256 colors mode  
 ```sh
