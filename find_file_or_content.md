@@ -14,3 +14,9 @@ egrep -ir --include=*.{ext,ext1} "content" /path
 # 'l' - list of files
 egrep -irl --include=*.{ext,ext1} "content" /path
 ```
+
+**Find latest modified**
+```sh
+find . -type f -printf '%TF %TT %p\n' | sort | tail -1   # '-1' = show 1 file
+```
+
