@@ -8,10 +8,8 @@ Terminal colors
 
 **style**  
 `0` : reset all  
-`1` : bold / bright  
-`2` : dim  
-`4` : underline  
-`5` : blink  
+`1` : bold / bright    
+`4` : underline    
 `7` : reverse  
 `8` : hidden  
 `21..28` : reset 1..8  
@@ -45,8 +43,8 @@ echo -e "\e[3N;4NmSTRING\e[0m"
 ``` 
 
 **256 colors mode**  
-`38;5;N` : foreground  
-`48;5;N` : background  
+`38;5;N` : `38` foreground, `5` 256 colors mode  
+`48;5;N` : `48` background, `5` 256 colors mode  
 ```sh
 # foreground '\e[38;5;Nm'
 echo -e "\e[38;5;NmSTRING\e[0m"
