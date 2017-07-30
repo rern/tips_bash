@@ -19,7 +19,7 @@ sed
 `"$ s/$/.../"` : last line append same line   
 
 `-n '/.../p'` : get line string  
-`-n '/.../='` : gett line number
+`-n '/.../='` : get line number
 `n i\\...` : #n line prepend  
 `n a\\...` : #n line append  
 
@@ -58,7 +58,9 @@ sed
 `/.../ i\ ...` : insert(prepend) line  
 `/.../ d` : delete line  
 `/^\s*$/d` : delete blank lines  
-`n1, n2 d` : delete range of lines  
+`n1 d` : delete line number  
+`n1, n2 d` : delete range of line numbers  
+`n1, n2 d; n3 d` : delete range of line numbers and line
 
 `...\` : escaped new line at line end within single quote  
 `...\\` : escaped new line within double quote (escaped backslash `\`)  
