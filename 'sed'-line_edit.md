@@ -14,15 +14,15 @@ sed
 `/1st.../, /last.../` : line range search  
 `0, /.../` : line range search from line 0  
 `0, /.../ {// d}` : delete only 1st line matched `...`  
-`1 i\...` : 1st line prepend  
+`1 i\ ...` : 1st line prepend (`\` needed for escaped new line)  
 `1 s/^/.../'` : 1st line prepend same line  
-`"$ a\..."` : last line append  
+`"$ a\ ..."` : last line append (`\` needed for escaped new line)  
 `"$ s/$/.../"` : last line append same line   
 
 `-n '/.../p'` : get line string  
 `-n '/.../='` : get line number
-`n i\...` : #n line prepend  
-`n a\...` : #n line append  
+`n i\ ...` : #n line prepend (`\` needed for escaped new line)  
+`n a\ ...` : #n line append (`\` needed for escaped new line)  
 
 `s/a.../b.../` : substitute `a...` with `b...`  
 [alternative brace expansion](https://github.com/rern/tips/blob/master/bash/string_extract_edit.md)  
@@ -55,8 +55,8 @@ sed
 `\r` : return  
 `$'...\t...\n\r'` : `$` fix `\t` `\n` `\r` character result as `t` `n` `r`  
 
-`/.../ a\ ...` : append line  
-`/.../ i\ ...` : insert(prepend) line  
+`/.../ a\ ...` : append line (`\` needed for escaped new line)  
+`/.../ i\ ...` : prepend line (`\` needed for escaped new line)  
 `/.../ d` : delete line  
 `/^\s*$/d` : delete blank lines  
 `n1 d` : delete line number  
