@@ -6,6 +6,7 @@ sed
 
 `s/` : substitute delimiter can be any symbol or character (single byte)  
 `$'...\'...\'...'` : `$` + escaped `'` inside single quote  
+`\x27` : substitute `'` inside single quote 
 `"...\"...\"..."` : escaped `"` inside double quote  
 `'...'$var'...'` : variable outside quotes   
   
@@ -64,5 +65,4 @@ sed
 
 `...\` : escaped new line at line end within single quote  
 `...\\` : escaped new line within double quote (escaped backslash `\`)  
-`$ . * [ ] ^ \` : escape characters  
-`\x27` : escaped single quote `'` inside `'...'`  
+`$ . * [ ] ^ \` : escape characters   
