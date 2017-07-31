@@ -6,7 +6,7 @@ sed
 
 `s/` : substitute delimiter can be any symbol or character (single byte)  
 `$'...\'...\'...'` : `$` + escaped `'` inside single quote  
-`\x27` : substitute `'` inside single quote 
+`\x27` : substitute `'` inside single quote  
 `"...\"...\"..."` : escaped `"` inside double quote  
 `'...'$var'...'` : variable outside quotes   
   
@@ -20,7 +20,7 @@ sed
 `"$ s/$/.../"` : last line append same line   
 
 `-n '/.../p'` : get line string  
-`-n '/.../='` : get line number
+`-n '/.../='` : get line number  
 `n i\ ...` : #n line prepend (`\` needed for escaped new line)  
 `n a\ ...` : #n line append (`\` needed for escaped new line)  
 
