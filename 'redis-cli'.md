@@ -31,3 +31,10 @@ complete [**commands**](https://redis.io/commands)
 `llen key` : get length of key  
 `lpop key` : get value and delete from the Left of key  
 `rpop key` : get value and delete from the right of key  
+
+**backup / restore**
+```sh
+redis-cli get config dir           # saved directory
+redis-cli save                     # save latest database
+cp /var/lib/dump.rdb /destination  # copy database
+```
