@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Download multiple-parts *.ts files to a single file
 # chrome <right-click> inspect > network
 # play the movie
 # network > find *.ts (type: xhr) <right-click> copy > Copy link address
