@@ -34,7 +34,14 @@ complete [**commands**](https://redis.io/commands)
 
 **backup / restore**
 ```sh
+### backup
 redis-cli get config dir           # saved directory
 redis-cli save                     # save latest database
 cp /var/lib/dump.rdb /destination  # copy database
+
+### restore
+systemctl stop redis
+mv /var/lib/redis/dump.rdb{,.backup}
+cp /destination/dump.rdb /var/lib/redis
+systemctl start redis
 ```
