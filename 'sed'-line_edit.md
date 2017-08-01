@@ -4,31 +4,34 @@ sed
 `-i` : in-place edit input file  
 `-e` : sequence edit  
 
-`s/` : substitute delimiter can be any symbol or character (single byte)  
 `$'...\'...\'...'` : `$` + escaped `'` inside single quote  
-`\x27` : substitute `'` inside single quote  
+`'...\x27...\x27...` : `'` hex character
 `"...\"...\"..."` : escaped `"` inside double quote  
+`'...\x22...\x22...` : `"` hex character
+`"...$var..."` : variable inside double quotes
 `'...'$var'...'` : variable outside quotes   
   
-`/.../` : line search (left escaped delimiter `\|` for `\|...|`)  
-`/1st.../, /last.../` : line range search  
-`0, /.../` : line range search from line 0  
-`0, /.../ {// d}` : delete only 1st line matched `...`  
-`1 i\ ...` : 1st line prepend (`\` needed for escaped new line)  
-`1 s/^/.../'` : 1st line prepend same line  
-`"$ a\ ..."` : last line append (`\` needed for escaped new line)  
-`"$ s/$/.../"` : last line append same line   
+`/.../` : search line (left escaped delimiter `\|` for `\|...|`)  
+`/1st.../, /last.../` : search line range search (top - line 0)  
+`'N ...'` : search Nth line (`\` needed for escaped new line)  
+`'$ ...'` : search last line (`\` needed for escaped new line)  
+
+`'/.../ i\ ...'` : `i` insert before line (`\` needed for escaped new line)  
+`'/.../ a\ ...'` : `a` append after line (`\` needed for escaped new line)  
+`'/.../ d` : `d` delete line
+`'/^\s*$/ d'` : delete blank lines  
+`'n1, n2 d; n3 d'` : delete range of line numbers and line
 
 `-n '/.../p'` : get line string  
 `-n '/.../='` : get line number  
-`n i\ ...` : #n line prepend (`\` needed for escaped new line)  
-`n a\ ...` : #n line append (`\` needed for escaped new line)  
 
-`s/a.../b.../` : substitute `a...` with `b...`  
+`s/` : substitute delimiter can be any symbol or character (single byte)  
+`'s/a.../b.../'` : `s` substitute `a...` with `b...`  
+`'s/a.../b.../g'` : `g` global - substitute all  
 [alternative brace expansion](https://github.com/rern/tips/blob/master/bash/string_extract_edit.md)  
-`s/a.../&b.../` : append `b...` to `a...`  
-`/^a.../ s/^/b.../` : prepend `b...` to the begining of line start with `a...`  
-`/^a.../ s/$/b.../` : append `b...` to the end of line start with `a...`  
+`'s/a.../&b.../'` : append `b...` to `a...`  
+`'/^a.../ s/^/b.../'` : prepend `b...` to the begining of line start with `a...`  
+`'/^a.../ s/$/b.../'` : append `b...` to the end of line start with `a...`  
 
 `.` : single character wildcard  
 `.*` : multiple character wildcard  
@@ -36,17 +39,19 @@ sed
 `\+` : 1 or more of preceding character  
 `*` : 0 or more of preceding character  
 
-`/[...]/` : any characters in `[...]`  
-`/[^...]/` : `[^` not any characters in `...]`  
-`/[^ ]*/` : `*` zero or more characters that `^` are not space  
+`'/[...]/'` : any characters in `[...]`  
+`'/[^...]/'` : `[^` not any characters in `...]`  
+`'/[^ ]*/'` : `*` zero or more characters that `^` are not space  
 
-`/^.../` `^[...]` : start with  
-`/...$/` `[...]$` : end with  
+`'/^.../'` : start with  
+`'/^[...]/'` : start with any in `[ ]`  
+`/...$/` : end with  
+`'/[...]$/'` : end with any in `[ ]`  
 `/^$/` : blank line  
 
-`/a...\|b.../` : pattern `a...` or `b...`  
-`/[...]\|.../` : any characters in `[...]` or pattern `...`  
-`[^...\{...\}]$` : `[^` not `$` end with any characters in `[...` or pattern in `\{...\}`
+`'/a...\|b.../'` : pattern `a...` or `b...`  
+`'/[...]\|.../'` : any characters in `[...]` or pattern `...`  
+`'[^...\{...\}]$'` : `[^` not `$` end with any characters in `[...` or pattern in `\{...\}`
 
 `\ . . ` : '\\' start insert lines with multiple spaces / tabs  
 `\s` : space or tab  
@@ -54,14 +59,6 @@ sed
 `\n` : new line  
 `\r` : return  
 `$'...\t...\n\r'` : `$` fix `\t` `\n` `\r` character result as `t` `n` `r`  
-
-`/.../ a\ ...` : append line (`\` needed for escaped new line)  
-`/.../ i\ ...` : prepend line (`\` needed for escaped new line)  
-`/.../ d` : delete line  
-`/^\s*$/d` : delete blank lines  
-`n1 d` : delete line number  
-`n1, n2 d` : delete range of line numbers  
-`n1, n2 d; n3 d` : delete range of line numbers and line
 
 `...\` : escaped new line at line end within single quote  
 `...\\` : escaped new line within double quote (escaped backslash `\`)  
