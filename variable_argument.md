@@ -20,6 +20,8 @@ variable, argument
 `"${array[@]}"` : all value as separated words  
 `"${array[*]}"` : all arguments as a single word  
 
+` eval {...$var}` : var inside culrly braces   
+
 **variable value as variable name**
 ```sh
 a=b
