@@ -12,13 +12,14 @@ sed
 `'...'$var'...'` : variable outside quotes   
   
 `/.../` : search line (left escaped delimiter `\|` for `\|...|`)  
-`/1st.../, /last.../` : search line range search (top - line 0)  
-`'N ...'` : search Nth line (`\` needed for escaped new line)  
-`'$ ...'` : search last line (`\` needed for escaped new line)  
+`'N x'` : search Nth line  
+`'1 x'` : search 1st line 
+`'$ x'` : search last line
+`/1st.../, /last.../ x` : search line range  
 
-`'/.../ i\ ...'` : `i` insert before line (`\` needed for escaped new line)  
-`'/.../ a\ ...'` : `a` append after line (`\` needed for escaped new line)  
-`'/.../ d` : `d` delete line
+`'... i\ ...'` : `i` insert before line (`\` needed for escaped new line)  
+`'... a\ ...'` : `a` append after line (`\` needed for escaped new line)  
+`'... d` : `d` delete line
 `'/^\s*$/ d'` : delete blank lines  
 `'n1, n2 d; n3 d'` : delete range of line numbers and line
 
