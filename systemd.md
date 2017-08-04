@@ -85,3 +85,17 @@ systemctl | egrep <unit1|unit2>
 ```sh
 systemctl list-unit-files | grep <state>
 ```
+
+**Before shutdown**
+```
+[Unit]
+Description=Before shutdown
+
+[Service]
+Type=oneshot
+RemainAfterExit=true
+ExecStop=<script>
+
+[Install]
+WantedBy=multi-user.target
+```
