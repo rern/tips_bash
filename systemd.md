@@ -37,10 +37,22 @@ cp /lib/systemd/system/<unit>.service /etc/systemd/system
 systemctl daemon-reload
 ```
 
-**environment and commands before / after**  
+_comments must not be in the same line_  
+
+**[Unit] - depends and orders**  
 `<unit>.service`  
 ```sh
-...
+[Unit]
+Description=...
+Requires=<unit2>.service   # depend - need
+# Wants=<unit2>.service    # depend - optional
+Before=<unit2>.service     # order - start before
+After=<unit0>.service      # order - start after (succeeded or failed)
+BindsTo=<unit>.service     # depend - stop if unit2.service stopped
+```
+**[Service] - environment and commands sequence**  
+`<unit>.service`  
+```
 [Service]
 ...
 Environment=<VAR=value>
@@ -51,28 +63,14 @@ ExecStartPost=<command3>
 ExecStartPost=<command4>
 ...
 ```
-
-**depends and orders**  
-`<unit>.service`  
-```sh
-[Unit]
-Description=...
-Requires=<unit2>.service   # depend - need
-# Wants=<unit2>.service    # depend - optional
-Before=<unit2>.service     # order - start before
-After=<unit0>.service      # order - start after (succeeded or failed)
-...
+**[Install] - link to target directories**
 ```
-`<unit2>.service`  
-```sh
-[Unit]
-Description=...
-BindsTo=<unit>.service     # depend - stop if unit2.service stopped
-...
+[Install]
+WantedBy=<target>
 ```
 
 **list all units**
-```sh
+```
 systemctl list-unit-files
 ```
 
