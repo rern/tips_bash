@@ -37,6 +37,8 @@ cp /lib/systemd/system/<unit>.service /etc/systemd/system
 systemctl daemon-reload
 ```
 
+service file
+---
 _comments must not be in the same line_  
 
 **[Unit] - depends and orders**  
@@ -70,6 +72,7 @@ ExecStartPost=<command4>
 [Install]
 WantedBy=<target>
 ```
+<hr>
 
 **list all units**
 ```
