@@ -90,10 +90,14 @@ systemctl list-unit-files | grep <state>
 ```
 [Unit]
 Description=Before shutdown
+DefaultDependencies=no
+Requires=network.target
+Before=reboot.target shutdown.target
 
 [Service]
 Type=oneshot
 RemainAfterExit=true
+ExecStart=/bin/true
 ExecStop=<script>
 
 [Install]
