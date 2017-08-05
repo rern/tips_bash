@@ -46,7 +46,7 @@ systemctl daemon-reload
 Environment=<VAR=value>
 ExecStartPre=<command1>
 ExecStartPre=<command2>
-ExecStart=<command>      # allow only 1 command
+ExecStart=<command>      # allow only 1 command except Type=oneshot
 ExecStartPost=<command3>
 ExecStartPost=<command4>
 ...
