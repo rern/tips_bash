@@ -52,6 +52,8 @@ BindsTo=<unit>.service     # depend - stop if unit2.service stopped
 ```
 **[Service] - environment and commands sequence**  
 `<unit>.service`  
+`ExecStart=...` on system startup  
+`ExecStop=...` on system shutdown / reboot  
 ```
 [Service]
 ...
