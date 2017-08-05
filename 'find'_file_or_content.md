@@ -8,10 +8,12 @@ find /path -name 'filename*' -exec command
 
 **Find content in files**
 ```sh
-# show file:content 
+# show file:content
+egrep -ir "content" /path
 egrep -ir --include=*.{ext,ext1} "content" /path
 
 # 'l' - list of files
+egrep -irl "content" /path
 egrep -irl --include=*.{ext,ext1} "content" /path
 ```
 
