@@ -92,7 +92,7 @@ systemctl list-unit-files | grep <state>
 Description=Before shutdown
 DefaultDependencies=no
 Requires=network.target
-Before=reboot.target shutdown.target
+Before=reboot.target poweroff.target halt.target
 
 [Service]
 Type=oneshot
