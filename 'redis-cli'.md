@@ -18,7 +18,8 @@ complete [**commands**](https://redis.io/commands)
 `hset key name value` : set value of name in key  
 `hmset key name value name1 value1` : set values of multiple names in key  
 `hget key name` get value of name in key  
-`hgetall key` : get all name:value pairs in key  
+`hgetall key` : get all name:value pairs in key
+`hdel key name` : delete a hash  
 
 **set**  
 `mset key value` : set value of key  
@@ -31,6 +32,9 @@ complete [**commands**](https://redis.io/commands)
 `llen key` : get length of key  
 `lpop key` : get value and delete from the Left of key  
 `rpop key` : get value and delete from the right of key  
+
+**delete**  
+`del key` : delete key (all types)  
 
 **backup / restore**
 ```sh
