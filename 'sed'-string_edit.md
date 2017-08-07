@@ -43,6 +43,10 @@ sed
 `/.../, +<n> <x>` : search line range from match to next \<n\> line  
 `'/a...\|b.../'` : pattern `a...` or `b...` (`\` needed for escaped `|`)  
 
+**escaped new line**  
+`...\` : escaped new line within single quote  
+`...\\` : escaped new line within double quote (escaped backslash `\`)  
+
 **string search**  
 `'s/a.../b.../'` : `s` substitute `a...` with `b...`  
 `'s/a.../b.../g'` : `g` global - substitute all  
@@ -69,7 +73,7 @@ sed
 `'/[...]\|.../'` : any characters in `[...]` or pattern `...` (`\` needed for escaped `|`)  
 `'[^...\{...\}]$'` : `[^` not `$` end with any characters in `[...` or pattern in `\{...\}`
 
-**escaped characters
+**escaped characters**  
 `\ . . ` : '\\' start insert lines with multiple spaces / tabs  
 `\s` : space or tab  
 `\t` : tab (GNU sed only)  
@@ -77,6 +81,4 @@ sed
 `\r` : return  
 `$'...\t...\n\r'` : `$` fix `\t` `\n` `\r` character result as `t` `n` `r`  
 
-`...\` : escaped new line at line end within single quote  
-`...\\` : escaped new line within double quote (escaped backslash `\`)  
 `$ . * [ ] ^ \` : characters require escape   
