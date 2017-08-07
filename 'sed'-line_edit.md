@@ -15,7 +15,10 @@ sed
 `'N x'` : search Nth line  
 `'1 x'` : search 1st line 
 `'$ x'` : search last line
+`'/.../{N; x}'` : search match line includes next line  
+`'/.../{n; x}'` : search line next to match  
 `/1st.../, /last.../ x` : search line range  
+`/.../, +n x` : search line range from match to next n line  
 
 `'... i\ ...'` : `i` insert before line (`\` needed for escaped new line)  
 `'... a\ ...'` : `a` append after line (`\` needed for escaped new line)  
