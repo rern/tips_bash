@@ -43,9 +43,9 @@ sed
 `/.../, +<n> <x>` : search line range from match to next \<n\> line  
 `'/a...\|b.../'` : pattern `a...` or `b...` (`\` needed for escaped `|`)  
 
-**escaped new line**  
-`...\` : escaped new line within single quote  
-`...\\` : escaped new line within double quote (escaped backslash `\`)  
+**escaped new lines**  
+`...\` : escaped new lines within single quote  
+`...\\` : escaped new lines within double quote (escaped backslash `\`)  
 
 **string search**  
 `'s/a.../b.../'` : `s` substitute `a...` with `b...`  
