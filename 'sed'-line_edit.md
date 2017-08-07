@@ -11,16 +11,20 @@ sed
 `"...$var..."` : variable inside double quotes  
 `'...'$var'...'` : variable outside quotes  
   
-`/.../` : search line (left escaped delimiter `\|` for `\|...|`)  
 \* `<x>` : `i`, `a`, `d`, `p`  
-`'<N> x'` : search \<N\>th line  
-`'1 x'` : search 1st line  
-`'$ x'` : search last line  
+`/.../ <x>` : search line (left escaped delimiter `\|` for `\|...|`)  
+`'/^.../'` : start with  
+`/...$/` : end with  
+`/^$/` : blank line  
+`'<N> <x>'` : search \<N\>th line  
+`'1 <x>'` : search 1st line  
+`'$ <x>'` : search last line  
 `'/.../{N; <x>}'` : search match line includes next line `N`  
 `'/.../{n; <x>}'` : search line next to match `n`  
 `'/.../{n;n <x>}'` : search 2nd line next to match `n;n`  
 `/<1st>/, /<last>/ x` : search line range  
 `/.../, +<n> <x>` : search line range from match to next \<n\> line  
+`'/a...\|b.../'` : pattern `a...` or `b...` (`\` needed for escaped `|`)  
 
 `'... i\ ...'` : `i` insert before line (`\` needed for escaped new line)  
 `'... a\ ...'` : `a` append after line (`\` needed for escaped new line)  
@@ -48,14 +52,9 @@ sed
 `'/[...]/'` : any characters in `[...]`  
 `'/[^...]/'` : `[^` not any characters in `...]`  
 `'/[^ ]*/'` : `*` zero or more characters that `^` are not space  
-
-`'/^.../'` : start with  
 `'/^[...]/'` : start with any in `[ ]`  
-`/...$/` : end with  
 `'/[...]$/'` : end with any in `[ ]`  
-`/^$/` : blank line  
 
-`'/a...\|b.../'` : pattern `a...` or `b...` (`\` needed for escaped `|`)  
 `'/[...]\|.../'` : any characters in `[...]` or pattern `...` (`\` needed for escaped `|`)  
 `'[^...\{...\}]$'` : `[^` not `$` end with any characters in `[...` or pattern in `\{...\}`
 
