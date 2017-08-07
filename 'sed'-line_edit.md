@@ -12,6 +12,7 @@ sed
 `'...'$var'...'` : variable outside quotes  
   
 \* `<x>` : `i`, `a`, `d`, `p`  
+\* `<n>` : number  
 `/.../ <x>` : search line (left escaped delimiter `\|` for `\|...|`)  
 `'/^.../'` : start with  
 `/...$/` : end with  
@@ -19,7 +20,6 @@ sed
 `'<n> <x>'` : search \<n\>th line  
 `'1 <x>'` : search 1st line  
 `'$ <x>'` : search last line  
-
 `'/.../{N; <x>}'` : search match line includes next line `N`  
 `'/.../{n; <x>}'` : search line `n` next to match  
 `'/.../{n;n <x>}'` : search 2nd line `n;n` next to match  
