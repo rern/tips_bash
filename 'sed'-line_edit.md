@@ -5,11 +5,11 @@ sed
 `-e` : sequence edit  
 
 `$'...\'...\'...'` : `$` + escaped `'` inside single quote  
-`'...\x27...\x27...` : `'` hex character
+`'...\x27...\x27...` : `'` hex character  
 `"...\"...\"..."` : escaped `"` inside double quote  
-`'...\x22...\x22...` : `"` hex character
-`"...$var..."` : variable inside double quotes
-`'...'$var'...'` : variable outside quotes   
+`'...\x22...\x22...` : `"` hex character  
+`"...$var..."` : variable inside double quotes  
+`'...'$var'...'` : variable outside quotes  
   
 `/.../` : search line (left escaped delimiter `\|` for `\|...|`)  
 \* `<x>` : `i`, `a`, `d`, `p`  
