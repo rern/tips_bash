@@ -39,7 +39,7 @@ systemctl daemon-reload
 
 service file
 ---
-_comments must not be in the same line_  
+_! comments not allowed in the same line !_  
 
 **[Unit] - depends and orders**  
 `<unit>.service`  
@@ -93,16 +93,16 @@ systemctl list-unit-files | grep <state>
 ```
 [Unit]
 Description=Before shutdown
-DefaultDependencies=no
-Requires=network.target
+DefaultDependencies=no  # not wait for anything
+Requires=network.target # before network stop
 Before=reboot.target poweroff.target halt.target
 
 [Service]
-Type=oneshot
-RemainAfterExit=true
-ExecStart=/bin/true
-ExecStop=<script>
+Type=oneshot            # wait until this service finished
+RemainAfterExit=true    # for no real ExecStart
+ExecStart=/bin/true     # for no real ExecStart
+ExecStop=<script>       # run on system shutdown / reboot
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=multi-user.target # run at multi-user on system start
 ```
