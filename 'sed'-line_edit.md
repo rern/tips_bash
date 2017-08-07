@@ -55,8 +55,8 @@ sed
 `'/[...]$/'` : end with any in `[ ]`  
 `/^$/` : blank line  
 
-`'/a...\|b.../'` : pattern `a...` or `b...`  
-`'/[...]\|.../'` : any characters in `[...]` or pattern `...`  
+`'/a...\|b.../'` : pattern `a...` or `b...` (`\` needed for escaped `|`)  
+`'/[...]\|.../'` : any characters in `[...]` or pattern `...` (`\` needed for escaped `|`)  
 `'[^...\{...\}]$'` : `[^` not `$` end with any characters in `[...` or pattern in `\{...\}`
 
 `\ . . ` : '\\' start insert lines with multiple spaces / tabs  
