@@ -1,8 +1,9 @@
 sed
 ---
 
+**flags**  
 `-i` : in-place edit input file  
-`-e` : sequence edit  
+`-e` : sequence edit   
 
 **variables / quotes**  
 `$'...\'...\'...'` : `$` + escaped `'` inside single quote  
