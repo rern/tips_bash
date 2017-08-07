@@ -10,7 +10,17 @@ sed
 `'...\x22...\x22...` : `"` hex character  
 `"...$var..."` : variable inside double quotes  
 `'...'$var'...'` : variable outside quotes  
-  
+ 
+ `-n '/.../p'` : get line string  
+`-n '/.../='` : get line number 
+
+`'... i\ ...'` : `i` insert before line (`\` needed for escaped new line)  
+`'... a\ ...'` : `a` append after line (`\` needed for escaped new line)  
+`'... d` : `d` delete line
+`'/^\s*$/ d'` : delete blank lines  
+`'<n1>, <n2> d; <n3> d'` : delete range of line numbers and line 
+`s/` : substitute - delimiter can be any symbol or character (single byte)  
+
 \* `<x>` : `i`, `a`, `d`, `p`  
 \* `<n>` : number  
 `/.../ <x>` : search line (left escaped delimiter `\|` for `\|...|`)  
@@ -28,16 +38,6 @@ sed
 `/.../, +<n> <x>` : search line range from match to next \<n\> line  
 `'/a...\|b.../'` : pattern `a...` or `b...` (`\` needed for escaped `|`)  
 
-`'... i\ ...'` : `i` insert before line (`\` needed for escaped new line)  
-`'... a\ ...'` : `a` append after line (`\` needed for escaped new line)  
-`'... d` : `d` delete line
-`'/^\s*$/ d'` : delete blank lines  
-`'<n1>, <n2> d; <n3> d'` : delete range of line numbers and line
-
-`-n '/.../p'` : get line string  
-`-n '/.../='` : get line number  
-
-`s/` : substitute delimiter can be any symbol or character (single byte)  
 `'s/a.../b.../'` : `s` substitute `a...` with `b...`  
 `'s/a.../b.../g'` : `g` global - substitute all  
 [alternative brace expansion](https://github.com/rern/tips/blob/master/bash/string_extract_edit.md)  
