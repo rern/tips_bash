@@ -19,14 +19,14 @@ sed
 `'/.../{N; <x>}'` : search match line includes next line `N`  
 `'/.../{n; <x>}'` : search line next to match `n`  
 `'/.../{n;n <x>}'` : search 2nd line next to match `n;n`  
-`/1st.../, /last.../ x` : search line range  
+`/<1st>/, /<last>/ x` : search line range  
 `/.../, +<n> <x>` : search line range from match to next \<n\> line  
 
 `'... i\ ...'` : `i` insert before line (`\` needed for escaped new line)  
 `'... a\ ...'` : `a` append after line (`\` needed for escaped new line)  
 `'... d` : `d` delete line
 `'/^\s*$/ d'` : delete blank lines  
-`'n1, n2 d; n3 d'` : delete range of line numbers and line
+`'<n1>, <n2> d; <n3> d'` : delete range of line numbers and line
 
 `-n '/.../p'` : get line string  
 `-n '/.../='` : get line number  
