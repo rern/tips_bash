@@ -13,7 +13,7 @@
 # run ./ts.sh 
 
 name='The Farthest.ts'
-dir=/mnt/hdd/Movies
+dir='/mnt/hdd/Movies'
 
 yesno() { # $1 = header string; $2 = input or <enter> = ''
 	echo -e "\e[30m\e[43m i \e[0m $1"
@@ -24,7 +24,7 @@ yesno() { # $1 = header string; $2 = input or <enter> = ''
 	read -n 1 $2
 	echo
 }
-if [[ -e "$file" ]]; then
+if [[ -e "$dir/$name" ]]; then
   yesno "Overwrite existing $dir/$name:" ans
   [[ $ans != 1 ]] && exit
   rm $dir/$name
