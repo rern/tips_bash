@@ -38,9 +38,9 @@ mkdir -p $dir
 echo -e "\n$dir/$name\n"
 
 for (( i = 1; i <= $pieces; i++ )); do
-    echo $i/$pieces
+	echo $i/$pieces
 	wget -q --show-progress --tries=10 --retry-connrefused --timeout=2 --wait=1 \
-	https://s36.gtsznokiyn.site/hls/qvsbfgdmnxblgwsztrd2a7wllpqmmlgeg7ovili7hdfaoj2psgrrjqldzkca/seg-$i-v1-a1.ts -O - >> "$dir/$name"
+		https://s36.gtsznokiyn.site/hls/qvsbfgdmnxblgwsztrd2a7wllpqmmlgeg7ovili7hdfaoj2psgrrjqldzkca/seg-$i-v1-a1.ts -O - >> "$dir/$name"
 done
 
 time1=$( date +%s )
