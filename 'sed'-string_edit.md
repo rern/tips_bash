@@ -14,7 +14,8 @@ sed
 `'...'$var'...'` : variable outside quotes  
 
 **get line**  
- `-n '/.../p'` : get line string  
+`-n '/.../p'` : get line string by matched  
+`'<n>q;d'` : get line string by line number  
 `-n '/.../='` : get line number 
 
 **operators**  
