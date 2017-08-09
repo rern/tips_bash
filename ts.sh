@@ -13,7 +13,8 @@
 # run ./ts.sh 
 
 name='The Farthest.ts'
-dir='/mnt/hdd/Movies'
+dir=/mnt/hdd/Movies/0
+pieces=291
 
 yesno() { # $1 = header string; $2 = input or <enter> = ''
 	echo -e "\e[30m\e[43m i \e[0m $1"
@@ -27,7 +28,7 @@ yesno() { # $1 = header string; $2 = input or <enter> = ''
 if [[ -e "$dir/$name" ]]; then
   yesno "Overwrite existing $dir/$name:" ans
   [[ $ans != 1 ]] && exit
-  rm $dir/$name
+  rm "$dir/$name"
 fi
 
 time0=$( date +%s )
@@ -35,8 +36,12 @@ time0=$( date +%s )
 mkdir -p $dir
 
 echo -e "\n$dir/$name\n"
-wget -q --show-progress --tries=10 --retry-connrefused --timeout=2 --wait=1 \
-https://s36.gtsznokiyn.site/hls/qvsbfgdmnxblgwsztrd2a7wllpqmmlgeg7ovili7hdfaoj2psgrrjqldzkca/seg-{1..291}-v1-a1.ts -O - >> "$dir/$name"
+
+for (( i = 1; i <= $pieces; i++ )); do
+    echo $i/$pieces
+	wget -q --show-progress --tries=10 --retry-connrefused --timeout=2 --wait=1 \
+	https://s36.gtsznokiyn.site/hls/qvsbfgdmnxblgwsztrd2a7wllpqmmlgeg7ovili7hdfaoj2psgrrjqldzkca/seg-$i-v1-a1.ts -O - >> "$dir/$name"
+done
 
 time1=$( date +%s )
 timediff=$(( $time1 - $time0 ))
