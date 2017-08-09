@@ -14,6 +14,7 @@
 
 name='Flesh And Bone S01E08.ts'
 dir=/mnt/hdd/Movies/Flesh_And_Bone_1
+url=https://s16.openstream.io/hls/qvsbe6etnpblgwsztq3kap62j7azw4e5mfbl5pcvv2gl472at67qop7z2qfa/seg-{1..200}-v1-a1.ts
 
 time0=$( date +%s )
 
@@ -21,8 +22,7 @@ time0=$( date +%s )
 
 rm -f "$dir/$name"
 echo -e "\n$dir/$name\n"
-wget -q --show-progress --tries=10 --retry-connrefused --timeout=2 --wait=1 \
-https://s16.openstream.io/hls/qvsbe6etnpblgwsztq3kap62j7azw4e5mfbl5pcvv2gl472at67qop7z2qfa/seg-{1..200}-v1-a1.ts -O - >> "$dir/$name"
+wget -q --show-progress --tries=10 --retry-connrefused --timeout=2 --wait=1 "$url" -O - >> "$dir/$name"
 
 time1=$( date +%s )
 timediff=$(( $time1 - $time0 ))
