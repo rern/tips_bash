@@ -26,6 +26,10 @@ ${string:0:-3} # 1234567
 ${string: -3}  # 890
 ${string:-3}   # 1234567890 not applicable!!!
 
+# extract word
+echo 'aaa bbb ccc' | cut -d ' ' -f 2          # bbb (< > delimiter)
+echo 'key1="aaa" key2="bbb" | cut -d '"' -f 2 # aaa (<"> delimiter)
+
 # edit
 string='123456789012345'
 ${#string}         # 15 - length
