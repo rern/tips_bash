@@ -13,14 +13,15 @@
 # run ./ts.sh 
 
 name='Flesh And Bone S01E08.ts'
-dir=/mnt/hdd/Movies/Flesh_And_Bone_1
+dir='/mnt/hdd/Movies/Flesh And Bone 1'
 url=https://s16.openstream.io/hls/qvsbe6etnpblgwsztq3kap62j7azw4e5mfbl5pcvv2gl472at67qop7z2qfa/seg-{1..200}-v1-a1.ts
 
 time0=$( date +%s )
 
 [[ ! -e $dir ]] && mkdir $dir
 
-rm -f "$dir/$name"
+[[ -e "$dir/$name" ]] && name+=.1
+
 echo -e "\n$dir/$name\n"
 wget -q --show-progress --tries=10 --retry-connrefused --timeout=2 --wait=1 "$url" -O - >> "$dir/$name"
 
