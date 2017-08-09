@@ -14,6 +14,11 @@ chmod g+rw file
 # chmod ugo file
 chmod 755 file
 
+# rwxrwxrwx = 777
+# rwxr-xr-x = 755
+# rwxr--r-- = 744
+# rw------- = 600
+
 # add executable to all `*.py` file in `/path` and sub directories  
 find /path/. -name "*.py" -exec chmod +x {} +
 ```
