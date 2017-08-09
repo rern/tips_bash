@@ -27,6 +27,7 @@ ${string: -3}  # 890
 ${string:-3}   # 1234567890 not applicable!!!
 
 # extract word
+echo 'aaa   bbb ccc' | awk '{ print $2 }'     # bbb (2nd word - multiple spaces)
 echo 'aaa bbb ccc' | cut -d ' ' -f 2          # bbb (< > delimiter)
 echo 'key1="aaa" key2="bbb" | cut -d '"' -f 2 # aaa (<"> delimiter)
 
