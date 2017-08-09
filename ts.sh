@@ -12,17 +12,11 @@
 
 # run ./ts.sh 
 
-url=https://s16.openstream.io/hls/qvsbe6etnpblgwsztq3kap62j7azw4e5mfbl5pcvv2gl472at67qop7z2qfa/seg-{1..200}-v1-a1.ts
-name='Flesh And Bone S01E08.ts'
-dir='/mnt/hdd/Movies/Flesh And Bone 1'
-file="$dir/$name"
-
-time0=$( date +%s )
-
-mkdir -p $dir
+name='The Farthest.ts'
+dir=/mnt/hdd/Movies
 
 yesno() { # $1 = header string; $2 = input or <enter> = ''
-	echo -e "$1"
+	echo -e "\e[30m\e[43m i \e[0m $1"
 	echo -e '  \e[0;36m0\e[m No'
 	echo -e '  \e[0;36m1\e[m Yes'
 	echo
@@ -31,13 +25,18 @@ yesno() { # $1 = header string; $2 = input or <enter> = ''
 	echo
 }
 if [[ -e "$file" ]]; then
-  yesno "\e[30m\e[43m i \e[0m Overwrite existing $file:" ans
+  yesno "Overwrite existing $dir/$name:" ans
   [[ $ans != 1 ]] && exit
-  rm $file
+  rm $dir/$name
 fi
 
-echo -e "\n$file\n"
-wget -q --show-progress --tries=10 --retry-connrefused --timeout=2 --wait=1 "$url" -O - >> "$file"
+time0=$( date +%s )
+
+mkdir -p $dir
+
+echo -e "\n$dir/$name\n"
+wget -q --show-progress --tries=10 --retry-connrefused --timeout=2 --wait=1 \
+https://s36.gtsznokiyn.site/hls/qvsbfgdmnxblgwsztrd2a7wllpqmmlgeg7ovili7hdfaoj2psgrrjqldzkca/seg-{1..291}-v1-a1.ts -O - >> "$dir/$name"
 
 time1=$( date +%s )
 timediff=$(( $time1 - $time0 ))
