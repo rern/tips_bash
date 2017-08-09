@@ -15,3 +15,8 @@ wget
 `-P` : download to path, create if not exist  
 `-O` : overwrite existing file (specify /path/filename)  
 `--no-check-certificate` : fix certificate error  
+
+**filename range**  
+```sh
+wget https://url.com/file.{1..30}
+```
