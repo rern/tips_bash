@@ -1,10 +1,19 @@
 systemd
 ---
 
-**start / stop**
+**daemon reload**  
+after changed  
+```sh
+systemctl daemon-reload
+```
+
+**start / stop / restart / reload**
 ```sh
 systemctl start <unit ...>
 systemctl stop <unit ...>
+systemctl restart <unit ...>
+systemctl reload <unit ...>
+systemctl reload-or-restart <unit ...>
 ```
 
 **enable / disable**
