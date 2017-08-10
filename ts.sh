@@ -48,4 +48,4 @@ time1=$( date +%s )
 timediff=$(( $time1 - $time0 ))
 timemin=$(( $timediff / 60 ))
 timesec=$(( $timediff % 60 ))
-echo -e "\n$dir/$name downloaded in $timemin : $timesec"
+echo -e "\n$dir/$name downloaded in ${timemin}:$timesec"
