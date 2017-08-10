@@ -12,10 +12,10 @@
 
 # run ./ts.sh 
 
-name='The Farthest.ts'
+name='name.ts'
 dir=/mnt/hdd/Movies
-url=https://s36.gtsznokiyn.site/hls/qvsbfgdmnxblgwsztrd2a7wllpqmmlgeg7ovili7hdfaoj2psgrrjqldzkca/seg-1-v1-a1.ts
-total=5
+url=https://path/seg-1-v1-a1.ts
+total=291
 
 yesno() { # $1 = header string; $2 = input or <enter> = ''
 	echo -e "\e[30m\e[43m i \e[0m $1"
@@ -45,7 +45,11 @@ for (( i = 1; i <= $total; i++ )); do
 done
 
 time1=$( date +%s )
-timediff=$(( $time1 - $time0 ))
-timemin=$(( $timediff / 60 ))
-timesec=$(( $timediff % 60 ))
-echo -e "\n$dir/\e[36m$name\e[0m downloaded in $timemin min $timesec sec\n"
+dif=$(( $time1 - $time0 ))
+min=$(( $dif / 60 ))
+(( ${#min} == 1 )) && min=0$min
+sec=$(( $dif % 60 ))
+(( ${#sec} == 1 )) && sec=0$sec
+
+echo -e "\n$dir/\e[36m$name\e[0m downloaded in ${min}:$sec\n"
+
