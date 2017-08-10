@@ -3,11 +3,11 @@ wget
 
 **wget GitHub URL conversion**  
 ```sh
-# github url: https://github.com/rern/RuneUI_enhancement/blob/master/install.sh
+# github url: https://github.com/<name>/<repository>/blob/master/<file>
 # direct    : <github.com> -> <raw.githubusercontent.com> ; <blob> -> remove
-#           : https://raw.githubusercontent.com/rern/RuneUI_enhancement/master/install.sh
+#           : https://raw.githubusercontent.com/<name>/<repository>/master/<file>
 # indirect  : <blob> -> <raw>
-#           : https://github.com/rern/RuneUI_enhancement/raw/master/install.sh
+#           : https://github.com/<name>/<repository>/raw/master/<file>
 ```
 
 **flags**  
