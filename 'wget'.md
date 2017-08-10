@@ -4,9 +4,9 @@ wget
 **wget GitHub URL conversion**  
 ```sh
 # github url: https://github.com/rern/RuneUI_enhancement/blob/master/install.sh
-# convert #1: <github.com> -> <raw.githubusercontent.com> ; <blob> -> remove
+# direct    : <github.com> -> <raw.githubusercontent.com> ; <blob> -> remove
 #           : https://raw.githubusercontent.com/rern/RuneUI_enhancement/master/install.sh
-# convert #2: <blob> -> <raw>
+# indirect  : <blob> -> <raw>
 #           : https://github.com/rern/RuneUI_enhancement/raw/master/install.sh
 ```
 
