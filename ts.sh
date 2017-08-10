@@ -15,7 +15,7 @@
 name='The Farthest.ts'
 dir=/mnt/hdd/Movies
 url=https://s36.gtsznokiyn.site/hls/qvsbfgdmnxblgwsztrd2a7wllpqmmlgeg7ovili7hdfaoj2psgrrjqldzkca/seg-1-v1-a1.ts
-total=291
+total=5
 
 yesno() { # $1 = header string; $2 = input or <enter> = ''
 	echo -e "\e[30m\e[43m i \e[0m $1"
@@ -27,7 +27,7 @@ yesno() { # $1 = header string; $2 = input or <enter> = ''
 	echo
 }
 if [[ -e "$dir/$name" ]]; then
-  yesno "Overwrite existing $dir/$name:" ans
+  yesno "Overwrite existing $dir/\e[36m$name\e[0m:" ans
   [[ $ans != 1 ]] && exit
   rm "$dir/$name"
 fi
@@ -36,7 +36,7 @@ time0=$( date +%s )
 
 mkdir -p $dir
 
-echo -e "\n$dir/$name\n"
+echo -e "\n$dir/\e[36m$name\e[0m\n"
 
 for (( i = 1; i <= $total; i++ )); do
 	url0=$( echo $url | sed "s/-1-/-$i-/" )
@@ -48,4 +48,4 @@ time1=$( date +%s )
 timediff=$(( $time1 - $time0 ))
 timemin=$(( $timediff / 60 ))
 timesec=$(( $timediff % 60 ))
-echo -e "\n$dir/$name downloaded in ${timemin}:$timesec"
+echo -e "\n$dir/\e[36m$name\e[0m downloaded in $timemin min $timesec sec\n"
