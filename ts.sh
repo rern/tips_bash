@@ -1,20 +1,21 @@
 #!/bin/bash
 
 # Download multiple-parts *.ts files to a single file
+
 # chrome <right-click> inspect > network
 # play the movie
 # network > find *.ts (type: xhr) <right-click> copy > Copy link address
-# forward to end to get the last 'N'
+# forward to end to get the last 'N' for 'total'
 
 # this file
-# replace 'https://...' with copied address
-# edit 'N' > {1..N}, directory, filename
+# edit /-1-/-$i-/ in: url0=$( echo $url | sed "s/-1-/-$i-/" )
 
 # run ./ts.sh 
 
 name='The Farthest.ts'
-dir=/mnt/hdd/Movies/0
-pieces=291
+dir=/mnt/hdd/Movies
+url=https://s36.gtsznokiyn.site/hls/qvsbfgdmnxblgwsztrd2a7wllpqmmlgeg7ovili7hdfaoj2psgrrjqldzkca/seg-1-v1-a1.ts
+total=291
 
 yesno() { # $1 = header string; $2 = input or <enter> = ''
 	echo -e "\e[30m\e[43m i \e[0m $1"
@@ -37,10 +38,10 @@ mkdir -p $dir
 
 echo -e "\n$dir/$name\n"
 
-for (( i = 1; i <= $pieces; i++ )); do
-	echo $i/$pieces
-	wget -q --show-progress --tries=10 --retry-connrefused --timeout=2 --wait=1 \
-		https://s36.gtsznokiyn.site/hls/qvsbfgdmnxblgwsztrd2a7wllpqmmlgeg7ovili7hdfaoj2psgrrjqldzkca/seg-$i-v1-a1.ts -O - >> "$dir/$name"
+for (( i = 1; i <= $total; i++ )); do
+	url0=$( echo $url | sed "s/-1-/-$i-/" )
+	echo $i/$total
+	wget -q --show-progress --tries=10 --retry-connrefused --timeout=2 --wait=1 $url0 -O - >> "$dir/$name"
 done
 
 time1=$( date +%s )
