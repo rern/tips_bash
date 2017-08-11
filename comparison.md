@@ -17,6 +17,7 @@ Comparison
 `[[ $a != [0-9]` : not equal range `0-9`  
 `[[ $a > $b ]]`  
 `[[ $a < $b ]]`  
+`[[ -v $a ]]` : variable was set  
 `[[ -z $a ]]` : null / zero length  
 `[[ -n $a ]]` : not null 
 
