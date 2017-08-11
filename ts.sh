@@ -25,13 +25,12 @@ yesno() { # $1 = header string; $2 = input or <enter> = ''
 	echo -e '  \e[36m0\e[m No'
 	echo -e '  \e[36m1\e[m Yes'
 	echo
-	echo -e '\e[36m0\e[m / 1 ? '
-	read -n 1 $2
+	read -n 1 answer
 	echo
 }
 if [[ -e "$dir/$name" ]]; then
-  yesno "Overwrite existing $dir/\e[36m$name\e[0m:" ans
-  [[ $ans != 1 ]] && exit
+  yesno "Overwrite existing $dir/\e[36m$name\e[0m:"
+  [[ $answer != 1 ]] && exit
   rm "$dir/$name"
 fi
 
