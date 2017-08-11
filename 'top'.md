@@ -1,7 +1,7 @@
 top
 ---
 
-Process filter
+**Process filter**
 ```sh
 pids=( $( pgrep 'process1|process2|process3' ) )
 top "${pids[@]/#/-p }"
