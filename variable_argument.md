@@ -22,6 +22,8 @@ variable, argument
 
 `eval {...$var}` : var inside culrly braces   
 
+`eval $arg=$var` : assign argument as variable name  
+
 **variable value as variable name**
 ```sh
 a=b
