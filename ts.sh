@@ -22,10 +22,10 @@ bar='\e[36m\e[46m . \e[0m'
 yesno() { # $1 = header string; $2 = input or <enter> = ''
 	echo
 	echo -e "\e[30m\e[43m i \e[0m $1"
-	echo -e '  \e[0;36m0\e[m No'
-	echo -e '  \e[0;36m1\e[m Yes'
+	echo -e '  \e[36m0\e[m No'
+	echo -e '  \e[36m1\e[m Yes'
 	echo
-	echo -e '\e[0;36m0\e[m / 1 ? '
+	echo -e '\e[36m0\e[m / 1 ? '
 	read -n 1 $2
 	echo
 }
