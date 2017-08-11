@@ -1,9 +1,10 @@
 top
 ---
 
-Single process filter
+Process filter
 ```sh
-top | grep [process name]
+pids=( $( pgrep 'process1|process2|process3' ) )
+top "${pids[@]/#/-p }"
 ```
 
 **Toggles**  
