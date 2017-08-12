@@ -36,9 +36,9 @@ sed
 `'<n> <x>'` : search \<n\>th line  
 `'1 <x>'` : search 1st line  
 `'$ <x>'` : search last line  
-`'/.../{N; <x>}'` : search match line includes next line `N`  
-`'/.../{n; <x>}'` : search line `n` next to match  
-`'/.../{n;n <x>}'` : search 2nd line `n;n` next to match  
+`'/.../{N; d}'` : delete match line includes next line `N`  
+`'/.../{n; d}'` : delete line `n` next to match  
+`'/.../{n;n d}'` : delete 2nd line `n;n` next to match  
 `$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : search \<n\> line prior to match  
 `/<1st>/, /<last>/ x` : search line range  
 `/.../, +<n> <x>` : search line range from match to next \<n\> line  
