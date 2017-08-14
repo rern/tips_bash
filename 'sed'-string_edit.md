@@ -1,5 +1,6 @@
 sed
 ---
+`$ . * [ ] ^ \` : characters require escape  
 
 **flags**  
 `-i` : in-place edit input file  
@@ -82,6 +83,4 @@ sed
 `\t` : tab (GNU sed only)  
 `\n` : new line  
 `\r` : return  
-`$'...\t...\n\r'` : `$` fix `\t` `\n` `\r` character result as `t` `n` `r`  
-
-`$ . * [ ] ^ \` : characters require escape   
+`$'...\t...\n\r'` : `$` fix `\t` `\n` `\r` character result as `t` `n` `r`    
