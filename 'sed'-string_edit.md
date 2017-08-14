@@ -36,13 +36,15 @@ sed
 `'<n> <x>'` : search \<n\>th line  
 `'1 <x>'` : search 1st line  
 `'$ <x>'` : search last line  
+
+`/<1st>/, /<last>/ x` : search line range  
+`/.../, +<n> <x>` : search line range from match to next \<n\> line  
+`'/a...\|b.../'` : pattern `a...` or `b...` (`\` needed for escaped `|`)  
+
 `'/.../{N; d}'` : delete match line includes next line `N`  
 `'/.../{n; d}'` : delete line `n` next to match  
 `'/.../{n;n d}'` : delete 2nd line `n;n` next to match  
 `$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : search \<n\> line prior to match  
-`/<1st>/, /<last>/ x` : search line range  
-`/.../, +<n> <x>` : search line range from match to next \<n\> line  
-`'/a...\|b.../'` : pattern `a...` or `b...` (`\` needed for escaped `|`)  
 
 **escaped new lines**  
 `...\` : escaped new lines within single quote  
