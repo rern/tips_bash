@@ -42,9 +42,9 @@ sed
 `/.../, +<n> <x>` : search line range from match to next \<n\> line  
 `'/a...\|b.../'` : pattern `a...` or `b...` (`\` needed for escaped `|`)  
 
-`'/.../{N; d}'` : delete match line includes next line `N`  
-`'/.../{n; d}'` : delete line `n` next to match  
-`'/.../{n;n d}'` : delete 2nd line `n;n` next to match  
+`'/.../{N; <x>}'` : match line includes next line `N`  
+`'/.../{n; <x>}'` : line `n` next to match  
+`'/.../{n;n <x>}'` : 2nd line `n;n` next to match  
 `$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : search \<n\> line prior to match  
 
 **escaped new lines**  
