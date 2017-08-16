@@ -1,10 +1,11 @@
 sed
 ---
-`$ . * [ ] ^ \` : characters require escape  
+`$ . * [ ] ^ \` : characters require escape (only in regex pattern)  
 
 **flags**  
-`-i` : in-place edit input file  
-`-e` : sequence edit   
+`-i` : **i**n-place edit input file  
+`-e` : **e**xpressions in sequence  
+`-n` : li**n**e indication  
 
 **variables / quotes**  
 `$'...\'...\'...'` : `$` + escaped `'` inside single quote  
@@ -14,37 +15,38 @@ sed
 `"...$var..."` : variable inside double quotes  
 `'...'$var'...'` : variable outside quotes  
 
-**get line**  
-`-n '/.../p'` : get line string by matched  
-`'<n>q;d'` : get line string by line number  
-`-n '/.../='` : get line number 
-
 **operators**  
-`'... i\ ...'` : `i` insert before line (`\` needed for escaped new line)  
-`'... a\ ...'` : `a` append after line (`\` needed for escaped new line)  
-`'... d` : `d` delete line
-`'/^\s*$/ d'` : delete blank lines  
-`'<n1>, <n2> d; <n3> d'` : delete range of line numbers and line 
-`s/` : substitute - delimiter can be any symbol or character (single byte)  
+`'s/.../.../'` : substitute 1st match, delimiter can be any symbol or character (single byte)  
+`'s/.../.../g'` : `g` **g**lobal matches  
+`'... i\ ...'` : `i` **i**nsert before line (`\` needed for escaped every new line)  
+`'... a\ ...'` : `a` **a**ppend after line (`\` needed for escaped every new line)  
+`'... d` : `d` **d**elete line
+`'/.../ <x1>; <x2>'` : multiple operations with `;`  
 
 **line search**  
 \* `<x>` : `i`, `a`, `d`, `p`  
 \* `<n>` : number  
+
+`-n '/.../p'` : **p**rint line string by matched  
+`'<n>q;d'` : get line string by line number  
+`-n '/.../='` : get line number 
+
 `/.../ <x>` : search line (left escaped delimiter `\|` for `\|...|`)  
-`'/^.../'` : start with  
-`/...$/` : end with  
+`'/^.../'` : `^` start with  
+`/...$/` : `$` end with  
 `/^$/` : blank line  
 `'<n> <x>'` : search \<n\>th line  
 `'1 <x>'` : search 1st line  
 `'$ <x>'` : search last line  
+`'/^\s*$/ <x>'` : search all blank lines  
 
-`/<1st>/, /<last>/ x` : search line range  
+`/<1st>/, /<last>/ <x>` : search line range  
 `/.../, +<n> <x>` : search line range from match to next \<n\> line  
-`'/a...\|b.../'` : pattern `a...` or `b...` (`\` needed for escaped `|`)  
+`'/a...\|b.../ <x>'` : pattern `a...` or `b...` (`\` needed for escaped `|`)  
 
-`'/.../{N; <x>}'` : match line includes next line `N`  
-`'/.../{n; <x>}'` : line `n` next to match  
-`'/.../{n;n <x>}'` : 2nd line `n;n` next to match  
+`'/.../{N; <x>}'` : match line includes **N**ext line  
+`'/.../{n; <x>}'` : line **n**ext to match  
+`'/.../{n;n <x>}'` : 2nd line **n**ext to match  
 `$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : search \<n\> line prior to match  
 
 **escaped new lines**  
