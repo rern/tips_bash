@@ -43,6 +43,7 @@ sed
 
 `/<1st>/, /<last>/ <x>` : search line range  
 `/.../, +<n> <x>` : search line range from match to next \<n\> line  
+`<n>q` : print 1st to \<n\>th line then **q**uit
 
 `'/.../{N; <x>}'` : match line includes **N**ext line  
 `'/.../{n; <x>}'` : line **n**ext to match  
@@ -53,9 +54,10 @@ sed
 `...\` : escaped new lines within single quote  
 `...\\` : escaped new lines within double quote (escaped backslash `\`)  
 
-**string search** (only 1st matched unless with `g`)   
+**string search**   
 [simple brace expansion](https://github.com/rern/tips/blob/master/bash/string_extract_edit.md)  
-`'s/a.../b.../'` : `s` **s**ubstitute `a...` with `b...`  
+`'s/a.../b.../'` : `s` **s**ubstitute 1st matched `a...` with `b...`  
+`'s/a.../b.../<n>'` : substitute \<n\>th matched   
 `'s/a.../b.../g'` : `g` **g**lobal - substitute all  
 `'s/a.../&b.../'` : append `b...` to `&` `a...`  
 `'s/a.../b...&/'` : prepend `b...` to `&` `a...`  
