@@ -64,7 +64,7 @@ alternative: [simple brace expansion](https://github.com/rern/tips/blob/master/b
 `'s/a.../b.../'` : `s` **s**ubstitute 1st matched `a...` with `b...`  
 `'s/a.../b.../<n>'` : substitute \<n\>th matched   
 `'s/a.../b.../g'` : `g` **g**lobal - substitute all  
-`'s/a.../b.../i'` : `i` case **i**nsensitive
+`'s/a.../b.../i'` : `i` case **i**nsensitive  
 `'s/a.../&b.../'` : append `b...` to `&` `a...`  
 `'s/a.../b...&/'` : prepend `b...` to `&` `a...`  
 `'/^a.../ s/^/b.../'` : prepend `b...` to the `^` begining of line start with `a...`  
