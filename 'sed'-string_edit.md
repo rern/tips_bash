@@ -23,7 +23,7 @@ sed
 `'... d` : `d` **d**elete line
 `'/.../ <x1>; <x2>'` : multiple operations with `;`  
 
-**line search**  
+**line search** (all matched)  
 \* `<x>` : `i`, `a`, `d`, `p`  
 \* `<n>` : number  
 
@@ -52,7 +52,7 @@ sed
 `...\` : escaped new lines within single quote  
 `...\\` : escaped new lines within double quote (escaped backslash `\`)  
 
-**string search**  
+**string search** (only 1st matched unless with `g`)   
 [simple brace expansion](https://github.com/rern/tips/blob/master/bash/string_extract_edit.md)  
 `'s/a.../b.../'` : `s` **s**ubstitute `a...` with `b...`  
 `'s/a.../b.../g'` : `g` **g**lobal - substitute all  
