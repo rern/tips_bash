@@ -17,7 +17,7 @@ sed
 `'/...'$var'.../'` : variable outside quotes  
 
 **search address**  
-string / line number / regex / range  
+string / line number / regex  
 
 **commands**  
 `'/.../ i\ ...'` : `i` **i**nsert before line matched (`\` needed for escaped every new line)  
