@@ -1,6 +1,6 @@
 sed
 ---
-`$ . * [ ] ^ \` : characters require escape (only in regex pattern)  
+`$ . * [ ] ^ \` : characters require escape (only in regex)  
 
 **flags**  
 `-i` : **i**n-place edit file  
@@ -16,11 +16,14 @@ sed
 `"/...$var.../"` : variable inside double quotes  
 `'/...'$var'.../'` : variable outside quotes  
 
+**search address**  
+string / line number / regex / range  
+
 **commands**  
-`'/.../ i\ ...'` : `i` **i**nsert before line (`\` needed for escaped every new line)  
-`'/.../ a\ ...'` : `a` **a**ppend after line (`\` needed for escaped every new line)  
-`'/.../ d` : `d` **d**elete line  
-`'s/.../.../'` : substitute 1st match, delimiter can be any symbol or character (single byte)  
+`'/.../ i\ ...'` : `i` **i**nsert before line matched (`\` needed for escaped every new line)  
+`'/.../ a\ ...'` : `a` **a**ppend after line matched (`\` needed for escaped every new line)  
+`'/.../ d` : `d` **d**elete line matched  
+`'s/.../.../'` : substitute 1st matched (delimiter can be any symbol or character)  
 **multiple commands**  
 ```sh
 sed '/.../ {s/.../.../; s/.../.../}' file
