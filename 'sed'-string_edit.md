@@ -22,7 +22,15 @@ sed
 `'... i\ ...'` : `i` **i**nsert before line (`\` needed for escaped every new line)  
 `'... a\ ...'` : `a` **a**ppend after line (`\` needed for escaped every new line)  
 `'... d` : `d` **d**elete line
-`'/.../ {<x1> <x2>}'` : multiple operations with `{... ...}`  
+`'/.../ {<x1>; <x2>}'` : multiple operations with `{...; ...}`  
+**split lines**  
+```sh
+sed '/.../ {
+s/.../.../
+s/.../.../
+}
+' file
+```
 
 **line search** (all matched)  
 \* `<x>` : `i`, `a`, `d`, `p`  
