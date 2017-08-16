@@ -4,6 +4,7 @@ sed
 
 **flags**  
 `-i` : **i**n-place edit input file  
+`-i '.bak'` : backup to `*.bak` then **i**n-place edit input file  
 `-e` : **e**xpressions in sequence  
 `-n` : li**n**e indication  
 
