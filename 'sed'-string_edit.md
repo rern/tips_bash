@@ -42,7 +42,6 @@ sed
 
 `/<1st>/, /<last>/ <x>` : search line range  
 `/.../, +<n> <x>` : search line range from match to next \<n\> line  
-`'/a...\|b.../ <x>'` : pattern `a...` or `b...` (`\` needed for escaped `|`)  
 
 `'/.../{N; <x>}'` : match line includes **N**ext line  
 `'/.../{n; <x>}'` : line **n**ext to match  
@@ -54,12 +53,12 @@ sed
 `...\\` : escaped new lines within double quote (escaped backslash `\`)  
 
 **string search**  
-`'s/a.../b.../'` : `s` substitute `a...` with `b...`  
-`'s/a.../b.../g'` : `g` global - substitute all  
+`'s/a.../b.../'` : `s` **s**ubstitute `a...` with `b...`  
+`'s/a.../b.../g'` : `g` **g**lobal - substitute all  
 [alternative brace expansion](https://github.com/rern/tips/blob/master/bash/string_extract_edit.md)  
-`'s/a.../&b.../'` : append `b...` to `a...`  
-`'/^a.../ s/^/b.../'` : prepend `b...` to the begining of line start with `a...`  
-`'/^a.../ s/$/b.../'` : append `b...` to the end of line start with `a...`  
+`'s/a.../&b.../'` : `&` append `b...` to `a...`  
+`'/^a.../ s/^/b.../'` : prepend `b...` to the `^` begining of line start with `a...`  
+`'/^a.../ s/$/b.../'` : append `b...` to the `$` end of line start with `a...`  
 
 **wildcards**  
 `.` : single character wildcard  
@@ -68,12 +67,13 @@ sed
 `\+` : 1 or more of preceding character  
 `*` : 0 or more of preceding character  
 
-**characters list**  
+**pattern list**  
 `'/[...]/'` : any characters in `[...]`  
 `'/[^...]/'` : `[^` not any characters in `...]`  
 `'/[^ ]*/'` : `*` zero or more characters that `^` are not space  
-`'/^[...]/'` : start with any in `[ ]`  
-`'/[...]$/'` : end with any in `[ ]`  
+`'/^[...]/'` : start with any character in `[ ]`  
+`'/[...]$/'` : end with any character in `[ ]`  
+`'/a...\|b.../ <x>'` : string `a...` or `b...` (`\` needed for escaped `|`)  
 
 **mixed patterns**  
 `'/[...]\|.../'` : any characters in `[...]` or pattern `...` (`\` needed for escaped `|`)  
@@ -85,4 +85,4 @@ sed
 `\t` : tab (GNU sed only)  
 `\n` : new line  
 `\r` : return  
-`$'...\t...\n\r'` : `$` fix `\t` `\n` `\r` character result as `t` `n` `r`    
+`$'...\t...\n\r'` : `$` escapes `\t` `\n` `\r` to  `t` `n` `r`    
