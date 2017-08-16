@@ -17,13 +17,15 @@ sed
 `'...'$var'...'` : variable outside quotes  
 
 **operators**  
-`'s/.../.../'` : substitute 1st match, delimiter can be any symbol or character (single byte)  
-`'s/.../.../g'` : `g` **g**lobal matches  
 `'... i\ ...'` : `i` **i**nsert before line (`\` needed for escaped every new line)  
 `'... a\ ...'` : `a` **a**ppend after line (`\` needed for escaped every new line)  
 `'... d` : `d` **d**elete line
-`'/.../ {<x1>; <x2>}'` : multiple operations with `{...; ...}`  
-**split lines**  
+
+`'s/.../.../'` : substitute 1st match, delimiter can be any symbol or character (single byte)  
+`'s/.../.../g'` : `g` **g**lobal matches  
+
+`'/.../ {s/.../.../; s/.../.../}'` : matched line, multiple operations
+**split to multi-lines**  
 ```sh
 sed '/.../ {
 s/.../.../
