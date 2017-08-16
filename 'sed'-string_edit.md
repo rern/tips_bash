@@ -40,24 +40,24 @@ s/.../.../
 `'<n>q;d'` : get line string by line number  
 `-n '/.../='` : get line number 
 
-`/.../ <x>` : search line (left escaped delimiter `\|` for `\|...|`)  
-`'/^.../'` : `^` start with  
-`/...$/` : `$` end with  
+`/.../ <x>` : line matched (left escaped delimiter `\|` for `\|...|`)  
+`'/^.../'` : `^` line start with  
+`/...$/` : `$` line end with  
 `/^$/` : blank line  
-`'<n> <x>'` : search \<n\>th line  
-`'1 <x>'` : search 1st line  
-`'$ <x>'` : search last line  
-`'/^\s*$/ <x>'` : search all blank lines  
+`'<n> <x>'` : \<n\>th line  
+`'1 <x>'` : 1st line  
+`'$ <x>'` : last line  
+`'/^\s*$/ <x>'` : all blank lines  
 
-`/<1st>/, /<last>/ <x>` : search line range  
-`/.../, +<n> <x>` : search line range from match to next \<n\> line  
+`/<1st>/, /<last>/ <x>` : line matched range  
+`/.../, +<n> <x>` : line range from matched to next \<n\> line  
 `q` : print 1st line (then **q**uit)  
 `<n>q` : print 1st to \<n\>th line  
 
-`'/.../{N; <x>}'` : match line includes **N**ext line  
-`'/.../{n; <x>}'` : line **n**ext to match  
-`'/.../{n;n <x>}'` : 2nd line **n**ext to match  
-`$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : search \<n\> line prior to match  
+`'/.../{N; <x>}'` : line matched includes **N**ext line  
+`'/.../{n; <x>}'` : line **n**ext to matched  
+`'/.../{n;n <x>}'` : 2nd line **n**ext to matched  
+`$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : \<n\> line prior to matched  
 
 **string operations**   
 alternative: [simple brace expansion](https://github.com/rern/tips/blob/master/bash/string_extract_edit.md)  
