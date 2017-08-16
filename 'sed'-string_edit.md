@@ -53,10 +53,11 @@ sed
 `...\\` : escaped new lines within double quote (escaped backslash `\`)  
 
 **string search**  
+[simple brace expansion](https://github.com/rern/tips/blob/master/bash/string_extract_edit.md)  
 `'s/a.../b.../'` : `s` **s**ubstitute `a...` with `b...`  
 `'s/a.../b.../g'` : `g` **g**lobal - substitute all  
-[alternative brace expansion](https://github.com/rern/tips/blob/master/bash/string_extract_edit.md)  
-`'s/a.../&b.../'` : `&` append `b...` to `a...`  
+`'s/a.../&b.../'` : append `b...` to `&` `a...`  
+`'s/a.../b...&/'` : prepend `b...` to `&` `a...`  
 `'/^a.../ s/^/b.../'` : prepend `b...` to the `^` begining of line start with `a...`  
 `'/^a.../ s/$/b.../'` : append `b...` to the `$` end of line start with `a...`  
 
