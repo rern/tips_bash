@@ -43,7 +43,8 @@ sed
 
 `/<1st>/, /<last>/ <x>` : search line range  
 `/.../, +<n> <x>` : search line range from match to next \<n\> line  
-`<n>q` : print 1st to \<n\>th line then **q**uit
+`q` : print 1st line (then **q**uit)  
+`<n>q` : print 1st to \<n\>th line  
 
 `'/.../{N; <x>}'` : match line includes **N**ext line  
 `'/.../{n; <x>}'` : line **n**ext to match  
