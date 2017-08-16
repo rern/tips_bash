@@ -3,8 +3,8 @@ sed
 `$ . * [ ] ^ \` : characters require escape (only in regex pattern)  
 
 **flags**  
-`-i` : **i**n-place edit input file  
-`-i '.bak'` : backup to `*.bak` then **i**n-place edit input file  
+`-i` : **i**n-place edit file  
+`-i '.bak'` : **i**n-place edit file with backup `file.bak`  
 `-e` : **e**xpressions in sequence  
 `-n` : li**n**e indication  
 
