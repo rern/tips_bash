@@ -9,24 +9,22 @@ sed
 `-n` : li**n**e indication  
 
 **variables / quotes**  
-`$'...\'...\'...'` : `$` + escaped `'` inside single quote  
-`'...\x27...\x27...` : `'` hex character  
-`"...\"...\"..."` : escaped `"` inside double quote  
-`'...\x22...\x22...` : `"` hex character  
-`"...$var..."` : variable inside double quotes  
-`'...'$var'...'` : variable outside quotes  
+`$'/...\'...\'.../'` : `$` + escaped `'` inside single quote  
+`'/...\x27...\x27.../` : `'` hex character  
+`"/...\"...\".../"` : escaped `"` inside double quote  
+`'/...\x22...\x22.../` : `"` hex character  
+`"/...$var.../"` : variable inside double quotes  
+`'/...'$var'.../'` : variable outside quotes  
 
-**operators**  
-`'... i\ ...'` : `i` **i**nsert before line (`\` needed for escaped every new line)  
-`'... a\ ...'` : `a` **a**ppend after line (`\` needed for escaped every new line)  
-`'... d` : `d` **d**elete line
-
+**commands**  
+`'/.../ i\ ...'` : `i` **i**nsert before line (`\` needed for escaped every new line)  
+`'/.../ a\ ...'` : `a` **a**ppend after line (`\` needed for escaped every new line)  
+`'/.../ d` : `d` **d**elete line  
 `'s/.../.../'` : substitute 1st match, delimiter can be any symbol or character (single byte)  
-`'s/.../.../g'` : `g` **g**lobal matches  
-
-`'/.../ {s/.../.../; s/.../.../}'` : matched line, multiple operations
-**split to multi-lines**  
+**multiple commands**  
 ```sh
+sed '/.../ {s/.../.../; s/.../.../}' file
+# or
 sed '/.../ {
 s/.../.../
 s/.../.../
@@ -34,7 +32,7 @@ s/.../.../
 ' file
 ```
 
-**line search** (all matched)  
+**line operations** (all matched)  
 \* `<x>` : `i`, `a`, `d`, `p`  
 \* `<n>` : number  
 
@@ -61,11 +59,7 @@ s/.../.../
 `'/.../{n;n <x>}'` : 2nd line **n**ext to match  
 `$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : search \<n\> line prior to match  
 
-**escaped new lines**  
-`...\` : escaped new lines within single quote  
-`...\\` : escaped new lines within double quote (escaped backslash `\`)  
-
-**string search**   
+**string operations**   
 [simple brace expansion](https://github.com/rern/tips/blob/master/bash/string_extract_edit.md)  
 `'s/a.../b.../'` : `s` **s**ubstitute 1st matched `a...` with `b...`  
 `'s/a.../b.../<n>'` : substitute \<n\>th matched   
@@ -83,7 +77,7 @@ s/.../.../
 `\+` : 1 or more of preceding character  
 `*` : 0 or more of preceding character  
 
-**pattern list**  
+**regex list**  
 `'/[...]/'` : any characters in `[...]`  
 `'/[^...]/'` : `[^` not any characters in `...]`  
 `'/[^ ]*/'` : `*` zero or more characters that `^` are not space  
@@ -91,9 +85,13 @@ s/.../.../
 `'/[...]$/'` : end with any character in `[ ]`  
 `'/a...\|b.../ <x>'` : string `a...` or `b...` (`\` needed for escaped `|`)  
 
-**mixed patterns**  
+**mixed regex**  
 `'/[...]\|.../'` : any characters in `[...]` or pattern `...` (`\` needed for escaped `|`)  
 `'[^...\{...\}]$'` : `[^` not `$` end with any characters in `[...` or pattern in `\{...\}`
+
+**escaped new lines**  
+`...\` : escaped new lines within single quote  
+`...\\` : escaped new lines within double quote (escaped backslash `\`)  
 
 **escaped characters**  
 `\ . . ` : '\\' start insert lines with multiple spaces / tabs  
