@@ -60,7 +60,7 @@ s/.../.../
 `$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : search \<n\> line prior to match  
 
 **string operations**   
-[simple brace expansion](https://github.com/rern/tips/blob/master/bash/string_extract_edit.md)  
+alternative: [simple brace expansion](https://github.com/rern/tips/blob/master/bash/string_extract_edit.md)  
 `'s/a.../b.../'` : `s` **s**ubstitute 1st matched `a...` with `b...`  
 `'s/a.../b.../<n>'` : substitute \<n\>th matched   
 `'s/a.../b.../g'` : `g` **g**lobal - substitute all  
