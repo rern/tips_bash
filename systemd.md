@@ -28,19 +28,10 @@ systemctl cat <unit>
 ```
 
 **override some value**  
-reload automatically on save
-```sh
-# drop-in file (partial) as /etc/systemd/system/<unit>.service.d/override.conf
-systemctl edit <unit> # version >= 218 or create manually
-
-# override file as /etc/systemd/system/<unit>.service
-systemctl edit --full <unit> # version >= 218
-# or copy-edit manually
-cp /lib/systemd/system/<unit>.service /etc/systemd/system
-
-# revert back
-systemctl revert <unit>
-```
+- drop-in file (partial) `/etc/systemd/system/<unit>.service.d/override.conf`  
+    * or `systemctl edit <unit>` - reload automatically on save (version 218+)  
+- override file `cp /lib/systemd/system/<unit>.service /etc/systemd/system`  
+    * or `systemctl edit --full <unit>` - reload automatically on save (version 218+)  
 
 service file
 ---
