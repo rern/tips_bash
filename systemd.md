@@ -27,6 +27,11 @@ systemctl disable <unit ...>
 systemctl cat <unit>
 ```
 
+**alias**  
+```sh
+ln -s /lib/systemd/system/{<unit>,<alias>}.service
+```
+
 **override some value**  
 - drop-in file (partial with section header) `/etc/systemd/system/<unit>.service.d/override.conf`  
     * or `systemctl edit <unit>` - reload automatically on save (version 218+)  
