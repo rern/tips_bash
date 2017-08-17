@@ -30,20 +30,16 @@ systemctl cat <unit>
 **override some value**  
 reload automatically on save
 ```sh
-# drop-in file (partial) as /etc/systemd/system/unit.d/override.conf
-systemctl edit <unit>
+# drop-in file (partial) as /etc/systemd/system/<unit>.service.d/override.conf
+systemctl edit <unit> # version >= 218 or create manually
 
 # override file as /etc/systemd/system/<unit>.service
-systemctl edit --full <unit>
+systemctl edit --full <unit> # version >= 218
+# or copy-edit manually
+cp /lib/systemd/system/<unit>.service /etc/systemd/system
 
 # revert back
 systemctl revert <unit>
-```
-
-**override with new file**
-```sh
-cp /lib/systemd/system/<unit>.service /etc/systemd/system
-systemctl daemon-reload
 ```
 
 service file
