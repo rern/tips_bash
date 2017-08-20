@@ -59,7 +59,7 @@ s/.../.../
 
 `'/.../{N; <x>}'` : line matched includes **N**ext line  
 `'/.../{n; <x>}'` : line **n**ext to matched  
-`'/.../{n;n <x>}'` : 2nd line **n**ext to matched  
+`'/.../{n;n; <x>}'` : 2nd line **n**ext to matched  
 `$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : \<n\> line prior to matched  
 
 **string operations**   
