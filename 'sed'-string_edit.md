@@ -26,6 +26,7 @@ string / line number / regex
 `'/.../ d` : `d` **d**elete line matched  
 `-n '/.../ p` : `p` **p**rint line matched  
 `'s/.../.../'` : substitute 1st matched (delimiter can be any symbol or character)  
+
 **multiple commands**  
 ```sh
 sed '/.../ {s/.../.../; s/.../.../}' file
