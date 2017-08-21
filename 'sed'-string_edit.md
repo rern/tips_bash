@@ -22,7 +22,9 @@ string / line number / regex
 **commands**  
 `'/.../ i\ ...'` : `i` **i**nsert before line matched (`\` needed for escaped every new line)  
 `'/.../ a\ ...'` : `a` **a**ppend after line matched (`\` needed for escaped every new line)  
+`'/.../ r <file>` : `r` **r**ead file to append after line matched  
 `'/.../ d` : `d` **d**elete line matched  
+`-n '/.../ p` : `p` **p**rint line matched  
 `'s/.../.../'` : substitute 1st matched (delimiter can be any symbol or character)  
 **multiple commands**  
 ```sh
@@ -32,11 +34,11 @@ sed '/.../ {
 s/.../.../
 s/.../.../
 }
-' file
+' <file>
 ```
 
 **line operations** (all matched)  
-\* `<x>` : `i`, `a`, `d`, `p`  
+\* `<x>` : `i`, `a`, `d`, `p`, `r`  
 \* `<n>` : number  
 
 `-n '/.../p'` : **p**rint line string by matched  
