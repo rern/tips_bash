@@ -24,6 +24,14 @@ variable, argument
 
 `eval $arg=$var` : assign argument as variable name  
 
+**heredoc to avoid escape**  
+```sh
+read -r -d '' var <<'EOF'
+any characters, quotes, slashs, symbols
+can be used without escape
+EOF
+```
+
 **variable value as variable name**
 ```sh
 a=b
