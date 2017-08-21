@@ -28,6 +28,7 @@ string / line number / regex
 `'s/.../.../'` : substitute 1st matched (delimiter can be any symbol or character)  
 
 **multiple commands**  
+`;` : new line
 ```sh
 sed '/.../ {s/.../.../; s/.../.../}' file
 # or
