@@ -30,11 +30,12 @@ string / line number / regex
 **multiple commands**  
 `;` : new line
 ```sh
-sed '/.../ {s/.../.../; s/.../.../}' file
+sed '/.../ {s/.../.../; a\...}' file
 # or
 sed '/.../ {
 s/.../.../
-s/.../.../
+a\
+...
 }
 ' <file>
 ```
