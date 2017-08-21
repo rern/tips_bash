@@ -15,7 +15,7 @@ echo
 
 `echo` : blank line  
 `echo $var` : var value - multi words  
-`echo "$var"` : var value - single word  
+`echo "$var"` : var value - single word, keep new line  
 `echo '$var'` : $var literal  
 `echo $var abc` : concatenate var value and string  
 `echo 'abc "def"'` : double quote 
