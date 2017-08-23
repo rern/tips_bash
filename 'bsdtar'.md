@@ -11,20 +11,26 @@ bsdtar
 
 **Extract to current directory**  
 ```sh
-bsdtar -xf compressed.file
+bsdtar -xf file.tar.xz
 ```
 
 **Extract to target**
 ```sh
-bsdtar -xf compressed.file -C /target
+mkdir target
+bsdtar -xf file.tar.xz -C target
+```
+
+**Extract sub directory**
+```sh
+bsdtar -xf file.tar.xz -C target subdirectory/
 ```
 
 **Extract not include root directory of compressed.file to target**
 ```sh
-bsdtar -xf compressed.file -s'|[^/]*/||' -C /target
+bsdtar -xf file.tar.xz --strip 1 -C target
 ```
 
 **Compress to xz**  
 ```sh
-bsdtar -cJf compressed.file.xz files
+bsdtar -cJf file.tar.xz files
 ```
