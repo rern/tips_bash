@@ -4,10 +4,10 @@ bsdtar
 `-x` extract  
 `-v` verbose  
 `-p` keep files permissions  
-`-f` file (must be right before compressed.file)  
+`-f` file (must be right before file.tar.xz)  
 
 `-c` compress  
-`-J` xz (for compress)  
+`-J` xz (for compression)  
 
 **Extract to current directory**  
 ```sh
