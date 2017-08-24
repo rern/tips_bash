@@ -29,3 +29,11 @@ wget
 ```sh
 wget https://url.com/file.{1..30}
 ```
+
+**fix certificate error**  
+update time to current:
+```sh
+systemctl stop ntpd
+ntpdate pool.ntp.org
+systemctl start ntpd
+```
