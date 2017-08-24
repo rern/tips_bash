@@ -5,8 +5,10 @@ wget
 - file
 ```sh
 # github url: https://github.com/<name>/<repository>/blob/master/<file>
-#           : <blob> -> <raw>
+#        #1 : <blob> -> <raw>
 #           : https://github.com/<name>/<repository>/raw/master/<file>
+#        #2 : <github> -> <raw.github> ; <blob> -> remove
+#           : https://raw.github.com/<name>/<repository>/master/<file>
 # cdn(cache): <github.com> -> <raw.githubusercontent.com> ; <blob> -> remove
 #           : https://raw.githubusercontent.com/<name>/<repository>/master/<file>
 ```
