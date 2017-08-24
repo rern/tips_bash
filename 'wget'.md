@@ -15,7 +15,7 @@ wget
 # github url: https://github.com/<name>/<repository>
 #           : <...> -> <.../archive/master.zip>
 #           : https://github.com/<name>/<repository>/archive/master.zip
-# cdn(cache)    : <github.com> -> <codeload.github.com> ; <...> -> <.../zip/master>
+# cdn(cache): <github.com> -> <codeload.github.com> ; <...> -> <.../zip/master>
 #           : https://codeload.github.com/<name>/<repository>/zip/master -O <file>.zip
 ```
 
