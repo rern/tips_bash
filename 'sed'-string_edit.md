@@ -1,12 +1,7 @@
 sed
 ---
-`$ . * [ ] ^ \` : characters require escape (only in regex)  
-
-**flags**  
-`-i` : **i**n-place edit file  
-`-i '.bak'` : **i**n-place edit file with backup `file.bak`  
-`-e` : **e**xpressions in sequence  
-`-n` : li**n**e indication  
+**regex characters escape**  
+`$ . * [ ] ^ \`   
 
 **variables / quotes**  
 `$'/...\'...\'.../'` : `$` + escaped `'` inside single quote  
@@ -18,6 +13,12 @@ sed
 
 **search address**  
 string / line number / regex  
+
+**flags**  
+`-i` : **i**n-place edit file  
+`-i '.bak'` : **i**n-place edit file with backup `file.bak`  
+`-e` : **e**xpressions in sequence  
+`-n` : li**n**e indication  
 
 **commands**  
 `'/.../ i\ ...'` : `i` **i**nsert before line matched (`\` needed for escaped every new line)  
