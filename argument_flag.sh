@@ -5,9 +5,9 @@ yesno=0
 
 while :; do
 	case $1 in
-		-s) [[ $2 != 0 ]] && string=$2
-			shift;;                # 1st shift
-		-y) yesno=1;;                  # no 1st 'shift' for option without value
+		-s) string=${2:-default}  # =$2 or =default if not defined
+			shift;;           # 1st shift
+		-y) yesno=1;;             # no 1st 'shift' for option without value
 		*) break
 	esac
 	shift
