@@ -41,6 +41,9 @@ a\
 ' <file>
 ```
 
+**comments**  
+between or the end of each line that not end with `\` new line escape  
+
 **line operations** (all matched)  
 \* `<x>` : `i`, `a`, `d`, `p`, `r`  
 \* `<n>` : number  
