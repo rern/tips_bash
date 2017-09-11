@@ -28,6 +28,7 @@ length=${#array[*]} # 3
 value0=$array       # a
 value0=${array[0]}  # a
 value1=${array[1]}  # b
+last=${@:$#}        # c
 
 # edit
 array+=('d')              # array=(a b c d)
