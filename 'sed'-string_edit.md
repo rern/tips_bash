@@ -71,7 +71,7 @@ a\
 `q` : print 1st line (then **q**uit)  
 `<n>q` : print 1st to \<n\>th line  
 
-`'0,/.../{//d}'` : delete only 1st matched line (1st line to matched range)  
+`'0,/.../ d'` : delete `0` 1st line to matched range  
 `'/.../{N; <x>}'` : line matched includes **N**ext line  
 `'/.../{n; <x>}'` : line **n**ext to matched  
 `'/.../{n;n; <x>}'` : 2nd line **n**ext to matched  
