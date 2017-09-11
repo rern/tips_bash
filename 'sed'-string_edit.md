@@ -28,23 +28,24 @@ string / line number / regex
 `-n '/.../ p` : `p` **p**rint line matched  
 `'s/.../.../'` : substitute 1st matched (delimiter can be any symbol or character)  
 
+**comments**  
+- between each command, the end of lines or between lines
+- not inside new insert/replace string  
+
 **multiple commands**  
 `;` : new line
 `\` : escaped new line  
 ```sh
 sed '/.../ {s/.../.../; a\...\n...}' file
 # or
-sed '/.../ {
+sed '/.../ { # comment
 s/.../.../
 a\
 ...\
 ...
 }
 ' <file>
-```
-
-**comments**  
-between or the end of each line that not end with `\` new line escape  
+``` 
 
 **line operations** (all matched)  
 \* `<x>` : `i`, `a`, `d`, `p`, `r`  
