@@ -67,11 +67,11 @@ a\
 `'/^\s*$/ <x>'` : all blank lines  
 
 `/<1st>/, /<last>/ <x>` : line matched range  
+`'0,/<last>/ <x>'` : `0` 1st line to matched range
 `/.../, +<n> <x>` : line range from matched to next \<n\> line  
 `q` : print 1st line (then **q**uit)  
 `<n>q` : print 1st to \<n\>th line  
-
-`'0,/.../ d'` : delete `0` 1st line to matched range  
+  
 `'/.../{N; <x>}'` : line matched includes **N**ext line  
 `'/.../{n; <x>}'` : line **n**ext to matched  
 `'/.../{n;n; <x>}'` : 2nd line **n**ext to matched  
