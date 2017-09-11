@@ -79,6 +79,7 @@ alternative: [simple brace expansion](https://github.com/rern/tips/blob/master/b
 `'s/a.../b...&/'` : prepend `b...` to `&` `a...`  
 `'/^a.../ s/^/b.../'` : prepend `b...` to the `^` begining of line start with `a...`  
 `'/^a.../ s/$/b.../'` : append `b...` to the `$` end of line start with `a...`  
+`'s|--\(.*\)--|==\1==|'` : replace pre-post charaters of word, `--aaa--` to `==aaa==`  
 
 **wildcards**  
 `.` : single character wildcard  
