@@ -49,6 +49,7 @@ a\
 ``` 
 
 **line operations** (all matched)  
+(first matched line only)  
 \* `<x>` : `i`, `a`, `d`, `p`, `r`  
 \* `<n>` : number  
 
@@ -76,11 +77,13 @@ a\
 `'/.../{n;n; <x>}'` : 2nd line **n**ext to matched  
 `$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : \<n\> line prior to matched  
 
-**string operations**   
+**string operations**  
+(all lines - fisrt matched string of each line unless with `g`)  
 alternative: [simple brace expansion](https://github.com/rern/tips/blob/master/bash/string_extract_edit.md)  
 `'s/a.../b.../'` : `s` **s**ubstitute 1st matched `a...` with `b...`  
 `'s/a.../b.../<n>'` : substitute \<n\>th matched   
-`'s/a.../b.../g'` : `g` **g**lobal - substitute all  
+`'s/a.../b.../g'` : `g` **g**lobal - substitute all **in that line**  
+`'0,/a.../ s/a.../b.../'` : substitute only first matched (range line 1 to matched)
 `'s/a.../b.../i'` : `i` case **i**nsensitive  
 `'s/a.../&b.../'` : append `b...` to `&` `a...`  
 `'s/a.../b...&/'` : prepend `b...` to `&` `a...`  
