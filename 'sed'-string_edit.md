@@ -39,7 +39,8 @@ string / line number / regex
 sed '/.../ {s/.../.../; a\...\n...}' file
 # or
 sed '/.../ { # comment
-s/.../.../
+# comment
+s/.../.../   # comment
 a\
 ...\
 ...
