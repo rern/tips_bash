@@ -16,5 +16,8 @@ while :; do
 	# 1 flag + '' value - shift once
 done
 
-echo $string # 'np -s' = ''; '-s string' = string
-echo $yesno  # 'no -y' = 0;  '-y'        = 1
+# script.sh -s abc -y x y
+echo $string # abc
+echo $yesno  # 1
+echo $1      # x
+echo $2      # y
