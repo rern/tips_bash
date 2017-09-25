@@ -44,7 +44,7 @@ ${string%3*5}      # 12345678901267890 - delete shortest match '3 to 5' from end
 ${string%%3*5}     # 1267890 - delete longest match '3 to 5' from end
 
 # non-greedy replace  
-perl -pe 's/2(.*?)4/a\1b/' # 1a3b56789012345 - `(.*?)` : `(...)`=`\1`; `.`=any character `*`; `?`=shortest  
+perl -pe 's/2(.*?)4/a\1b/' # 1a3b56789012345 - (.*?) : (...)=\1; .=any character *=zero or more; `=shortest  
 
 # squeeze multiple character/spaces to single in string / file
 echo 'a b  c  d' | tr -s ' ' # a b c d
