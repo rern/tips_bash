@@ -1,7 +1,7 @@
 sed
 ---
 **regex characters escape**  
-`$ . * [ ] ^ \`   
+`. ^ $ * + ? ( ) [ { \ |`   
 
 **variables / quotes**  
 `$'/...\'...\'.../'` : `$` + escaped `'` inside single quote  
