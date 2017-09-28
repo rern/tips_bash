@@ -1,7 +1,7 @@
 sed
 ---
-**regex characters escape**  
-`. ^ $ * + ? ( ) [ { \ |`   
+**regex reserved characters**  
+`. ^ $ * + ? ( ) [ { \ |` - use literally must be escaped  
   
   
 **variables / quotes**  
@@ -17,7 +17,7 @@ string / line number / regex
 
 **flags**  
 `-i` : **i**n-place edit file  
-`-i '.bak'` : **i**n-place edit file with backup `file.bak`  
+`-i '.bak'` : **i**n-place edit file with optional backup `file.bak`  
 `-e` : **e**xpressions in sequence  
 `-n` : li**n**e indication  
 
@@ -25,7 +25,7 @@ string / line number / regex
 `'/.../ i\ ...'` : `i` **i**nsert before line matched (`\` needed for escaped every new line)  
 `'/.../ a\ ...'` : `a` **a**ppend after line matched (`\` needed for escaped every new line)  
 `'/.../ r <file>` : `r` **r**ead file to append after line matched  
-`'/.../ d` : `d` **d**elete line matched  
+`'/.../ d` : `d` **d**elete line matched 
 `-n '/.../ p` : `p` **p**rint line matched  
 `'s/.../.../'` : substitute 1st matched (delimiter can be any symbol or character)  
 
