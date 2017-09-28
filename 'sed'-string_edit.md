@@ -2,9 +2,10 @@ sed
 ---
 **regex characters escape**  
 `. ^ $ * + ? ( ) [ { \ |`   
-
+  
+  
 **variables / quotes**  
-`$'/...\'...\'.../'` : `$` + escaped `'` inside single quote  
+`$'/...\'...\'.../'` : `$` + escaped `'` inside single quote (or use `.` wildcard if posible)  
 `'/...\x27...\x27.../` : `'` hex character  
 `"/...\"...\".../"` : escaped `"` inside double quote  
 `'/...\x22...\x22.../` : `"` hex character  
@@ -51,8 +52,10 @@ a\
 **line operations** (all matched)  
 (first matched line only)  
 \* `<x>` : `i`, `a`, `d`, `p`, `r`  
-\* `<n>` : number  
-
+\* `<n>` : number    
+`/.../` : normal delimiter  
+`\|...|`, `\#...#` : other than `/` must be escaped  
+  
 `-n '/.../p'` : **p**rint line string by matched  
 `'<n>q;d'` : get line string by line number  
 `-n '/.../='` : get line number 
@@ -79,7 +82,8 @@ a\
 
 **string operations**  
 `/.../` : word  
-`[...]` : character  
+`/[...]/` : character  
+`s/.../.../`,  `s|...|...|`,`s#...#...#` : delimiter (no escape needed)  
 all lines - first matched string of each line unless with `g`  
 non-greedy match : use `perl`
 alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/master/string_extract_edit.md)  
