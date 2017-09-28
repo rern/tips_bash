@@ -78,8 +78,12 @@ a\
 `$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : \<n\> line prior to matched  
 
 **string operations**  
-(all lines - fisrt matched string of each line unless with `g`)  
+`/.../` : word  
+`[...]` : character  
+all lines - first matched string of each line unless with `g`  
+non-greedy match : use `perl`
 alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/master/string_extract_edit.md)  
+  
 `'s/a.../b.../'` : `s` **s**ubstitute 1st matched `a...` with `b...`  
 `'s/a.../b.../<n>'` : substitute \<n\>th matched   
 `'s/a.../b.../g'` : `g` **g**lobal - substitute all **in that line**  
