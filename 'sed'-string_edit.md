@@ -67,7 +67,8 @@ a\
 `'<n> <x>'` : \<n\>th line  
 `'1 <x>'` : 1st line  
 `'$ <x>'` : last line  
-`'/^\s*$/ <x>'` : all blank lines  
+`'/^a.*b$/ <x>'` : start with `a` and end with `b`  
+`'/^\s*$/ <x>'` : blank lines  
 
 `/<1st>/, /<last>/ <x>` : line matched range  
 `'0,/<last>/ <x>'` : `0` 1st line to matched range
