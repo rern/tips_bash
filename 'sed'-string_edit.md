@@ -101,7 +101,7 @@ alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/mas
 `'s|--\(.*\)--|==\1==|'` : replace pre-post charaters of word, `--aaa--` to `==aaa==`  
 
 **wildcards**  
-`.` : single character wildcard  
+`.` : single character or space wildcard  
 `.*` : multiple character wildcard  
 `\?` : 0 or 1 of preceding character  
 `\+` : 1 or more of preceding character  
