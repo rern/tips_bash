@@ -65,8 +65,8 @@ ${float%.*}   # 1 (round down) - '%'delete from end '*'all characters to 1st '.'
 ${float#.*}   # 23 - '#'delete from start '*'all characters to 1st '.' matched
 
 # extract space-separated words
-$( awk '{print $4}' <<<'column1 column2 column3 column4' )     # column4
-$( awk '{print $NF}' <<<'column1 column2 column3 column4' )    # last column
+$( awk '{print $3}' <<<'column1 column2 column3 column4' )     # column3
+$( awk '{print $NF}' <<<'column1 column2 column3 column4' )    # column4 (last column)
 
 # convert case
 string=abc
