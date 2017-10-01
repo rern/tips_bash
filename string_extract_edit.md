@@ -54,6 +54,9 @@ tr -s ' ' < file
 echo 'a b  c  d' | tr -d ' ' # abcd
 tr -d ' ' < file
 
+# delete trailing empty lines  
+a=$(<file); printf '%s\n' "$a" > file    
+
 # extract only number / non-number
 numstring=1.23ab
 ${numstring//[^0-9.]/} # 1.23 - '//'delete all characters '^'not match '[...]'any of '0 to 9'
