@@ -71,6 +71,11 @@ ${float#.*}   # 23 - '#'delete from start '*'all characters to 1st '.' matched
 $( awk '{print $3}' <<<'column1 column2 column3 column4' )     # column3
 $( awk '{print $NF}' <<<'column1 column2 column3 column4' )    # column4 (last column)
 
+# extract path / filename
+path=/path/to/filename
+dirname $path    # /path/to
+basename $path   # filename
+
 # convert case
 string=abc
 =${$string^^}    # ABC - uppercase
