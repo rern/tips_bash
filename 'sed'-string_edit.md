@@ -124,7 +124,6 @@ alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/mas
 `...\\` : escaped new lines within double quote (escaped backslash `\`)  
 
 **escaped characters**  
-`\ . . ` : '\\' start insert lines with multiple spaces / tabs  
 `\s` : space or tab  
 `\t` : tab (GNU sed only)  
 `\n` : new line  
