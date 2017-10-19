@@ -4,13 +4,14 @@ variable, argument
 `$var` : simplified `${var}`  
 `var=` `var=''` : empty variable
 
-`command a b c`  
+`command a b c d e`  
 
-`$#` : number of argument = 3  
-`$@` : all arguments      = a b c  
+`$#` : number of argument = 5  
+`$@` : all arguments      = a b c d e  
 `$0` : command itself     = command  
-`$1` : Nth argument       = a  
-`$_` : last argument      = c  
+`$1` : Nth argument       = a    
+`${@:$#}` : last argument = e
+`${@:(-2):1}` : 2nd last  = d
 
 `$?` : last exit code  
 
