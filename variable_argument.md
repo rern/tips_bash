@@ -10,7 +10,7 @@ variable, argument
 `$@` : all arguments      = a b c d e  
 `$0` : command itself     = command  
 `$1` : Nth argument       = a    
-`${@:$#}` : last argument = e
+`${@:$#}` : last argument = e  
 `${@:(-2):1}` : 2nd last  = d
 
 `$?` : last exit code  
