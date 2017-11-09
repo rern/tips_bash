@@ -15,6 +15,9 @@ extract=${array[1]}    # b
 
 # extract
 string='1234567890'
+
+echo string | cut -b 2-5  # 2345
+
 ${string:1:3}  # 23
 ${string:0:3}  # 123
 ${string::3}   # 123
