@@ -81,6 +81,9 @@ a\
 `'/.../{n;n; <x>}'` : 2nd line **n**ext to matched  
 `$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : \<n\> line prior to matched  
 
+`sed -i -e :a -e '/^\n*$/{$d;N;};/\n$/ba'` : remove all trailing new lines
+`sed -i -e '$a\'` : add a trailing new line if not exist
+
 **string operations**  
 `/.../` : word  
 `/[...]/` : character  
