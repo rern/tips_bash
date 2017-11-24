@@ -40,7 +40,7 @@ ${#string}         # 15 - length
 ${string/123/abc}  # abc456789012345 - replace '123' with 'abc'
 ${string//123/abc} # abc4567890abc45 - replace all '123' with 'abc'
 ${string/123}      # 456789045 - delete '123'
-${string/123}      # 456789012345 - delete all '123'
+${string//123}      # 456789012345 - delete all '123'
 ${string#3*5}      # 12678901234567890 - delete shortest match '3 to 5'
 ${string##3*5}     # 1267890 - delete longest match '3 to 5'
 ${string%3*5}      # 12345678901267890 - delete shortest match '3 to 5' from end
