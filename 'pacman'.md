@@ -23,6 +23,16 @@ pacman -S --noconfirm package
 pacman -Sw package
 ```
 
+**List installed**  
+```sh
+pacman -Qqe
+```
+
+**Recreate package from installed**  
+```sh
+bacman package
+```
+
 **Install from file**  
 ```sh
 pacman -U package_file
