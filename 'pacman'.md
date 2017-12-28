@@ -5,22 +5,22 @@ pacman -Sy
 
 **Update then install**  
 ```sh
-pacman -Sy package
+pacman -Sy <package>
 ```
 
 **Install**  
 ```sh
-pacman -S package
+pacman -S <package>
 ```
 
 **Silent install**  
 ```sh
-pacman -S --noconfirm package
+pacman -S --noconfirm <package>
 ```
 
 **Download only**  
 ```sh
-pacman -Sw package
+pacman -Sw <package>
 ```
 
 **List installed**  
@@ -28,29 +28,39 @@ pacman -Sw package
 pacman -Qqe
 ```
 
+**Check installed package**  
+```sh
+pacman -Qi <package>
+```
+
 **Recreate package from installed**  
 ```sh
-bacman package
+bacman <package>
 ```
 
 **Install from file**  
 ```sh
-pacman -U package_file
+pacman -U <package_file>
 ```
 
 **Uninstall**  
 ```sh
-pacman -R package_file
+pacman -R <package>
 ```
 
 **Uninstall with unused depends**  
 ```sh
-pacman -Rs package_file
+pacman -Rs <package>
 ```
 
 **System wide upgrade**  
 ```sh
 pacman -Syu
+```
+
+**Remove outdated packages from cache**  
+```sh
+paccache -rk 1
 ```
 
 **Package repo**  
