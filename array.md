@@ -2,6 +2,14 @@ Array
 ---
 
 ```sh
+# create array
+array=(a b c)
+array+=(d)
+
+# create associative array
+declare -A array=( [a]=aa [b]=bb [c]=cc )
+array[d]=dd
+
 # convert string from file to array of each line
 IFS=$'\n' read -d '' -r -a line < file # array=(line1 line2 line3 ...)
 
