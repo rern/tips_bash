@@ -35,7 +35,7 @@ string / line number / regex
 
 **multiple commands**  
 `;` : new line
-`\` : escaped new line  
+`\` : escaped new line (**includes blank lines**, optional last line) 
 ```sh
 sed '/.../ {s/.../.../; a\...\n...}' file
 # or
@@ -44,6 +44,7 @@ sed '/.../ { # comment
 s/.../.../   # comment
 a\
 ...\
+\
 ...
 }
 ' <file>
@@ -53,8 +54,8 @@ a\
 (first matched line only)  
 \* `<x>` : `i`, `a`, `d`, `p`, `r`  
 \* `<n>` : number    
-`/.../` : normal delimiter  
-`\|...|`, `\#...#` : other than `/` must be escaped  
+`/.../` : default delimiter  
+`\|...|`, `\#...#` : delimiters can be any (but in range search, none default `/` must be escaped)  
   
 `-n '/.../p'` : **p**rint line string by matched  
 `'<n>q;d'` : get line string by line number  
