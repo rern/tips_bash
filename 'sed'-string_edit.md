@@ -72,8 +72,8 @@ a\
 `'/^a.*b$/ <x>'`   : start with `a` and end with `b`  
 `'/^\s*$/ <x>'`    : blank lines  
 
-`/<1st>/, /<last>/ <x>` : line matched range  
-`'0,/<last>/ <x>'`      : `0` 1st line to matched range  
+`/<1st>/, /<last>/ <x>` : matched line range  
+`'0,/<last>/ <x>'`      : `0` to 1st matched line range (for limit only 1st occurrence)  
 `/.../, +<n> <x>`       : line range from matched to next \<n\> line  
 `/a...\|b...\|c.../ <x>`: line matched or `\|` (between `/` only)  
 `q` : print 1st line (then **q**uit)  
