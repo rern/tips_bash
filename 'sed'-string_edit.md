@@ -25,7 +25,7 @@ string / line number / regex
 `'/.../ i\ ...'`  : `i` **i**nsert before line matched (`\` needed for escaped every new line)  
 `'/.../ a\ ...'`  : `a` **a**ppend after line matched (`\` needed for escaped every new line)  
 `'/.../ r <file>` : `r` **r**ead file to append after line matched  
-`'/.../ d`        : `d` **d**elete line matched 
+`'/.../ d`        : `d` **d**elete line matched  
 `-n '/.../ p`     : `p` **p**rint line matched  
 `'s/.../.../'`    : substitute 1st matched (delimiter can be any symbol or character)  
 
@@ -73,18 +73,19 @@ a\
 `'/^\s*$/ <x>'`    : blank lines  
 
 `/<1st>/, /<last>/ <x>` : line matched range  
-`'0,/<last>/ <x>'`      : `0` 1st line to matched range
+`'0,/<last>/ <x>'`      : `0` 1st line to matched range  
 `/.../, +<n> <x>`       : line range from matched to next \<n\> line  
+`/a...\|b...\|c.../ <x>`: line matched or `\|` (between `/` only)  
 `q` : print 1st line (then **q**uit)  
 `<n>q` : print 1st to \<n\>th line  
   
-`'/.../{N; <x>}'`   : line matched includes **N**ext line (for `i`, `a`) 
+`'/.../{N; <x>}'`   : line matched includes **N**ext line (for `i`, `a`)  
 `'/.../{n; <x>}'`   : line **n**ext to matched  
 `'/.../{n;n; <x>}'` : 2nd line **n**ext to matched  
 `$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : \<n\> line prior to matched  
 
-`sed -i -e :a -e '/^\n*$/{$d;N;};/\n$/ba'` : remove all trailing new lines
-`sed -i -e '$a\'` : add a trailing new line if not exist
+`sed -i -e :a -e '/^\n*$/{$d;N;};/\n$/ba'` : remove all trailing new lines  
+`sed -i -e '$a\'` : add a trailing new line if not exist  
 
 **string operations**  
 `/.../`   : word  
@@ -97,13 +98,13 @@ alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/mas
 `'s/a.../b.../'`      : `s` **s**ubstitute 1st matched `a...` with `b...`  
 `'s/a.../b.../<n>'`   : substitute \<n\>th matched   
 `'s/a.../b.../g'`     : `g` **g**lobal - substitute all **in that line**  
-`'0,/a.../ s/a.../b.../'` : substitute only first matched (range line 1 to matched)
+`'0,/a.../ s/a.../b.../'` : substitute only first matched (range line 1 to matched)  
 `'s/a.../b.../i'`     : `i` case **i**nsensitive   
 `'/^a.../ s/^/b.../'` : prepend `b...` to the `^` begining of line start with `a...`  
 `'/^a.../ s/$/b.../'` : append `b...` to the `$` end of line start with `a...`  
   
 `'s/a.../&b.../'`     : reuse input as `&` = `a...b...`  
-`'s/a.../b...&/'`     : `b...a...` 
+`'s/a.../b...&/'`     : `b...a...`  
 `'s|--\(aaa\)--\(bbb)--|==\1\2==|'` : reuse input parts `\(...\)` as `\n`, `--aaa--bbb--` to `==aaabbb==`  
 
 **wildcards**  
