@@ -98,12 +98,13 @@ alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/mas
 `'s/a.../b.../<n>'`   : substitute \<n\>th matched   
 `'s/a.../b.../g'`     : `g` **g**lobal - substitute all **in that line**  
 `'0,/a.../ s/a.../b.../'` : substitute only first matched (range line 1 to matched)
-`'s/a.../b.../i'`     : `i` case **i**nsensitive  
-`'s/a.../&b.../'`     : append `b...` to `&` `a...`  
-`'s/a.../b...&/'`     : prepend `b...` to `&` `a...`  
+`'s/a.../b.../i'`     : `i` case **i**nsensitive   
 `'/^a.../ s/^/b.../'` : prepend `b...` to the `^` begining of line start with `a...`  
 `'/^a.../ s/$/b.../'` : append `b...` to the `$` end of line start with `a...`  
-`'s|--\(aaa\)--\(bbb)--|==\1\2==|'` : reuse input `\(...\)` as `\n`, `--aaa--bbb--` to `==aaabbb==`  
+  
+`'s/a.../&b.../'`     : reuse input as `&` = `a...b...`  
+`'s/a.../b...&/'`     : `b...a...` 
+`'s|--\(aaa\)--\(bbb)--|==\1\2==|'` : reuse input parts `\(...\)` as `\n`, `--aaa--bbb--` to `==aaabbb==`  
 
 **wildcards**  
 `.`  : single character or space wildcard  
