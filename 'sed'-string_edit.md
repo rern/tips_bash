@@ -1,5 +1,10 @@
 sed
 ---
+Default:
+- Search line: Process all lines - limit by range `/a.../,/b.../ <x>`
+- Search string: Process all lines but only 1st matched of each line - global match by `s/a.../b.../g`
+- Search 1st matched string only: `0,/.../ s/a.../b.../`
+
 **regex reserved characters**  
 `. ^ $ * + ? ( ) [ { \ |` - use literally must be escaped  
   
