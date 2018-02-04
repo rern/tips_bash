@@ -10,6 +10,7 @@ complete [**commands**](https://redis.io/commands)
 `keys *` : list all keys  
 `type key` : get type of key  
 
+`var=$( redis-cli get key )` - already null stdout ( if `&> /dev/null` > $var == `null` )
 **string**  
 `set key value` : set value of key  
 `get key` : get value of key  
