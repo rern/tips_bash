@@ -49,3 +49,16 @@ mv /var/lib/redis/dump.rdb{,.backup}
 cp /destination/dump.rdb /var/lib/redis
 systemctl start redis
 ```
+
+**copy hash**
+```sh
+defaultIFS=$IFS                        # save default IFS
+IFS=$'\n'                              # set IFS
+hash0=( $( redis-cli hgetall hash0 ) ) # get hash > split to array by IFS'\n'
+IFS=$defaultIFS                        # restore IFS
+
+ilength=${#hash0[@]}
+for (( i = 0; i < $ilength; i+=2 )); do                  # loop hset
+    redis-cli hset hash1 "${acards[i]}" "${acards[i+1]}" 
+done
+```
