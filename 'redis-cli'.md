@@ -27,6 +27,7 @@ complete [**commands**](https://redis.io/commands)
 `mget key` : get value of key  
 
 **list**  
+`keys "*"` : list all keys
 `lpush key value value1` : insert values to the left of key  
 `rpush key value value1` : insert values to right of key  
 `lindex key index` : get value at index of key  
@@ -36,6 +37,7 @@ complete [**commands**](https://redis.io/commands)
 
 **delete**  
 `del key` : delete key (all types)  
+`redis-cli --scan --pattern 'abc*' | xargs redis-cli del` : delete by wildcard
 
 **backup / restore**
 ```sh
