@@ -53,7 +53,7 @@ cp /destination/dump.rdb /var/lib/redis
 systemctl start redis
 ```
 
-**copy hash**
+**copy hash**  
 bash: `hgetall` > array > for loop
 ```sh
 defaultIFS=$IFS                        # save default IFS
