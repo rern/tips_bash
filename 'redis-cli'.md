@@ -54,7 +54,7 @@ systemctl start redis
 ```
 
 **copy hash**
-bash: `hgetall` > array > loop `hset` (cannot `hmset` directly)
+bash: `hgetall` > array > for loop
 ```sh
 defaultIFS=$IFS                        # save default IFS
 IFS=$'\n'                              # set IFS
@@ -66,12 +66,14 @@ for (( i = 0; i < $ilength; i+=2 )); do                  # loop hset
     redis-cli hset hash1 "${acards[i]}" "${acards[i+1]}" 
 done
 ```
-PHP: `hgetall` > `hMset`
+PHP: `hgetall` > $array > foreach loop 
 ```php
 $redis = new Redis(); 
 $redis->pconnect( '127.0.0.1' );
 
 $hash0 = $redis->hGetAll( 'hash0' );
-$redis->hMset( 'hash1', $hash0 );
+foreach ( $hash0 as $key => $value ) {
+	$redis->hSet( 'hash1', $key, $value );
+}
 ```
 
