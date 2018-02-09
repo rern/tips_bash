@@ -66,7 +66,7 @@ for (( i = 0; i < $ilength; i+=2 )); do                  # loop hset
     redis-cli hset hash1 "${acards[i]}" "${acards[i+1]}" 
 done
 ```
-PHP: `hgetall` > $array > foreach loop 
+PHP: `hgetall` > foreach loop 
 ```php
 $redis = new Redis(); 
 $redis->pconnect( '127.0.0.1' );
