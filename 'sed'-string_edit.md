@@ -141,3 +141,19 @@ alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/mas
 `\n` : new line  
 `\r` : return  
 `$'...\t...\n\r'` : `$` escapes `\t` `\n` `\r` to  `t` `n` `r`    
+
+**heredoc**  
+```sh
+# single quote leading 'EOF' = no $ expansion
+var=$(cat << 'EOF'
+any characters or symbols without escaping
+$^.*'"/\{([])}|&^%
+except ^ as 1st character
+    preserve spaces but tab
+EOF
+)
+# ending EOF must has no leading space nor any other characters
+
+sed -e "s|...|$var|"
+# use `|` delimiter to avoid escape `/` in `var`
+```
