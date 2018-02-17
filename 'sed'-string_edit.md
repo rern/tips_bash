@@ -144,13 +144,15 @@ alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/mas
 
 **heredoc**  
 ```sh
-# single quote leading 'EOF' = no $ expansion
+# `'` / `"` quote leading 'EOF' = no $ expansion
 var=$(cat << 'EOF'
-any characters or symbols without escaping
-$^.*'"/\{([])}|&^%
-except ^ as 1st character
-end a line with `\` to suppress newline\
-    preserve spaces but tab
+must end each line normally in sed with `\`\
+newline with `\n` \n\
+any characters or symbols without escaping\
+$^.*'"/\{([])}|&^%\
+except ^ as 1st character\
+    preserve leading spaces\
+\t `\t` tab\
 EOF
 )
 # ending EOF must has no leading space nor any other characters
