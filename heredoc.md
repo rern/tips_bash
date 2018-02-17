@@ -19,4 +19,4 @@ EOF
 )
 echo "$var"
 ```
-- ending `EOF` must has no leading space
+- ending `EOF` must has no leading space nor any other characters
