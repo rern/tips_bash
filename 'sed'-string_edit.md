@@ -149,6 +149,7 @@ var=$(cat << 'EOF'
 any characters or symbols without escaping
 $^.*'"/\{([])}|&^%
 except ^ as 1st character
+end a line with `\` to suppress newline\
     preserve spaces but tab
 EOF
 )
