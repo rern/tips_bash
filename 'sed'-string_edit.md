@@ -153,6 +153,7 @@ $^.*'"/\{([])}|&^%\
 except ^ as 1st character\
     preserve leading spaces\
 \t `\t` tab\
+no need to end last line with `\`
 EOF
 )
 # ending EOF must has no leading space nor any other characters
