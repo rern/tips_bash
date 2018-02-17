@@ -1,8 +1,9 @@
 heredoc
 ---
 
-- append `any characters or symbols without escaping` to `$file`
-- (single quote leading `'EOF'` = no `$` expansion)
+any characters or symbols without escaping
+
+- `'` / `"` quote leading `'EOF'` = no `$` expansion
 ```sh
 cat << 'EOF' >> $file
 any characters 
