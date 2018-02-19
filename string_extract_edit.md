@@ -35,7 +35,7 @@ echo 'aaa bbb ccc' | cut -d ' ' -f 2          # bbb (< > delimiter)
 echo 'key1="aaa" key2="bbb" | cut -d '"' -f 2 # aaa (<"> delimiter)
 
 # edit
-string='123456789012345'
+string=123456789012345
 ${#string}         # 15 - length
 ${string/123/abc}  # abc456789012345 - replace '123' with 'abc'
 ${string//123/abc} # abc4567890abc45 - replace all '123' with 'abc'
@@ -48,7 +48,7 @@ ${string%2*5}      # 12345678901 - delete match '1 to 5' from right
 ${string%%2*5}     # 1 - delete longest match '3 to 5' from right
 
 # non-greedy replace  
-perl -pe 's/2(.*?)5/a\1b/' # 1a34b6789012345 - (.*?) : (...)=\1; .=any character *=zero or more; `=shortest  
+echo 123456789012345 | perl -pe 's/2(.*?)5/a\1b/' # 1a34b6789012345 - `?`=shortest  
 
 # squeeze multiple character/spaces to single in string / file
 echo 'a b  c  d' | tr -s ' ' # a b c d
