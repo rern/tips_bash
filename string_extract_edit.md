@@ -41,10 +41,11 @@ ${string/123/abc}  # abc456789012345 - replace '123' with 'abc'
 ${string//123/abc} # abc4567890abc45 - replace all '123' with 'abc'
 ${string/123}      # 456789012345 - delete '123'
 ${string//123}     # 456789045 - delete all '123'
-${string#3*5}      # 12678901234567890 - delete shortest match '3 to 5'
-${string##3*5}     # 1267890 - delete longest match '3 to 5'
-${string%3*5}      # 12345678901267890 - delete shortest match '3 to 5' from end
-${string%%3*5}     # 1267890 - delete longest match '3 to 5' from end
+${string/3*5}      # 12 - delete match '3 to 5'
+${string#1*4}      # 56789012345 - delete match '1 to 5' from front
+${string##1*4}     # 5 - delete longest match '1 to 5' from front
+${string%2*5}      # 12345678901 - delete match '1 to 5' from end
+${string%%2*5}     # 1 - delete longest match '3 to 5' from end
 
 # non-greedy replace  
 perl -pe 's/2(.*?)5/a\1b/' # 1a34b6789012345 - (.*?) : (...)=\1; .=any character *=zero or more; `=shortest  
