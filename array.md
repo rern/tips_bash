@@ -1,6 +1,6 @@
 Array
 ---
-
+_space not valid in array syntax_
 ```sh
 # create array
 array=(a b c)
