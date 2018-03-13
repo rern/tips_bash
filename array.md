@@ -57,4 +57,8 @@ array2=("${array[@]}") # array2=(a d)
 # delete all values in array
 array=()    # empty array
 unset array # delete array variable
+
+# sort
+IFS=$'\n' sorted=( $( echo "${array[*]}" | sort ) )
+unset IFS
 ```
