@@ -22,7 +22,7 @@ IFS0=$IFS
 IFS=$( echo -en "\n\b" )
 if [[ $ext == DSF ]]; then
 	hexword=$( hexdump -x -s56 -n4 $file )
-	# strin=0000040 <5758> <5960> 000003c
+	# string=0000040 <5758> <5960> 000003c
 	IFS=$IFS0
 	hex=( $( echo $hexword | cut -d' ' -f2,3 ) )
 	# bitrate byte order: #59#60#57#58
