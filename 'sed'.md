@@ -112,6 +112,7 @@ alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/mas
 `'s/a.../&b.../'`     : reuse input as `&` = `a...b...`  
 `'s/a.../b...&/'`     : `b...a...`  
 `'s|--\(aaa\)--\(bbb)--|==\1\2==|'` : reuse input parts `\(...\)` as `\n`, `--aaa--bbb--` to `==aaabbb==`  
+`'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ/aaaaeeeeiiiioooouuuuüüüüAAAAEEEEIIIIOOOOUUUUÜÜÜÜ/'` : replace each character respectively
 
 **wildcards**  
 `.`  : single character or space wildcard  
