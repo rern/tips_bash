@@ -73,7 +73,7 @@ $redis->pconnect( '127.0.0.1' );
 
 $hash0 = $redis->hGetAll( 'hash0' );
 foreach ( $hash0 as $key => $value ) {
-	$redis->hSet( 'hash1', $key, $value );
+    $redis->hSet( 'hash1', $key, $value );
 }
 ```
 
@@ -83,7 +83,7 @@ keyvalue=$( redis-cli hgetall hash )
 readarray -t array <<<"$keyvalue"
 ilength=${#array[*]}
 for (( i=0; i < ilength; i+=2 )); do
-	redis-cli hset newhash "${array[i+1]}" "${array[i]}" &> /dev/null
+    redis-cli hset newhash "${array[i+1]}" "${array[i]}" &> /dev/null
 done
 ```
 
