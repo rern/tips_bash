@@ -53,17 +53,22 @@ cp /destination/dump.rdb /var/lib/redis
 systemctl start redis
 ```
 
-**copy hash**  
+**copy / convert key:value hash**  
 bash: `hgetall` > array > for loop
 ```sh
-defaultIFS=$IFS                        # save default IFS
-IFS=$'\n'                              # set IFS
-hash0=( $( redis-cli hgetall hash0 ) ) # get hash > split to array by IFS'\n'
-IFS=$defaultIFS                        # restore IFS
+keyvalue=$( redis-cli hgetall hash0 )
+readarray -t array <<<"$keyvalue"
 
-ilength=${#hash0[@]}
-for (( i = 0; i < $ilength; i+=2 )); do                  # loop hset
-    redis-cli hset hash1 "${acards[i]}" "${acards[i+1]}" 
+ilength=${#array[@]}
+
+# copy
+for (( i = 0; i < $ilength; i+=2 )); do
+    redis-cli hset hash1 "${array[i]}" "${array[i+1]}" 
+done
+
+# convert key:value to value:key
+for (( i = 0; i < $ilength; i+=2 )); do
+    redis-cli hset hash1 "${array[i+1]}" "${array[i]}" 
 done
 ```
 PHP: `hgetall` > foreach loop 
@@ -76,14 +81,3 @@ foreach ( $hash0 as $key => $value ) {
     $redis->hSet( 'hash1', $key, $value );
 }
 ```
-
-**convert key:value to value:key**
-```sh
-keyvalue=$( redis-cli hgetall hash )
-readarray -t array <<<"$keyvalue"
-ilength=${#array[*]}
-for (( i=0; i < ilength; i+=2 )); do
-    redis-cli hset newhash "${array[i+1]}" "${array[i]}" &> /dev/null
-done
-```
-
