@@ -77,3 +77,13 @@ foreach ( $hash0 as $key => $value ) {
 }
 ```
 
+**convert key:value to value:key**
+```sh
+keyvalue=$( redis-cli hgetall hash )
+readarray -t array <<<"$keyvalue"
+ilength=${#array[*]}
+for (( i=0; i < ilength; i+=2 )); do
+	redis-cli hset newhash "${array[i+1]}" "${array[i]}" &> /dev/null
+done
+```
+
