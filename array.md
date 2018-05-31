@@ -10,8 +10,8 @@ array+=(d)
 declare -A array=( [a]=aa [b]=bb [c]=cc )
 array[d]=dd
 
-# convert string from file to array of each line
-IFS=$'\n' read -d '' -r -a line < file # array=(line1 line2 line3 ...)
+# convert lines of string to array of each line
+readarray -t array <<<"$string" < file # array=(line1 line2 line3 ...)
 
 # convert 'string' to 'array' of individual character
 string='abc'
