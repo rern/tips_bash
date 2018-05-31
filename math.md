@@ -11,8 +11,8 @@ $(( n1 % n2 ))    # modulus
 $(( n1 ** n2 ))   # exponential
 
 x=n
-$(( x++ ))        # x=$(( n + 1 )) - increment
-$(( x-- ))        # x=$(( n - 1 )) - decrement
+(( x++ ))         # x=$(( n + 1 )) - increment
+(( x-- ))         # x=$(( n - 1 )) - decrement
 let 'x += N'      # x=$(( n + N ))
 let 'x -= N'      # x=$(( n - N ))
 let 'x *= N'      # x=$(( n * N ))
