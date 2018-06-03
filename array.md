@@ -10,17 +10,11 @@ array+=(d)
 declare -A array=( [a]=aa [b]=bb [c]=cc )
 array[d]=dd
 
-# convert 'lines' to 'array' of each line
-array=( "$string" ) # array=( line1 line2 line3 ... )
+# convert 'string' to 'array' by 'space'
+array=( $string ) # array=( line1 line2 line3 ... )
 
 # convert 'lines' from file to 'array' of each line
 readarray -t array <<<"$string" < file # array=( line1 line2 line3 ... )
-
-# convert 'string' to 'array' of each character
-string='abc'
-for (( i=0; i < ${#string}; i++ )); do
-    array[i]=${string:i:1}
-done   # array=(a b c)
 
 # split 'string' to 'array' by a delimiter
 string='abc|def|ghi|jk lm'
