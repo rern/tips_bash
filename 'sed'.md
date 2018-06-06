@@ -95,12 +95,17 @@ a\
 `sed -i -e '$a\'`                               : add a trailing new line if not exist  
 
 **string operations**  
+alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/master/string_extract_edit.md)  
+
 `/.../`   : word  
 `/[...]/` : character  
 `s/.../.../`,  `s|...|...|`,`s#...#...#` : delimiter (no escape needed)  
 all lines - first matched string of each line unless with `g`  
-non-greedy match : use `perl`
-alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/master/string_extract_edit.md)  
+
+**non-greedy**  
+`echo fa fa-list 2x red hide | sed 's/.* \(fa-[^ ]*\).*/\1/'` : fa-list   
+or `perl`  
+`echo 123456789012345 | perl -pe 's/2(.*?)5/a\1b/'` : 1a34b6789012345 - `?`=shortest  
   
 `'s/a.../b.../'`      : `s` **s**ubstitute 1st matched `a...` with `b...`  
 `'s/a.../b.../<n>'`   : substitute \<n\>th matched   
