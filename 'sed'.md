@@ -104,7 +104,7 @@ all lines - first matched string of each line unless with `g`
 
 **non-greedy**  
 `echo fa fa-list 2x red hide | sed 's/.* \(fa-[^ ]*\).*/\1/'` : fa-list   
-`cat /path/file | grep 'fa-' | sed 's/.* \(fa-[a-z][^ '"'"'"]*\).*/\1/'` : get only `fa-xxx`  
+`cat /path/file | grep 'fa-' | sed 's/.* \(fa-[a-z][^ '"'"'"]*\).*/\1/' | sort -u` : list of `fa-xxx` sorted and `-u` no duplicates  
 or `perl`  
 `echo 123456789012345 | perl -pe 's/2(.*?)5/a\1b/'` : 1a34b6789012345 - `?`=shortest  
   
