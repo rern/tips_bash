@@ -155,17 +155,22 @@ or `perl`
 ```sh
 # `'` / `"` quote leading 'EOF' = no $ expansion
 var=$(cat << 'EOF'
-must end each line normally in sed with `\`\
-newline with `\n` \n\
-any characters or symbols without escaping\
-$^.*'"/\{([])}|&^%\
-except ^ as 1st character\
-    preserve leading spaces\
-\t `\t` tab\
-no need to end last line with `\`
+heredoc:\n\
+\\n = new line\n\
+end each line with \\\n
+end each newline with \\n\n\
+\\t = tab\n\
+\t tab\n\
+    leading spaces\n\
+all space characters will survive\n\
+use any characters or symbols without escaping\n\
+@#&*()'"%-+=/;:!?_^[]{}\|~\\<>\n\
+except ^ as 1st character of each line\n\
+delimiter used for sed must be escaped\n\
+closing heredoc line must contains NO other characters\n\
+DON'T end last line with \\ backslash
 EOF
 )
-# ending EOF must has no leading space nor any other characters
 
 sed -e "s|...|$var|"
 # use `|` delimiter to avoid escape `/` in `var`
