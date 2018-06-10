@@ -2,7 +2,9 @@ variable, argument
 ---
 
 `$var` : simplified `${var}`  
-`var=` `var=''` : empty variable
+`var=` `var=''`       : empty variable  
+- `[[ -z $var ]]`     = true
+- `[[ -z ${var+x} ]]` = false (true if var was not set)  
 
 `command a b c d e`  
 
