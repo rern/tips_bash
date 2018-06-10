@@ -1,24 +1,15 @@
 heredoc
 ---
 
-any characters or symbols without escaping
+any characters or symbols without escape
 
-- `'` / `"` quote leading `'EOF'` = no `$` expansion
+- `'` quote for starting `'EOF'` = no `$` expansion inside
 ```sh
-cat << 'EOF' >> $file
-any characters 
-or symbols 
-without escaping
-EOF
-
-var=$(cat << 'EOF'
+var=$(cat <<'EOF'
 any characters or symbols without escaping
-$^.*'"/\{([])}|&^%
-except ^ as 1st character
-end a line with `\` to suppress newline\
-    preserve spaces but tab
+@#$&*()'"%-+=/;:!?€£¥_^[]{}§|~\\<>
+ending `EOF` must has neither space nor any other characters
 EOF
 )
 echo "$var"
 ```
-- ending `EOF` must has no leading space nor any other characters
