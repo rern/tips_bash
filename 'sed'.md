@@ -134,7 +134,7 @@ or `perl`
 `'/[^ ]*/'`          : `*` zero or more characters that `^` are not space  
 `'/^[...]/'`         : start with any character in `[ ]`  
 `'/[...]$/'`         : end with any character in `[ ]`  
-`'/a...\|b.../ <x>'` : string `a...` or `b...` (`\` needed for escaped `|`)  
+`'/a...\|b.../ <x>'` : string `a...` or `b...` (`\` needed for escaped `|` and cannot use `|` as delimiter)  
 
 **mixed regex**  
 `'/[...]\|.../'` : any characters in `[...]` or pattern `...` (`\` needed for escaped `|`)  
