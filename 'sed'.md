@@ -5,7 +5,7 @@ Default:
 - Search string: Process all lines but only 1st matched of each line - global match by `s/a.../b.../g`
 - Search 1st matched string only: `0,/.../ s/a.../b.../`
 
-**regex reserved characters**  
+**escaped characters**  
 `'s/[]\/$*.^[]/\\&/g'` - escape in pattern: `] \ / $ * . ^ [`  
 `'s/[\/&]/\\&/g'` - escape in replace: `\ / &`  
 `'s/[\"]/\\&/g'` - escape in insert/append: `\ '` or `\ "`  
