@@ -6,7 +6,9 @@ Default:
 - Search 1st matched string only: `0,/.../ s/a.../b.../`
 
 **regex reserved characters**  
-`. ^ $ * + ? ( ) [ { \ |` - use literally must be escaped  
+`'s/[]\/$*.^[]/\\&/g'` - escape in pattern: `] \ / $ * . ^ [`  
+`'s/[\/&]/\\&/g'` - escape in replace: `\ / &`  
+`'s/[\"]/\\&/g'` - escape in insert/append: `\ '` or `\ "`  
   
   
 **variables / quotes**  
