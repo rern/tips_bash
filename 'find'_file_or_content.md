@@ -9,12 +9,14 @@ find /path -name 'filename*' -exec command
 **Find content in files**
 ```sh
 # show file:content
-egrep -ir "content" /path
-egrep -ir --include=*.{ext,ext1} "content" /path
+grep -rnw '/path' -e 'pattern'
+# or
+egrep -ir 'pattern' /path
+egrep -ir --include=*.{ext,ext1} 'pattern' /path
 
 # 'l' - list of files
-egrep -irl "content" /path
-egrep -irl --include=*.{ext,ext1} "content" /path
+egrep -irl 'pattern' /path
+egrep -irl --include=*.{ext,ext1} 'pattern' /path
 ```
 
 **Find latest modified**
