@@ -9,7 +9,12 @@ find /path -name 'filename*' -exec command
 **Find content in files**
 ```sh
 # show file:content
-grep -rnw '/path' -e 'pattern'
+grep -rn 'pattern' /path
+#    -r recursive
+#    -n show line number
+#    -l show filename instead
+#    -i case insensitive
+
 # or
 egrep -ir 'pattern' /path
 egrep -ir --include=*.{ext,ext1} 'pattern' /path
