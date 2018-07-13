@@ -9,7 +9,7 @@ find /path -name 'filename*' -exec command
 **Find content in files**
 ```sh
 # show file:content
-grep -rn 'pattern' /path
+grep -rni 'pattern' /path
 #    -r recursive
 #    -n show line number
 #    -l show filename instead
