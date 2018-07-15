@@ -60,7 +60,7 @@ pacman -Syu
 
 **Remove outdated packages from cache**  
 ```sh
-paccache -rk 1
+pacman -Sc
 ```
 
 **Package repo**  
