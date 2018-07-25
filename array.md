@@ -14,7 +14,7 @@ array[d]=dd
 readarray -t array <<<"$lines"
 
 # convert 'lines of string' to 'array' delimiter: space
-array=( $( echo $string ) ) # array=( line1 line2 line3 ... )
+array=( $string ) # array=( line1 line2 line3 ... )
 
 # convert 'stdout' to 'array' by 'line'
 array=( $( command ) ) # array=( line1 line2 line3 ... )
