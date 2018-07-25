@@ -10,8 +10,11 @@ array+=(d)
 declare -A array=( [a]=aa [b]=bb [c]=cc )
 array[d]=dd
 
-# convert 'lines of string' to 'array' by 'line'
-array=( echo $string ) # array=( line1 line2 line3 ... )
+# convert 'lines of string' to 'array' delimiter: newline
+readarray -t array <<<"$lines"
+
+# convert 'lines of string' to 'array' delimiter: space
+array=( $( echo $string ) ) # array=( line1 line2 line3 ... )
 
 # convert 'stdout' to 'array' by 'line'
 array=( $( command ) ) # array=( line1 line2 line3 ... )
