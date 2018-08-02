@@ -4,6 +4,8 @@ _space not valid in array syntax_
 ```sh
 # create array
 array=(a b c)
+
+# add element to array
 array+=(d)
 
 # create associative array
