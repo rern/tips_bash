@@ -5,6 +5,9 @@ _space not valid in array syntax_
 # create array
 array=(a b c)
 
+# count element
+count=${#array[@]}
+
 # add element to array
 array+=(d)
 
