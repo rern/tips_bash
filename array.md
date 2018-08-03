@@ -34,8 +34,8 @@ echo "abcdefghijklmn" | sed 's/.\{4\}/&|/g'  # abcd|efgh|ijkl|mn
 
 # extract
 array=(a b c)
-all=${array[*]}     # 'a b c'
-all=${array[@]}     # a b c
+all=${array[*]}     # 'a b c' (single word)
+all=${array[@]}     # a b c   (individual words)
 length=${#array[*]} # 3
 value0=$array       # a
 value0=${array[0]}  # a
