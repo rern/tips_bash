@@ -1,14 +1,13 @@
 Array
 ---
-_space not valid in array syntax_
 ```sh
-# create array
+# new array
 array=(a b c)
 
 # count element
 count=${#array[@]}
 
-# add element to array
+# append array (no need to define array prior to append)
 array+=(d)
 
 # create associative array
@@ -24,12 +23,9 @@ array=( $string ) # array=( line1 line2 line3 ... )
 # convert 'stdout' to 'array' by 'line'
 array=( $( command ) ) # array=( line1 line2 line3 ... )
 
-# convert 'lines' from file to 'array' of each line
-readarray -t array <<<"$string" < file # array=( line1 line2 line3 ... )
-
 # split 'string' to 'array' by a delimiter
 string='abc|def|ghi|jk lm'
-IFS='|' read -ra array <<< "$string"   # array=(abc def ghi 'jk lm')
+IFS='|' read -ra array <<<"$string"   # array=(abc def ghi 'jk lm')
 # or (spaces in string will make split too)
 array=(${string//|/ })   # array=(abc def ghi jk lm)
 
