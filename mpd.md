@@ -9,9 +9,11 @@ telnet localhost 6600
 list title base USB/hdd/Music/A
 ```
 
-**mpc command**
+**BASH mpc command**
 ```sh
-list title base USB/hdd/Music/A
+mpc list title base USB/hdd/Music/A
+
+count=$( mpc list title base USB/hdd/Music/A | wc -l )
 ```
 ```sh
 # list  - get
@@ -21,4 +23,11 @@ list title base USB/hdd/Music/A
 #
 # type   : artist, album, title, track, name, genre, date, composer, performer, comment, disc, filename, or any
 # filter : TAG, file, base, modifid-since, AudioFormat
+```
+
+**BASH echo**
+```sh
+{ sleep 0.01; echo list title base USB/hdd/Music/A; sleep 0.1; } | telnet localhost 6600
+
+count=$( { sleep 0.01; echo list title base USB/hdd/Music/A; sleep 0.1; } | telnet localhost 6600 | wc -l )
 ```
