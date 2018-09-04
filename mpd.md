@@ -1,6 +1,9 @@
 **BASH - MPD protocol command**
 ```sh
 { sleep 0.01; echo <command1>;[ echo <command2>;] sleep 0.01; } | telnet localhost 6600
+
+# directory with spaces must be double quoted + echo must be single quoted
+{ sleep 0.01; echo 'list title base "path name/directory name"'; sleep 0.1; } | telnet localhost 6600
 ```
 
 `list [type] [filter] [argument]`
