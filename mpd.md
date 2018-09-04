@@ -20,7 +20,7 @@ list title base USB/hdd/Music/A
 ```sh
 mpc list title base USB/hdd/Music/A
 
-count=$( mpc list title base USB/hdd/Music/A | wc -l )
+count=$( mpc list title base USB/hdd/Music/A | grep -c '^Title:' )
 ```
 ```sh
 # list  - get
