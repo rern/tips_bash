@@ -1,3 +1,7 @@
+**BASH - MPD protocol command**
+```sh
+{ sleep 0.01; echo <command1>;[ echo <command2>;] sleep 0.01; } | telnet localhost 6600
+```
 
 `list [type] [filter] [argument]`
 
@@ -27,7 +31,7 @@ count=$( mpc list title base USB/hdd/Music/A | wc -l )
 
 **BASH echo**
 ```sh
-{ sleep 0.01; echo list title base USB/hdd/Music/A; sleep 0.1; } | telnet localhost 6600
+{ sleep 0.01; echo list title base USB/hdd/Music/A; sleep 0.01; } | telnet localhost 6600
 
-count=$( { sleep 0.01; echo list title base USB/hdd/Music/A; sleep 0.1; } | telnet localhost 6600 | wc -l )
+count=$( { sleep 0.01; echo list title base USB/hdd/Music/A; sleep 0.01; } | telnet localhost 6600 | wc -l )
 ```
