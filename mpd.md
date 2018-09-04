@@ -36,5 +36,5 @@ count=$( mpc list title base USB/hdd/Music/A | wc -l )
 ```sh
 { sleep 0.01; echo list title base USB/hdd/Music/A; sleep 0.01; } | telnet localhost 6600
 
-count=$( { sleep 0.01; echo list title base USB/hdd/Music/A; sleep 0.01; } | telnet localhost 6600 | wc -l )
+count=$( { sleep 0.01; echo list title base USB/hdd/Music/A; sleep 0.01; } | telnet localhost 6600 | grep -c '^Title:' )
 ```
