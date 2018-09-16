@@ -1,6 +1,6 @@
 **MPD event monitor**  
 `mpc idle`  
-
+`mpc idleloop`  
 Output:
 - **database** - the song database has been modified after update.
 - **update** - a database update has started or finished. If the database was modified during the update, the database event is also emitted.
@@ -16,9 +16,7 @@ Output:
 - **message** - a message was received on a channel this client is subscribed to; this event is only emitted when the queue is empty
 ```sh
 # monitor with broadcast "event" to "idle" pushstream channel
-while true; do
-curl -s -X POST "http://localhost/pub?id=idle" -d \"$( mpc idle )\"
-done &
+curl -s -X POST "http://localhost/pub?id=idle" -d \"$( mpc idleloop )\" &
 ```
 
 **BASH - MPD protocol command**
