@@ -1,3 +1,13 @@
+**MPD event monitor**
+```sh
+mpc idle
+
+# monitor with broadcast "event" to "idle" pushstream channel
+while true; do
+curl -s -X POST "http://localhost/pub?id=idle" -d \"$( mpc idle )\"
+done &
+```
+
 **BASH - MPD protocol command**
 ```sh
 { sleep 0.01; echo <command1>;[ echo <command2>;] sleep 0.01; } | telnet localhost 6600
