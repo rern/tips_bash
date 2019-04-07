@@ -60,7 +60,9 @@ a\
 ``` 
 
 **swap lines** - use `ed`  
-`printf '%s\n' 'NmN' 'wq' | ed <file>`  
+`printf '%s\n' 'NmN' 'wq' | ed <file>` : `NmN` from line #N to after line #N (N start at 1)  
+`printf '%s\n' '1m3' 'wq' | ed <file>` : move line #1 to after line #3    
+`printf '%s\n' '5m0' 'wq' | ed <file>` : move line #5 to after line #0 / top  
   
 **line operations** (all matched)  
 (first matched line only)  
