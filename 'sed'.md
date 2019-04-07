@@ -59,6 +59,9 @@ a\
 ' <file>
 ``` 
 
+**swap lines** - use `ed`  
+`printf '%s\n' 'NmN' 'wq' | ed <file>`  
+  
 **line operations** (all matched)  
 (first matched line only)  
 \* `<x>`           : `i`, `a`, `d`, `p`, `r`  
