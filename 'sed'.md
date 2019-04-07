@@ -60,7 +60,7 @@ a\
 ``` 
 
 **swap lines** - use `ex` ( line-editor mode of **vi** )   
-`printf '%s\n' 'NmN' 'wq' | ex <file>` : `NmN` from line #N to after line #N (N start at 1)  
+`printf '%s\n' 'NmN' 'wq' | ex -s <file>` : `NmN` from line #N to after line #N (N start at 1); `-s` silent  
 `printf '%s\n' '1m3' 'wq' | ex <file>` : move line #1 to after line #3    
 `printf '%s\n' '5m0' 'wq' | ex <file>` : move line #5 to after line #0 / top  
   
