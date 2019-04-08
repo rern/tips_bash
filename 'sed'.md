@@ -46,7 +46,7 @@ string / line number / regex
 `\` : escaped new line (**includes blank lines**, optional last line) 
 ```sh
 sed 's/.../.../; s/.../.../' file         # optional {...}
-sed '/.../ { # comment
+sed '/.../ { # comment                    # required {...}
 # comment
 s/.../.../   # comment
 a\
