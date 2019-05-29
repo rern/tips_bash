@@ -9,6 +9,14 @@ top "${pids[@]/#/-p }"
 
 **Toggles**  
 ```sh
+t - toggle CPU load meter style
+1 - toggle split CPU load meter
+0 - hide 0.0 value
+R - sort
+c - toggle command name/line
+W - save
+L - find
+
 h or ? - help
 W - write(save setting)
 q - quit
