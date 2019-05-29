@@ -14,6 +14,7 @@ t - toggle CPU load meter style
 0 - hide 0.0 value
 R - sort
 c - toggle command name/line
+z - toggle color
 W - save
 L - find
 
