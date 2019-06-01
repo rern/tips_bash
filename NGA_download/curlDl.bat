@@ -1,3 +1,5 @@
+:: curlDL.sh should be used instead (Run with Cygwin on Windows)
+
 :: Usage: curlDl.bat "NAME" COUNT TOPRIGHT "URL"
 
 :: curlDl.bat "The Houses of Parliament, Sunset" 3952 66 "https://media.nga.gov/fastcgi/iipsrv.fcgi?FIF=/public/objects/4/6/5/2/3/46523-primary-0-nativeres.ptif&SDS=0,90&JTL=8,"
