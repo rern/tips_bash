@@ -28,7 +28,7 @@ fi
 
 mkname "$name"
 cd "$name"
-echo -e "\nDownload images ...\n"
+echo -e "\nDownload image blocks ...\n"
 echo -e "URL: $url\n"
 
 for i in $( seq 0 $count ); do
@@ -37,7 +37,7 @@ for i in $( seq 0 $count ); do
 	curl -# -o ${iname: -4} $url,$i
 done
 
-echo -e "\nMerge into a single image ...\n"
+echo -e "\nMerge blocks into single image ...\n"
 
 ext=$( file -b --mime-type 0000 | cut -d'/' -f2 )
 [[ $ext == jpeg ]] && ext=jpg
