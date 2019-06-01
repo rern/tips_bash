@@ -29,34 +29,44 @@ formatTime() {
 name="$1"
 if [[ -e "$name" ]]; then
 	echo -e "\nDirectory $name exists.\n"
-	exit
+else
+	mkdir "$name"
 fi
+cd "$name"
 
 tile=$(( $2 + 1 ))x
 url=$3
 count=${url##*,}
 url=${url%,*}
 
-mkdir "$name"
-cd "$name"
 
 echo -e "\nDownload image blocks ...\n"
 echo -e "URL: $url\n"
 
-curl -# -o 00000 $url,0
-ext=$( file -b --mime-type 0000 | cut -d'/' -f2 )
+curl -s -o 00000 $url,0
+ext=$( file -b --mime-type 00000 | cut -d'/' -f2 )
 [[ $ext == jpeg ]] && ext=jpg
-mv 00000 00000.$ext
+mv 00000{,.$ext}
+
+# skip if already downloaded
+downloaded=$( ls | tail -n1 | cut -d'.' -f1 )
+if [[ -z $downloaded ]]; then
+	istart=1
+	left=$count
+else
+	istart=$(( $(( 10#$downloaded )) + 1 ))
+	left=$(( $count - $istart ))
+fi
 
 Sstart=$( date +%s )
-for i in $( seq 1 $count ); do
+for i in $( seq $istart $count ); do
 	percent=$(( $i * 100 / $count ))
 	elapse=$(( $( date +%s ) - $Sstart ))
-	total=$( formatTime $(( $elapse * 100 / $percent )) )
+	total=$( formatTime $(( $elapse / $(( 1 + $i - $istart )) * $left )) )
 	elapse=$( formatTime $elapse )
-	echo ${percent}% - $elapse/$total - $i/$count
+	echo -e "${percent}% \e[36m$elapse/$total\e[m $i/$count"
 	iname=0000$i
-	curl -# -o ${iname: -5}.$ext $url,$i
+	curl -s -o ${iname: -5}.$ext $url,$i
 done
 
 echo -e "\nMerge blocks into single image ...\n"
