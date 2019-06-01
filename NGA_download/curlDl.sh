@@ -21,7 +21,7 @@ if [[ -e "$name" ]]; then
 	exit
 fi
 
-topright=$2
+columns=$(( $2 + 1 ))
 url=$3
 count=${url##*,}
 url=${url%,*}
@@ -45,7 +45,7 @@ ext=$( file -b --mime-type 0000 | cut -d'/' -f2 )
 for file in *; do mv $file $file.$ext; done
 montage $( ls ) \
 	-geometry +0+0 \
-	-tile $(( $topright + 1 ))'x' \
+	-tile ${columns}x \
 	../"$name.$ext"
 
 echo -e "\nImage file: $name.$ext\n"
