@@ -15,6 +15,29 @@
 # TOPRIGHT - index of top-right block (number after last `,` in url)
 # URL      - url of bottom-right block
 
+name="$1"
+mkdir -p "$name"
+cd "$name"
+
+tile=$(( $2 + 1 ))x
+url=$3
+count=${url##*,}
+url=${url%,*}
+
+# skip if already downloaded
+downloaded=$( ls | tail -n1 | cut -d'.' -f1 )
+ilast=$(( 10#$downloaded ))
+if [[ -z $downloaded ]]; then
+	istart=1
+	left=$count
+elif (( $ilast == $count )); then
+	echo -e"\e[36m$\n$name\e[m already downloaded.\n"
+	exit
+else
+	istart=$(( $ilast + 1 ))
+	left=$(( $count - $istart ))
+fi
+
 formatTime() {
 	h=00$(( $1 / 3600 ))
 	hh=${h: -2}
@@ -26,37 +49,14 @@ formatTime() {
 	echo $hh$mm:$ss
 }
 
-name="$1"
-if [[ -e "$name" ]]; then
-	echo -e "\nDirectory $name exists.\n"
-else
-	mkdir "$name"
-fi
-cd "$name"
-
-tile=$(( $2 + 1 ))x
-url=$3
-count=${url##*,}
-url=${url%,*}
-
-
-echo -e "\nDownload image blocks ...\n"
+echo -e "\n\e[36m$name\e[m\n"
+echo -e "Download image blocks ...\n"
 echo -e "URL: $url\n"
 
 curl -s -o 00000 $url,0
 ext=$( file -b --mime-type 00000 | cut -d'/' -f2 )
 [[ $ext == jpeg ]] && ext=jpg
 mv 00000{,.$ext}
-
-# skip if already downloaded
-downloaded=$( ls | tail -n1 | cut -d'.' -f1 )
-if [[ -z $downloaded ]]; then
-	istart=1
-	left=$count
-else
-	istart=$(( $(( 10#$downloaded )) + 1 ))
-	left=$(( $count - $istart ))
-fi
 
 Sstart=$( date +%s )
 for i in $( seq $istart $count ); do
