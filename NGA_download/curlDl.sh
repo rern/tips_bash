@@ -32,15 +32,16 @@ echo -e "\nDownload images ...\n"
 echo -e "URL: $url\n"
 
 for i in $( seq 0 $count ); do
+	echo $i/$count '('$(( $i * 100 / $count ))'%)'
 	iname=000$i
-	filename=${iname: -4}
-	echo $i/$count '('$(( $i * 100 / $count ))'%)' $filename
-	curl -# -o $filename $url,$i
+	curl -# -o ${iname: -4} $url,$i
 done
 
 echo -e "\nMerge into a single image ...\n"
 
 ext=$( file -b --mime-type 0000 | cut -d'/' -f2 )
+[[ $ext == jpeg ]] && ext=jpg
+for file in *; do mv $file $file.$ext; done
 montage $( ls ) \
 	-geometry +0+0 \
 	-tile $(( $topright + 1 ))'x' \
