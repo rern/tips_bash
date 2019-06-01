@@ -23,7 +23,7 @@ echo Download images ...
 echo.
 echo URL: %url%
 echo.
-SETLOCAL EnableDelayedExpansion
+setlocal EnableDelayedExpansion
 for /L %%i in (0,1,%count%) do (
 	set filename=000%%i
 	set filename=!filename:~-4!
