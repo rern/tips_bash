@@ -39,9 +39,18 @@ for i in $( seq 0 $count ); do
 	curl -# -o "$name/$i.jpg" $url$i
 done
 
-echo -e "Download directory: $name"
-
-exit
+echo -e "\nMerge images into a single one:"
+echo -e '  \e[36m1\e[m No. This system is not powerful enough'
+echo -e '  \e[36m0\e[m Yes.'
+echo
+echo -e '0 / \e[36m1\e[m ? '
+read -n 1 answer
+echo
+if [[ $answer != 1 ]]; then
+	echo -e "\nDownload directory: $name\n"
+	echo "Imagemagic 7: magick montage *.* -geometry +0+0 -tile $(( $topright + 1 ))'x' "../$name.jpg"
+	exit
+fi
 
 cd "$name"
 
