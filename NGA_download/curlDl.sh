@@ -15,6 +15,17 @@
 # TOPRIGHT - index of top-right block (number after last `,` in url)
 # URL      - url of bottom-right block
 
+formatTime() {
+	h=00$(( $1 / 3600 ))
+	hh=${h: -2}
+	m=00$(( $1 % 3600 / 60 ))
+	mm=${m: -2}
+	s=00$(( $1 % 60 ))
+	ss=${s: -2}
+	[[ $hh == 00 ]] && hh= || hh=$hh:
+	echo $hh$mm:$ss
+}
+
 name="$1"
 if [[ -e "$name" ]]; then
 	echo -e "\nDirectory $name exists.\n"
@@ -32,8 +43,13 @@ cd "$name"
 echo -e "\nDownload image blocks ...\n"
 echo -e "URL: $url\n"
 
+Sstart=$( date +%s )
 for i in $( seq 0 $count ); do
-	echo $i/$count' - '$(( $i * 100 / $count ))'%'
+	percent=$(( $i * 100 / $count ))
+	elapse=$(( $( date +%s ) - $Sstart ))
+	total=$( formatTime $(( $elapse * 100 / $percent )) )
+	elapse=$( formatTime $elapse )
+	echo ${percent}% - $elapse/$total - $i/$count
 	iname=000$i
 	curl -# -o ${iname: -4} $url,$i
 done
