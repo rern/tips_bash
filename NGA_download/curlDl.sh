@@ -28,13 +28,28 @@ fi
 mkname "$name"
 echo URL: $url
 for i in $( seq 0 $count ); do
-	echo $i/$count '('$(( $i * 100 / $count ))'%)' $i.jpg
+	if (( $i < 10 )); then
+		filename="000$i.jpg"
+	else if (( $i < 100 )); then
+		filename="00$i.jpg"
+	else if (( $i < 1000 )); then
+		filename="0$i.jpg"
+	fi
+	echo $i/$count '('$(( $i * 100 / $count ))'%)' $filename.jpg
 	curl -# -o "$name/$i.jpg" $url$i
 done
 
+echo -e "Download directory: $name"
+
+exit
+
 cd "$name"
-files=$( ls -v )
-columns=$(( $topright + 1 ))
-montage $files -geometry +0+0 -tile $columns'x' -limit memory 1mb ../"$name.jpg"
+
+montage $( ls ) \
+	-geometry +0+0 \
+	-tile $(( $topright + 1 ))'x' \
+	-limit memory 32 \
+	-limit map 32 \
+	../"$name.jpg"
 
 echo -e "\nFile: $name.jpg\n"
