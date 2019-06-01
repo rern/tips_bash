@@ -31,7 +31,7 @@ for /L %%i in (0,1,%count%) do (
 	curl -# -o "!filename!.jpg" %url%%%i"
 )
 echo.
-echo Merge blocks into single file...
+echo Merge blocks into single image...
 
 magick montage *.* -geometry +0+0 -tile %column%x ../%name%.jpg
 
