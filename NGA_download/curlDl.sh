@@ -41,10 +41,10 @@ done
 
 echo -e "\nImages downloaded successfully.\n"
 echo -e "\nMerge all into a single image:"
-echo -e '  \e[36m1\e[m No. This system is not powerful enough'
-echo -e '  \e[36m0\e[m Yes.'
+echo -e '  \e[36m0\e[m No'
+echo -e '  \e[36m1\e[m Yes'
 echo
-echo -e '0 / \e[36m1\e[m ? '
+echo -e '\e[36m0\e[m / 1 ? '
 read -n 1 answer
 echo
 if [[ $answer != 1 ]]; then
