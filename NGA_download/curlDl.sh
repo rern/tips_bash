@@ -16,23 +16,24 @@
 # URL      - url of bottom-right block
 
 name="$1"
+if [[ -e "$name" ]]; then
+	echo -e "\nDirectory $name exists.\n"
+	exit
+fi
+
 topright=$2
 url=$3
 count=${url##*,}
 url=${url%,*}
 
-if [[ -e "$name" ]]; then
-	echo -e "\nnameectory $name exists.\n"
-	exit
-fi
-
-mkname "$name"
+mkdir "$name"
 cd "$name"
+
 echo -e "\nDownload image blocks ...\n"
 echo -e "URL: $url\n"
 
 for i in $( seq 0 $count ); do
-	echo $i/$count '('$(( $i * 100 / $count ))'%)'
+	echo $i/$count' - '$(( $i * 100 / $count ))'%'
 	iname=000$i
 	curl -# -o ${iname: -4} $url,$i
 done
