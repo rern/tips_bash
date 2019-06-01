@@ -26,34 +26,18 @@ if [[ -e "$name" ]]; then
 fi
 
 mkname "$name"
-echo URL: $url
+cd "$name"
+echo -e "\nDownload images ...\n"
+echo -e "URL: $url\n"
+
 for i in $( seq 0 $count ); do
-	if (( $i < 10 )); then
-		filename="000$i.jpg"
-	else if (( $i < 100 )); then
-		filename="00$i.jpg"
-	else if (( $i < 1000 )); then
-		filename="0$i.jpg"
-	fi
-	echo $i/$count '('$(( $i * 100 / $count ))'%)' $filename.jpg
-	curl -# -o "$name/$i.jpg" $url$i
+	name=000$i
+	filename=${name: -4}.jpg
+	echo $i/$count '('$(( $i * 100 / $count ))'%)' $filename
+	curl -# -o $filename.jpg $url$i
 done
 
-echo -e "\nImages downloaded successfully.\n"
-echo -e "\nMerge all into a single image:"
-echo -e '  \e[36m0\e[m No'
-echo -e '  \e[36m1\e[m Yes'
-echo
-echo -e '\e[36m0\e[m / 1 ? '
-read -n 1 answer
-echo
-if [[ $answer != 1 ]]; then
-	echo -e "\nDownload directory: $name\n"
-	echo "Imagemagic 7: magick montage *.* -geometry +0+0 -tile $(( $topright + 1 ))x ../$name.jpg"
-	exit
-fi
-
-cd "$name"
+echo -e "\nMerge into a single image ...\n"
 
 montage $( ls ) \
 	-geometry +0+0 \
