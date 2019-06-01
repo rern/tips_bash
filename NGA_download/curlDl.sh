@@ -9,7 +9,7 @@
 # - Zoom to maximum
 
 # usage: curlDl.sh 'NAME' TOPRIGHT 'URL'
-# curlDl.sh "The Houses of Parliament, Sunset" 66 "https://media.nga.gov/fastcgi/iipsrv.fcgi?FIF=/public/objects/4/6/5/2/3/46523-primary-0-nativeres.ptif&SDS=0,90&JTL=8,3952"
+# ./curlDl.sh "The Houses of Parliament, Sunset" 66 "https://media.nga.gov/fastcgi/iipsrv.fcgi?FIF=/public/objects/4/6/5/2/3/46523-primary-0-nativeres.ptif&SDS=0,90&JTL=8,3952"
 
 # NAME     - destination directory
 # TOPRIGHT - index of top-right block (number after last `,` in url)
@@ -43,22 +43,24 @@ cd "$name"
 echo -e "\nDownload image blocks ...\n"
 echo -e "URL: $url\n"
 
+curl -# -o 00000 $url,0
+ext=$( file -b --mime-type 0000 | cut -d'/' -f2 )
+[[ $ext == jpeg ]] && ext=jpg
+mv 00000 00000.$ext
+
 Sstart=$( date +%s )
-for i in $( seq 0 $count ); do
+for i in $( seq 1 $count ); do
 	percent=$(( $i * 100 / $count ))
 	elapse=$(( $( date +%s ) - $Sstart ))
 	total=$( formatTime $(( $elapse * 100 / $percent )) )
 	elapse=$( formatTime $elapse )
 	echo ${percent}% - $elapse/$total - $i/$count
-	iname=000$i
-	curl -# -o ${iname: -4} $url,$i
+	iname=0000$i
+	curl -# -o ${iname: -5}.$ext $url,$i
 done
 
 echo -e "\nMerge blocks into single image ...\n"
 
-ext=$( file -b --mime-type 0000 | cut -d'/' -f2 )
-[[ $ext == jpeg ]] && ext=jpg
-for file in *; do mv $file $file.$ext; done
 montage $( ls ) \
 	-geometry +0+0 \
 	-tile $tile \
