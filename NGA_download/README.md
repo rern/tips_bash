@@ -7,4 +7,4 @@
 - Zoom
 - Zoom to maximum
 - Get url of the last block at bottom right > URL,COUNT
-- Get top-right block index > +1 = columns
+- Get top-right block index > TOPRIGHT
