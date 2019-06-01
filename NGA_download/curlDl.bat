@@ -6,7 +6,7 @@
 
 set name=%1
 set /A count=%2
-set /A tile=%3+1x
+set tile=%3+1x
 set url=%4
 :: remove last " for appending number
 set url=%url:~0,-1%
