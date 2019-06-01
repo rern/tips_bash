@@ -8,7 +8,7 @@ set name=%1
 set /A count=%2
 set /A column=%3+1
 set url=%4
-:: remove last " to let append number
+:: remove last " for appending number
 set url=%url:~0,-1%
 
 if exist %name% (
