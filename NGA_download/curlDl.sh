@@ -7,19 +7,20 @@
 # - View this object record on nga.gov
 # - Zoom
 # - Zoom to maximum
-# - Get url of the last block at bottom right > URL,COUNT
-# - Get top-right block index > TOPRIGHT
 
-# usage: curlDl.sh NAME COUNT TOPRIGHT 'URL'
+# usage: curlDl.sh 'NAME' TOPRIGHT 'URL'
+# curlDl.sh "The Houses of Parliament, Sunset" 66 "https://media.nga.gov/fastcgi/iipsrv.fcgi?FIF=/public/objects/4/6/5/2/3/46523-primary-0-nativeres.ptif&SDS=0,90&JTL=8,3952"
 
-# NAME  - destination nameectory
-# COUNT - number of last index (last number of each url)
-# URL   - url without index
+# NAME     - destination directory
+# TOPRIGHT - index of top-right block (number after last `,` in url)
+# URL      - url of bottom-right block
 
 name="$1"
-count=$2
-topright=$3
-url=$4
+topright=$2
+url=$3
+count=${url##*,}
+url=${url%,*}
+
 if [[ -e "$name" ]]; then
 	echo -e "\nnameectory $name exists.\n"
 	exit
@@ -31,19 +32,18 @@ echo -e "\nDownload images ...\n"
 echo -e "URL: $url\n"
 
 for i in $( seq 0 $count ); do
-	name=000$i
-	filename=${name: -4}.jpg
+	iname=000$i
+	filename=${iname: -4}
 	echo $i/$count '('$(( $i * 100 / $count ))'%)' $filename
-	curl -# -o $filename.jpg $url$i
+	curl -# -o $filename $url,$i
 done
 
 echo -e "\nMerge into a single image ...\n"
 
+ext=$( file -b --mime-type 0000 | cut -d'/' -f2 )
 montage $( ls ) \
 	-geometry +0+0 \
 	-tile $(( $topright + 1 ))'x' \
-	-limit memory 32 \
-	-limit map 32 \
-	../"$name.jpg"
+	../"$name.$ext"
 
-echo -e "\nFile: $name.jpg\n"
+echo -e "\nImage file: $name.$ext\n"
