@@ -18,8 +18,10 @@ if exist %name% (
 md %name%
 cd %name%
 echo.
+echo Download images ...
+echo.
 echo URL: %url%
-
+echo.
 SETLOCAL EnableDelayedExpansion
 for /L %%i in (0,1,%count%) do (
 	set filename=000%%i
@@ -27,6 +29,8 @@ for /L %%i in (0,1,%count%) do (
 	echo %%i/%count% !filename!.jpg
 	curl -# -o "!filename!.jpg" %url%%%i"
 )
+echo.
+echo Merge into a single file...
 
 magick montage *.* -geometry +0+0 -tile %column%x ../%name%.jpg
 
