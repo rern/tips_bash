@@ -19,7 +19,7 @@ if exist %name% (
 md %name%
 cd %name%
 echo.
-echo Download images ...
+echo Download image blocks ...
 echo.
 echo URL: %url%
 echo.
@@ -31,7 +31,7 @@ for /L %%i in (0,1,%count%) do (
 	curl -# -o "!filename!.jpg" %url%%%i"
 )
 echo.
-echo Merge into a single file...
+echo Merge blocks into single file...
 
 magick montage *.* -geometry +0+0 -tile %column%x ../%name%.jpg
 
