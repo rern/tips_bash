@@ -1,4 +1,4 @@
-## How To Download Images from National Gallery Of Art
+## NGA
 
 - url: https://images.nga.gov
 - search image
