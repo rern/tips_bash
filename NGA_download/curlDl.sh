@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Download hi-resolution images from National Gallery Of Art
 # - url: https://images.nga.gov/en/page/show_home_page.html
 # - search image
 # - Magnifying glass (Click to view detail ...)
