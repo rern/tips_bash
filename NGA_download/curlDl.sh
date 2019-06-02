@@ -14,13 +14,35 @@
 # NAME     - destination directory
 # TOPRIGHT - index of top-right block (number after last `,` in url)
 # URL      - url of bottom-right block
-
-name="$1"
-mkdir -p "$name"
+if (( $# == 0 )); then
+	echo 'Image filename(no extension):'
+	read name
+	echo 'Top-right block index:'
+	read topright
+	echo 'Bottom-right block URL:'
+	read url
+	if [[ -z "$name" || -z $topright || -z "$url" ]]; then
+		echo -e "\nExit: Incomplete parameters\n"
+		exit
+	fi
+else
+	name="$1"
+	topright=$2
+	url=$3
+fi
+if [[ -e "$name" ]]; then
+	echo -e "\nDirectory \e[36m$name\e[m exists:"
+	echo -e '  \e[36m0\e[m Quit'
+	echo -e '  \e[36m1\e[m Continue download\n'
+	echo -e '\e[36m0\e[m / 1 ? '
+	read -n 1 answer
+	[[ $answer != 1 ]] && exit
+else
+	mkdir "$name"
+fi
 cd "$name"
 
-tile=$(( $2 + 1 ))x
-url=$3
+tile=$(( topright + 1 ))x
 count=${url##*,}
 url=${url%,*}
 
@@ -34,8 +56,9 @@ elif (( $ilast == $count )); then
 	echo -e"\e[36m$\n$name\e[m already downloaded.\n"
 	exit
 else
-	istart=$(( $ilast + 1 ))
-	left=$(( $count - $istart ))
+	istart=$(( ilast + 1 ))
+	left=$(( count - istart ))
+	continue=*
 fi
 
 formatTime() {
@@ -60,11 +83,15 @@ mv 00000{,.$ext}
 
 Sstart=$( date +%s )
 for i in $( seq $istart $count ); do
-	percent=$(( $i * 100 / $count ))
-	elapse=$(( $( date +%s ) - $Sstart ))
-	total=$( formatTime $(( $elapse / $(( 1 + $i - $istart )) * $left )) )
+	percent=$(( i * 100 / count ))
+	elapse=$(( $( date +%s ) - Sstart ))
+	t0=$(( elapse / (( 1 + i - istart )) * left ))
+	tminus=$(( t0 - elapse ))
 	elapse=$( formatTime $elapse )
-	echo -e "${percent}% \e[36m$elapse/$total\e[m $i/$count"
+	total=$( formatTime $t0 )
+	tminus=$( formatTime $tminus )
+	echo -e "T-\e[36m$tminus\e[m ${percent}% \e[36m$elapse/$total\e[m$continue $i/$count"
+	
 	iname=0000$i
 	curl -s -o ${iname: -5}.$ext $url,$i
 done
