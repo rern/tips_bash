@@ -20,6 +20,12 @@ let 'x /= N'      # x=$(( n / N ))
 let 'x %= N'      # x=$(( n % N ))
 ```
 
+**Round**
+```sh
+$(( n1 / n2 ))               # round down
+$(( ( n1 + n2 - 1 )  / n2 )) # round up
+```
+
 **Float**  
 Bash cannot do float.
 ```sh
