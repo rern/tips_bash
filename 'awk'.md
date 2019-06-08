@@ -12,6 +12,8 @@ awk '{print $NF}' <<<'column1 column2 column3 column4'
 
 # remove blank lines
 awk NF
+# or
+grep .
 
 # remove duplicate lines
 awk '!a[$0]++'
