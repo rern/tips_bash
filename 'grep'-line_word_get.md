@@ -1,4 +1,4 @@
-**grep** - word  
+**grep** - get line / word  
 
 Get a word by characters
 ```sh
@@ -24,4 +24,8 @@ Get line number
 ```sh
 grep -n "text to find" file.ext | cut -f1 -d:
 # line number
+```
+Remove blank lines
+```sh
+grep .
 ```
