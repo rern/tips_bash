@@ -7,10 +7,10 @@ string='
 abc 123 def
 pqrst 45678 vwxyz
 '
-echo "$string" | column -t -s' '
+echo "$string" | column -t -s' ' -R2
 
-# abc   123   def
-# pqrst 45678 vwxyz
+# abc      123   def
+# pqrst  45678   vwxyz
 ```
  
 **`printf`**  
