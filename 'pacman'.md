@@ -18,6 +18,11 @@ pacman -S <package>
 pacman -S --noconfirm <package>
 ```
 
+**Pass ,`y` to remove conflicts > install** (when `--noconfirm` not working)
+```sh
+echo "y \n" | pacman -S --noconfirm <package>
+```
+
 **Download only**  
 ```sh
 pacman -Sw <package>
