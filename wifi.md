@@ -5,6 +5,9 @@ netctl list
 
 # start
 netctl start <profile>
+
+# auto start
+systemctl enable netctl-auto@wlan0
 ```
 
 ### WiFi connection menu
@@ -20,6 +23,8 @@ ip addr show
 
 # up/down
 ip link set dev wlan0 [up/down]
+# or
+ifconfig wlan0 [up/down]
 ```
 
 ### `iw` - connect
