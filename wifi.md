@@ -33,19 +33,19 @@ ifconfig wlan0 [up/down]
 iw dev wlan0 link
 
 # scan > sorted ssid list
-list=$( iw dev wlan0 scan | grep '^\s*signal\|^\s*SSID' | sed 's/^\s*signal: \|^\s*SSID: //' )
-readarray -t lines <<<"$list"
+scan=$( iwlist wlan0 scan | grep '^\s*Qu\|^\s*En\|^\s*ES' | sed 's/^\s*Quality=\|\/.* \+Signal level=.*\|^\s*Encryption key:\|^\s*ESSID://g' )
+readarray -t lines <<<"$scan"
 iL=${#lines[@]}
-for (( i=0; i < iL; i++ )); do
-    name=${lines[i+1]}
-    [[ -n $name ]] && ssid="$ssid\n${lines[i]}^$name"
-    (( i++ ))
+for (( i=0; i < iL; i+=3 )); do
+    quality=$ssids${lines[i]}
+    encryption=${lines[i+1]}
+    ssid=${lines[i+2]}
+    ssid=${ssid:1:-1}
+    [[ -n $ssid ]] && ssids="$ssids$quality$encryption$ddis"
 done
-ssids=$( echo -e "$ssid" | sort )
-readarray -t ssids <<<"$ssids"
-for ssid in "${ssids[@]}"; do
-	echo $ssid | cut -d'^' -f2
-done
+ssids=${ssids::-2} # remove last \n
+ssids=$( echo -e "$ssids" | sort -r )
+
 
 # connect
 iw dev wlan0 connect your_essid key hex_key
