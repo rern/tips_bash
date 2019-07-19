@@ -38,23 +38,11 @@ iw dev wlan0 link
 # get ssid
 iw dev wlan0 link | grep SSID | sed 's/^\s*.*: //'
 
-# scan > sorted ssid list
-scan=$( iwlist wlan0 scan | grep '^\s*Qu\|^\s*En\|^\s*ES' | sed 's/^\s*Quality=\|\/.* \+Signal level=.*\|^\s*Encryption key:\|^\s*ESSID://g' )
-readarray -t lines <<<"$scan"
-iL=${#lines[@]}
-for (( i=0; i < iL; i+=3 )); do
-    quality=$ssids${lines[i]}
-    encryption=${lines[i+1]}
-    ssid=${lines[i+2]}
-    ssid=${ssid:1:-1}
-    [[ -n $ssid ]] && ssids="$ssids$quality$encryption$ddis"
-done
-ssids=${ssids::-2} # remove last \n
-ssids=$( echo -e "$ssids" | sort -r )
-
+# scan
+iwlist wlan0 scan
 
 # connect
-iw dev wlan0 connect your_essid key hex_key
+iw dev wlan0 connect [ssid] key [hex_key]
 
 # disconnect
 iw dev wlan0 disconnect
