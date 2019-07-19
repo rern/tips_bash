@@ -35,6 +35,9 @@ ifconfig wlan0 [up/down]
 # status
 iw dev wlan0 link
 
+# get ssid
+iw dev wlan0 link | grep SSID | sed 's/^\s*.*: //'
+
 # scan > sorted ssid list
 scan=$( iwlist wlan0 scan | grep '^\s*Qu\|^\s*En\|^\s*ES' | sed 's/^\s*Quality=\|\/.* \+Signal level=.*\|^\s*Encryption key:\|^\s*ESSID://g' )
 readarray -t lines <<<"$scan"
