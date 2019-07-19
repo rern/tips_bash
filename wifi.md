@@ -52,4 +52,7 @@ ssids=$( echo -e "$ssids" | sort -r )
 
 # connect
 iw dev wlan0 connect your_essid key hex_key
+
+# disconnect
+iw dev wlan0 disconnect
 ```
