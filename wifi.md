@@ -21,6 +21,9 @@ ip link
 # ip
 ip addr show
 
+# set ip
+ifconfig wlan0 [ip]
+
 # up/down
 ip link set dev wlan0 [up/down]
 # or
