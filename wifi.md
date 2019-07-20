@@ -21,6 +21,9 @@ ip link
 # ip
 ip addr show
 
+# get ip
+ip addr show dev wlan0 | grep '^\s*inet' | awk '{print $2}'
+
 # set ip
 ifconfig wlan0 [ip]
 
@@ -36,7 +39,7 @@ ifconfig wlan0 [up/down]
 iw dev wlan0 link
 
 # get ssid
-iw dev wlan0 link | grep SSID | sed 's/^\s*.*: //'
+iw dev wlan0 link | grep SSID | awk '{print $2}'
 
 # scan
 iwlist wlan0 scan
