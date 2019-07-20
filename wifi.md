@@ -39,7 +39,7 @@ ifconfig wlan0 [up/down]
 iw dev wlan0 link
 
 # get ssid
-iw dev wlan0 link | grep SSID | awk '{print $2}'
+iw dev wlan0 link | grep SSID | awk '{print $NF}'
 
 # scan
 iwlist wlan0 scan
