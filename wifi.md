@@ -24,6 +24,12 @@ ip addr show
 # get ip
 ip addr show dev wlan0 | grep '^\s*inet' | awk '{print $2}'
 
+# get gateway - ip
+ip r | grep 'default.*wlan0' | awk '{print $3" - "$9}'
+
+# get dns
+cat /etc/resolv.conf | grep nameserver | cut -d' ' -f2
+
 # set ip
 ifconfig wlan0 [ip]
 
