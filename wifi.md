@@ -3,8 +3,8 @@
 # profiles
 netctl list
 
-# start
-netctl start <profile>
+# start/stop
+netctl [start/stop] <profile>
 
 # auto start
 systemctl enable netctl-auto@wlan0
