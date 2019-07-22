@@ -3,8 +3,12 @@
 # profiles
 netctl list
 
-# start/stop
-netctl <start/stop> <profile>
+# start
+ifconfig <wlan0> down # must not "UP" before start
+netctl start <profile>
+
+# stop
+netctl stop <profile>
 
 # auto start
 systemctl enable netctl-auto@wlan0
