@@ -25,7 +25,7 @@ ip link
 ip addr show
 
 # get ip
-ip addr show dev <wlan> | grep '^\s*inet' | awk '{print $2}'
+ip addr show dev <wlan0> | grep '^\s*inet' | awk '{print $2}'
 
 # get gateway - ip - dns
 gwip=$( ip r | grep 'default.*<wlan0>' | awk '{print $3" "$9}' )
