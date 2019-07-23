@@ -39,6 +39,9 @@ gwipdns="$gwip $dns"
 # set ip
 ifconfig <wlan0> [ip]
 
+# remove ip
+ifconfig <wlan0> 0.0.0.0
+
 # up/down
 ip link set dev <wlan0> [up/down]
 # or
