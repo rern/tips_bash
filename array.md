@@ -14,8 +14,19 @@ array+=(d)
 declare -A array=( [a]=aa [b]=bb [c]=cc )
 array[d]=dd
 
+# lines with single word in each line can be loop directly
+lines='aaa
+bbb
+ccc'
+for line in $lines; do
+    echo $line
+done
+
 # convert 'lines of string' to 'array' delimiter: newline
 readarray -t array <<<"$lines"
+for line in "${array[@]}"; do
+    echo $line
+done
 
 # convert 'lines of string' to 'array' delimiter: space
 array=( $string ) # array=( line1 line2 line3 ... )
