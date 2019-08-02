@@ -28,9 +28,6 @@ for line in "${array[@]}"; do
     echo $line
 done
 
-# convert 'lines of string' to 'array' delimiter: space
-array=( $string ) # array=( line1 line2 line3 ... )
-
 # convert 'stdout' to 'array' by 'line'
 array=( $( command ) ) # array=( line1 line2 line3 ... )
 
