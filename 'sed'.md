@@ -97,8 +97,9 @@ a\
 `-n -e '/.../{x;p;d;}' -e x`  : print 1 line above matched  
 `$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : \<n\> line prior to matched  
 
-`sed -i -e :a -e '/^\n*$/{$d;N;};/\n$/ba'`      : remove all trailing new lines  
-`sed -i -e '$a\'`                               : add a trailing new line if not exist  
+`sed -i -e :a -e '/^\n*$/{$d;N;};/\n$/ba'` : remove all trailing new lines  
+or `printf '%s\n' "$( cat file )"`  
+`sed -i -e '$a\'`                          : add a trailing new line if not exist  
 
 **string operations**  
 alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/master/string_extract_edit.md)  
