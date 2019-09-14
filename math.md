@@ -22,8 +22,9 @@ let 'x %= N'      # x=$(( n % N ))
 
 **Round**
 ```sh
-$(( n1 / n2 ))               # round down
-$(( ( n1 + n2 - 1 )  / n2 )) # round up
+$(( N / n ))              # round down - by default
+$(( ( N + n-1 ) / n )) # round up
+$(( ( N + n/2 ) / n )) # round nearest
 ```
 
 **Float**  
