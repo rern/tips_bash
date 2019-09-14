@@ -35,5 +35,5 @@ printf "%.1f\n" 1.255                       # 1.3
 printf "%.2f\n" 1.255                       # 1.25
 
 # with calculation
-awk "BEGIN { printf \"%.2f\n\", 1.23 / 3 }" # 0.41 ( 2 decimal round = \"%.2f\n\" )
+awk 'BEGIN { printf "%.2f\n", 1.23 / 3 }' # 0.41 ( 2 decimal round = "%.2f\n" )
 ```
