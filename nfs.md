@@ -14,6 +14,7 @@ chmod -R 777 /home/test
 
 # share
 echo '/home/test 192.168.1.0/24(rw,sync,no_subtree_check)' >> /etc/exports
+exportfs -a
 
 # restart server
 systemctl restart nfs-server        # arch linux
