@@ -5,15 +5,15 @@ pacman -Sy nfs-utils
 
 # debian
 apt update
-apt install install nfs-kernel-server nfs-common
+apt install nfs-kernel-server
 
 # create share directory
 mkdir /home/test
-chown nobody:nogroup /home/test
-chmod 777 /home/test
+chown -R nobody:nogroup /home/test
+chmod -R 777 /home/test
 
 # share
-echo /home/test 192.168.1.0/24(rw,sync,no_subtree_check) >> /etc/exports
+echo '/home/test 192.168.1.0/24(rw,sync,no_subtree_check)' >> /etc/exports
 
 # restart server
 systemctl restart nfs-server        # arch linux
