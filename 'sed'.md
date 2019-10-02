@@ -94,7 +94,7 @@ a\
 `'/.../{N; <x>}'`             : line matched includes **N**ext line (for `i`, `a`)  
 `'/.../{n; <x>}'`             : line **n**ext to matched  
 `'/.../{n;n; <x>}'`           : 2nd line **n**ext to matched  
-`-n -e '/.../{x;p;d;}' -e x`  : print 1 line above matched  
+`-n '/.../{x;p;d;};x`         : print 1 line above matched  
 `$(( $( sed -n '/.../=' $file ) - <n> ))' <x>'` : \<n\> line prior to matched  
 
 `sed -i -e :a -e '/^\n*$/{$d;N;};/\n$/ba'` : remove all trailing new lines  
