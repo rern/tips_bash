@@ -126,7 +126,10 @@ or `perl`
 - `'s/a.../&b.../'`     : reuse input as `&` = `a...b...`  
 - `'s/a.../b...&/'`     : `b...a...`  
 - `'s|--\(aaa\)--\(bbb)--|==\1\2==|'` : reuse input parts `\(...\)` as `\n`, `--aaa--bbb--` to `==aaabbb==`  
-- `'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ/aaaaeeeeiiiioooouuuuüüüüAAAAEEEEIIIIOOOOUUUUÜÜÜÜ/'` : replace each character respectively
+- replace each character respectively
+```sh
+sed -i 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ/aaaaeeeeiiiioooouuuuüüüüAAAAEEEEIIIIOOOOUUUUÜÜÜÜ/' $file
+```
 
 **wildcards**  
 - `.`  : single character or space wildcard  
