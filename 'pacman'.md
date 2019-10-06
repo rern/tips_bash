@@ -53,9 +53,9 @@ pacman -U <package_file>
 pacman -R <package>
 ```
 
-**Uninstall with unused depends**  
+**Uninstall with all depends**  
 ```sh
-pacman -Rs <package>
+pacman -Rcns <package>
 ```
 
 **System wide upgrade**  
