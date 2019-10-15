@@ -22,6 +22,9 @@ for line in $lines; do
     echo $line
 done
 
+# create array from file
+readarray array < $file
+
 # convert 'lines of string' to 'array' delimiter: newline
 readarray -t array <<<"$lines"
 for line in "${array[@]}"; do
