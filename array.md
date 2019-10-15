@@ -23,7 +23,7 @@ for line in $lines; do
 done
 
 # create array from file
-readarray array < $file
+mapfile -t array < $file
 
 # convert 'lines of string' to 'array' delimiter: newline
 readarray -t array <<<"$lines"
