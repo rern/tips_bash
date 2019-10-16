@@ -19,6 +19,8 @@ extract=${array[1]}    # b
 # extract
 string='1234567890'
 
+echo string | head -c 4   # 1234
+echo string | tail -c 4   # 7890
 echo string | cut -b 2-5  # 2345
 
 ${string:1:3}  # 23
