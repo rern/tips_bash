@@ -25,7 +25,12 @@ Get line number
 grep -n "text to find" file.ext | cut -f1 -d:
 # line number
 ```
+
 Remove blank lines
 ```sh
+# empty lines + lines with spaces
+grep "\S"
+
+# empty lines only
 grep .
 ```
