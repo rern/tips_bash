@@ -15,6 +15,9 @@ awk NF
 # or
 grep .
 
+# double blank lines to single
+awk -v RS='\n\n' 1
+
 # remove duplicate lines
 awk '!a[$0]++'
 
