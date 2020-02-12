@@ -83,7 +83,7 @@ a\
 - `'/^a.*b$/ <x>'`   : start with `a` and end with `b`  
 - `'/^\s*$/ <x>'`    : blank lines  
 
-- `/<1st...>/, /<last...>/ <x>` : matched line range by matched  
+- `/<1st...>/, /<last...>/ <x>` : matched line range by matched (non-greedy) 
 - `N, N <x>`                    : matched line range by line number  
 - `'N, /.../ <x>'`              : `N` to 1st matched line range (also for limit only 1st occurrence)  
 - `/.../, +<n> <x>`             : line range from matched to next +\<n\> line  
