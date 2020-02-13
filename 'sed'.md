@@ -6,9 +6,9 @@ Default:
 - Search 1st matched string only: `0,/.../ s/a.../b.../`
 
 **escaped characters**  
-- `'s/\|\[\]\/\$\*\.\^/\\&/g'` - escape literal in pattern: `| [ ] \ / $ * . ^`  
-- `'s/[\/&]/\\&/g'` - escape in replace: `\ / &`  
-- `'s/[\"]/\\&/g'` - escape in insert/append: `\ '` or `\ "`  
+- `'s/ \| \[ \] \/ \\ \$ \* \. \^ /abc/g'` - escape literal in pattern: `| [ ] / \ $ * . ^`  
+- `'s/abc/ \\ \/ \& /g'` - escape in replace: `\ / &`  
+- `'s/abc/ a \' \" '` - escape in insert/append: `' "`  
   
   
 **variables / quotes**  
