@@ -6,7 +6,7 @@ Default:
 - Search 1st matched string only: `0,/.../ s/a.../b.../`
 
 **escaped characters**  
-- `'s/[]\/$*.^[]/\\&/g'` - escape in pattern: `] \ / $ * . ^ [`  
+- `'s/\[\]\/\$\*\.\^/\\&/g'` - escape in pattern: `] \ / $ * . ^ [`  
 - `'s/[\/&]/\\&/g'` - escape in replace: `\ / &`  
 - `'s/[\"]/\\&/g'` - escape in insert/append: `\ '` or `\ "`  
   
@@ -149,9 +149,9 @@ sed -i 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏ
 **wildcards**  
 - `.`  : single character or space wildcard  
 - `.*` : multiple character wildcard  
-- `\?` : 0 or 1 of preceding character  
-- `\+` : 1 or more of preceding character  
-- `*`  : 0 or more of preceding character  
+- `*`  : 0 or more character
+- `\?` : 0 or 1 character  
+- `\+` : 1 or more character    
 
 **regex list**  
 - `'/[...]/'`          : any characters in `[...]`  
