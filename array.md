@@ -23,7 +23,7 @@ for line in $lines; do
 done
 
 # convert 'lines of string' to 'array' (delimiter: newline)
-readarray -t array <<<"$lines"
+readarray -t array <<<"$lines"  #   literal \n must be: array=( echo -e "$lines" )
 for line in "${array[@]}"; do
     echo $line
 done
