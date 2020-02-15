@@ -46,6 +46,7 @@ Default:
 - `\` : escaped new line (**includes blank lines**, optional last line) 
 ```sh
 sed 's/.../.../; s/.../.../' file         # optional {...}
+sed '/.../ s/.../.../; s/.../.../' file   # limit to matched lines - replace before prepend/append
 sed '/.../ { # comment                    # required {...}
 # comment
 s/.../.../   # comment
