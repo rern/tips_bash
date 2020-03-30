@@ -7,6 +7,9 @@ array=(a b c)
 # count element
 count=${#array[@]}
 
+# indexes of array
+index=${!array[@]} # index=(0 1 2)
+
 # append array (no need to define array prior to append)
 array+=(d)
 
