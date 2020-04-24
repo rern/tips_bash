@@ -65,7 +65,7 @@ a\
   
 **line operations** (all matched)  
 (first matched line only)  
-\* `<x>`           : `i`, `a`, `d`, `p`, `r`  
+\* `<x>`           : `i`, `a`, `d`, `p`, `r`, `c`  
 \* `<n>`           : number    
 - `/.../`            : default delimiter  
 - `\|...|`, `\#...#` : delimiters can be any (but in range search, none default `/` must be escaped)  
