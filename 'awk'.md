@@ -2,6 +2,9 @@
 ---
 
 ```sh
+# concatenate files with a newline in between
+awk 1 file1.txt file2.txt file3.txt > files.txt
+
 # get column 3
 awk '{print $3}' <<<'column1 column2 column3 column4'
 # > column3
