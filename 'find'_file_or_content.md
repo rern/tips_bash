@@ -6,6 +6,14 @@ find /path -name 'filename*'
 find /path -name 'filename*' -exec command
 ```
 
+**Find by type**
+```sh
+# all files
+find /path -type f
+# all directories
+find /path -type d
+```
+
 **Find content in files**
 ```sh
 # show file:content
