@@ -13,6 +13,14 @@ awk '{print $3}' <<<'column1 column2 column3 column4'
 awk '{print $NF}' <<<'column1 column2 column3 column4'
 # > column4
 
+# find matched and get 3rd column to end
+awk '/FIND/ {$1=$2=""; print}' <<<'column1 column2 column3 column4'
+# > column3 column4
+
+# get charaters
+awk '{print substr($NF, 4, 2)}' <<<'column1 column2 column3 column4'
+# > um
+
 # remove blank lines
 awk NF
 # or
