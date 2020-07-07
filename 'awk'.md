@@ -21,6 +21,10 @@ awk '/FIND/ {$1=$2=""; print}' <<<'column1 column2 column3 column4'
 awk '{print substr($NF, 4, 2)}' 
 # > um
 
+# get string between specific delimiter
+awk -F 'n' '{print $1}' <<<'column1 column2 column3 column4'
+# > colum
+
 # get string between different delimiters
 awk -F '[on]' '{print $2}' <<<'column1 column2 column3 column4'
 # > lum
