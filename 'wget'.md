@@ -1,6 +1,11 @@
 wget
 ---
 
+**screen output** 
+```sh
+wget -qO - URL
+```
+
 **wget GitHub URL conversion**  
 - file
 ```sh
