@@ -71,8 +71,8 @@ array2=("${array[@]}")    # array2=(a d)
 
 # delete an element
 unset 'array[1]'           # array=(a '' xyz d) - delete value
-array=( ${array[@]} )      # array=(a xyz d)    - reset index
-array=( ${array[@]/xy*/} ) # array=(a d)        - pattern match + reser index
+array=("${array[@]}")      # array=(a xyz d)    - reset index
+array=("${array[@]/xy*/}") # array=(a d)        - pattern match + reser index
 
 # delete all values in array
 array=()    # empty array
