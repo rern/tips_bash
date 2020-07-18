@@ -55,6 +55,8 @@ value0=$array       # a
 value0=${array[0]}  # a
 value1=${array[1]}  # b
 last=${array[-1]}   # c
+value0to1=${array[@]:0:1}
+valueafter1=${array[@]:2}
 
 # add
 array+=(d)                # array=(a b c d)
@@ -65,10 +67,10 @@ value0to1=${array[@]:0:2} # a b
 subvalue2=${array[2]:0:2} # xy
 
 # copy
-array2=("${array[@]}") # array2=(a d)
+array2=("${array[@]}")    # array2=(a d)
 
 # delete an element
-unset array[1]             # array=(a '' xyz d) - delete value
+unset 'array[1]'           # array=(a '' xyz d) - delete value
 array=( ${array[@]} )      # array=(a xyz d)    - reset index
 array=( ${array[@]/xy*/} ) # array=(a d)        - pattern match + reser index
 
