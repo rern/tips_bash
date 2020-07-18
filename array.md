@@ -54,10 +54,10 @@ length=${#array[*]} # 3
 value0=$array       # a
 value0=${array[0]}  # a
 value1=${array[1]}  # b
-last=${@:$#}        # c
+last=${array[-1]}   # c
 
 # edit
-array+=('d')              # array=(a b c d)
+array+=(d)                # array=(a b c d)
 array[2]=xyz              # array=(a b xyz d)
 
 # partial value
@@ -65,8 +65,9 @@ value0to1=${array[@]:0:2} # a b
 subvalue2=${array[2]:0:2} # xy
 
 # delete an element
-array=( ${array[@]:0:1} ${array[@]:$((1 + 1))} ) # array=(a xyz d)
-array=( ${array[@]/xy*/} )                       # array=(a d)
+unset array[1]             # array=(a '' xyz d) - delete value
+array=( ${array[@]} )      # array=(a xyz d)    - reset index
+array=( ${array[@]/xy*/} ) # array=(a d)        - pattern match + reser index
 
 # copy
 array2=("${array[@]}") # array2=(a d)
