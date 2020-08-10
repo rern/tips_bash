@@ -6,6 +6,7 @@ bsdtar
 - `-j` bzip2 compression
 - `-lzma` lzma compression
 - `-z` gzip compression
+
 `-x` expand  
 `-v` verbose  
 `-p` keep files permissions  
