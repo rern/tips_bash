@@ -2,6 +2,9 @@
 ---
 
 ```sh
+# replace newline with string
+awk 1 ORS='xx'
+
 # concatenate files with a newline in between
 awk 1 file1.txt file2.txt file3.txt > files.txt
 
