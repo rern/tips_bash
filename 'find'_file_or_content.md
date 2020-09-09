@@ -1,9 +1,9 @@
 
 **Find file by name**
 ```sh
-find . -name 'filename*' # '.' = current directory
+find . -name 'filename*' # . = current directory
 find /path -name 'filename*'
-find /path -name 'filename*' -exec command
+find /path -name 'filename*' -exec command {} + # {} = found item
 ```
 
 **Find by type**
