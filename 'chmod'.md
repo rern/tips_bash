@@ -19,6 +19,9 @@ chmod 755 file
 # rwxr--r-- = 744
 # rw------- = 600
 
+# directories 775 - rwxrwxr-x; file 664 - rw-rw-r--
+chmod -R ug=rw,o=r,a+X /path/to/folder/
+
 # add executable to all `*.py` file in `/path` and sub directories  
 find /path/. -name "*.py" -exec chmod +x {} +
 ```
