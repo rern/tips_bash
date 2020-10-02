@@ -37,6 +37,9 @@ awk NF
 # or
 grep .
 
+# replace multiple spaces with single
+awk '{$1=$1};1'
+
 # double blank lines to single
 awk -v RS='\n\n' 1
 
