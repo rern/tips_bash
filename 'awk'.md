@@ -48,4 +48,7 @@ awk '!a[$0]++'
 
 # get line number 3
 awk 'NR==3'
+
+# (not in-place) replace: /path/to/file.ext > /path/to
+awk -F'/[^/]*$' '{sub("regex", "string")}1' /path/to/stdin
 ```
