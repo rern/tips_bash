@@ -192,6 +192,9 @@ closing heredoc line must contains NO other characters
 EOF
 )
 
-# r - replace with /dev/stdin ... <<< "$var"
-sed -e '/.../r /dev/stdin' /path/to/file <<< "$var"
+# r - read from /dev/stdin ... <<< "$var"
+#  replace
+sed -e '/.../ r /dev/stdin' /path/to/file <<< "$var"
+#  append
+sed -e ' $ r /dev/stdin' /path/to/file <<< "$var"
 ```
