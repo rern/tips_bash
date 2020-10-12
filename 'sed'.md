@@ -183,22 +183,12 @@ var='a
 b
 c'
 
-# or heredoc - `'` / `"` quote leading 'EOF' = no $ expansion
-var=$(cat << 'EOF'
-heredoc:\n\
-\\n = new line\n\
-end each line with \\\n
-end each newline with \\n\n\
-\\t = tab\n\
-\t tab\n\
-    leading spaces\n\
-all space characters will survive\n\
-use any characters or symbols without escaping\n\
-@#&*()'"%-+=/;:!?_^[]{}\|~\\<>\n\
-except ^ as 1st character of each line\n\
-delimiter used for sed must be escaped\n\
-closing heredoc line must contains NO other characters\n\
-DON'T end last line with \\ backslash
+# or heredoc - `'` or `"` quote leading 'EOF' = no $ expansion
+var=$( cat << 'EOF'
+use any characters or symbols without escape
+@#&*()'"%-+=/;:!?_^[]{}\|~\<>
+except ^ as 1st character of each line
+closing heredoc line must contains NO other characters
 EOF
 )
 
