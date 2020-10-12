@@ -177,9 +177,13 @@ sed -i 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏ
 - `\r` : return  
 - `$'...\t...\n\r'` : `$` escapes `\t` `\n` `\r` to  `t` `n` `r`    
 
-**heredoc**  
+**multiline variable**  
 ```sh
-# `'` / `"` quote leading 'EOF' = no $ expansion
+var='a
+b
+c'
+
+# or heredoc - `'` / `"` quote leading 'EOF' = no $ expansion
 var=$(cat << 'EOF'
 heredoc:\n\
 \\n = new line\n\
@@ -198,6 +202,6 @@ DON'T end last line with \\ backslash
 EOF
 )
 
-sed -e "s|...|$var|"
-# use `|` delimiter to avoid escape `/` in `var`
+# r - replace with /dev/stdin ... <<< "$var"
+sed -e '/.../r /dev/stdin' /path/to/file <<< "$var"
 ```
