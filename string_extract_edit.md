@@ -2,7 +2,7 @@ String extract, edit
 ---
 
 ```sh
-string='1234567890'
+string=1234567890
 length=${#string}                      # 10
 position=$( expr index "$string" '4' ) # 4
 
@@ -19,6 +19,7 @@ extract=${array[1]}    # b
 # extract
 string='1234567890'
 
+echo string | head -c -1  # 123456789
 echo string | head -c 4   # 1234
 echo string | tail -c 4   # 7890
 echo string | cut -b 2-5  # 2345
