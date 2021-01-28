@@ -7,10 +7,15 @@ any characters or symbols without escape
 - omit the quotes allows `$varisble` inside and literal `$` must be escaped
 - ending `EOF` must has neither space nor any other characters
 ```sh
-var=$(cat <<'EOF'
+var=$( cat <<'EOF'
 any characters or symbols without escaping
 @#$&*()'"%-+=/;:!?€£¥_^[]{}§|~\\<>
 EOF
 )
 echo "$var"
+
+cat << EOF > /path/file
+any characters or symbols without escaping
+@#$&*()'"%-+=/;:!?€£¥_^[]{}§|~\\<>
+EOF
 ```
