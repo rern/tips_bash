@@ -1,10 +1,15 @@
 ### curl
 - Download file
-- `-s` silent
 - `-L` get file
 - `-O` remote name
+- `-s` silent
 ```sh
-# download file
+# view file
+curl -L http://URL/...
 
-curl -sLO http://URL/...
+# download file
+curl -LO http://URL/...
+
+# download + extract file
+curl -L http://URL/... | bsdtar xf -
 ```
