@@ -1,5 +1,4 @@
-### curl
-- Download file
+### Download file - `curl`
 - `-L` get file
 - `-O` remote name
 - `-s` silent
