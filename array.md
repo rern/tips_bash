@@ -25,6 +25,9 @@ for line in $lines; do
     echo $line
 done
 
+# create array from file
+readarray -t array < $file
+
 # convert 'multiline string' to 'array' (delimiter: newline)
 readarray -t array <<<"$lines"  #   literal \n must be: array=( echo -e "$lines" )
 for line in "${array[@]}"; do
@@ -33,9 +36,6 @@ done
 
 # convert 'array' to 'multiline string'
 string=$( IFS=$'\n'; echo "${array[@]}" )
-
-# create array from file
-mapfile -t array < $file
 
 # convert 'stdout' to 'array' by 'line'
 array=( $( command ) ) # array=( line1 line2 line3 ... )
