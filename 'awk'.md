@@ -20,7 +20,7 @@ awk '{print $NF}' <<<'column1 column2 column3 column4'
 awk '/FIND/ {$1=$2=""; print}' <<<'column1 column2 column3 column4'
 # > column3 column4
 
-# get 2nd column to 2nd from last
+# get 2nd column - substr($0,index($0,$2)) to 2nd from last - NF-=1
 awk '{NF-=1;print substr($0,index($0,$2))}' <<<'column1 column2 column3 column4 column5'
 # > column2 column3 column4
 
