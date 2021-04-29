@@ -146,6 +146,8 @@ all lines - first matched string of each line unless with `g`
 ```sh
 sed -i 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ/aaaaeeeeiiiioooouuuuüüüüAAAAEEEEIIIIOOOOUUUUÜÜÜÜ/' $file
 ```
+- `'s|/[^/]*$||'`      : get directory path from from file path
+- `sed 's|.*/||'`      : get filename from file path
 
 **wildcards**  
 - `.`  : single character or space wildcard  
