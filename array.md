@@ -64,20 +64,20 @@ valueafter1=${array[@]:2}
 valuelast=${array[@]: -1}
 
 # add
-array+=(d)                # array=(a b c d)
-array[2]=xyz              # array=(a b xyz d)
+array+=(d)                 # array=(a b c d)
+array[2]=xyz               # array=(a b xyz d)
 
 # partial value
-value0to1=${array[@]:0:2} # a b
-subvalue2=${array[2]:0:2} # xy
+value0to1=${array[@]:0:2}  # a b
+subvalue2=${array[2]:0:2}  # xy
 
 # copy
-array2=("${array[@]}")    # array2=(a d)
+array2=("${array[@]}")     # array2=(a d)
 
 # delete an element
 array=(a b c d)
-unset 'array[1]'          # array=(a c d) - delete by index
-unset 'array[-1]'         # array=(a b c) - delete last element
+unset 'array[1]'           # array=(a c d) - delete by index
+unset 'array[-1]'          # array=(a b c) - delete last element
 
 # reset index
 array=(a xyz '' d)
@@ -85,8 +85,8 @@ array=("${array[@]}")      # array=(a xyz d)
 array=("${array[@]/xy*/}") # array=(a d)     - pattern match + reser index
 
 # delete all values in array
-array=()    # empty array
-unset array # delete array variable
+array=()                   # empty array
+unset array                # delete array variable
 
 # sort
 IFS=$'\n' sorted=( $( echo "${array[*]}" | sort ) )
