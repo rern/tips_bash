@@ -76,8 +76,8 @@ array2=("${array[@]}")    # array2=(a d)
 
 # delete an element
 array=(a b c d)
-unset 'array[1]'           # array=(a c d) - delete by index
-unset 'array[-11]'         # array=(a b c) - delete last element
+unset 'array[1]'          # array=(a c d) - delete by index
+unset 'array[-1]'         # array=(a b c) - delete last element
 
 # reset index
 array=(a xyz '' d)
