@@ -75,9 +75,14 @@ subvalue2=${array[2]:0:2} # xy
 array2=("${array[@]}")    # array2=(a d)
 
 # delete an element
-unset 'array[1]'           # array=(a '' xyz d) - delete value
-array=("${array[@]}")      # array=(a xyz d)    - reset index
-array=("${array[@]/xy*/}") # array=(a d)        - pattern match + reser index
+array=(a b c d)
+unset 'array[1]'           # array=(a c d) - delete by index
+unset 'array[-11]'         # array=(a b c) - delete last element
+
+# reset index
+array=(a xyz '' d)
+array=("${array[@]}")      # array=(a xyz d)
+array=("${array[@]/xy*/}") # array=(a d)     - pattern match + reser index
 
 # delete all values in array
 array=()    # empty array
