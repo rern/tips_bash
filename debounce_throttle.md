@@ -1,45 +1,23 @@
 ### Debounce
-- wait 0.5 seconds and reset to 0.5 every new bounce
+- hold 0.5 second
+- reset to 0.5 on every new call
+- run on 0.5 reached
+- non-blocking
 ```sh
-# non-blocking
-echo 5 > flagfile # 5 x 0.1 = 0.5 s
-(
-	for (( i=0; i < 5; i++ )); do
-		sleep 0.1
-		s=$(( $( cat flagfile ) - 1 ))
-		if (( $s > 0 )); then
-			echo $s > flagfile
-		else
-			rm -f flagfile
-			COMMAND1
-		fi
-	done
-) &> /dev/null &
-```
-- allow only 1st run within 1 seconds (run > wait)
-
-```sh
-# non-blocking
-if [[ ! -e flagfile ]]; then
-	touch flagfile
-	(
+echo 5 > flagfile                   # newcall
+( for (( i=0; i < 5; i++ )); do
+	sleep 0.1                       # duration between each call
+	s=$(( $( cat flagfile ) - 1 ))
+	(( $s == 4 )) && i=0            # new call - reset count
+	if (( $s > 0 )); then
+		echo $s flagfile
+	else
 		COMMAND1
 		COMMAND2
-		sleep 1 #####
-
 		rm -f flagfile
-	) &
-fi
+	fi
+done ) &> /dev/null &
 
-# within while loop
-if [[ ! -e flagfile ]]; then
-	touch flagfile
-	COMMAND1
-	COMMAND2
-	sleep 1 #####
-	
-	rm -f flagfile
-fi
 ```
 
 ### Throttle
