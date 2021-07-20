@@ -18,7 +18,7 @@ os.mkfifo( 'FIFO' )
 while True: # wait for any write to FIFO
   with open( 'FIFO' ) as fifo:
     for line in fifo:
-      print( line )
+      print( line.rstrip() ) # remove trailing newline
 ```
 
 2nd terminal
