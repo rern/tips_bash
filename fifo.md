@@ -19,7 +19,7 @@ while True: # wait for any write to FIFO
   with open( 'FIFO' ) as fifo:
     for line in fifo:
       print( line.rstrip() ) # remove trailing newline
-	print( 'EOF' )
+    print( 'EOF' )           # end of each write
 ```
 
 2nd terminal
