@@ -28,5 +28,9 @@ while True:             # wait for any write to FIFO
 
 2nd terminal
 ```sh
-echo DATA > FIFO
+echo "\
+DATA1
+DATA2
+DATA3 \
+" > FIFO
 ```
