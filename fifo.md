@@ -24,7 +24,7 @@ while True:             # wait for any write to FIFO
       print( l )
       lines.append( l )
     print( 'EOF' )      # end of each write
-	print( lines[ 0 ] )
+    print( lines[ 0 ] )
 ```
 
 2nd terminal
