@@ -1,4 +1,4 @@
-**fifo / pipe**
+**fifo named pipe**
 
 1st terminal
 ```sh
