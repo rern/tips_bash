@@ -18,7 +18,7 @@ os.mkfifo( 'FIFO' )
 
 while True:             # wait for any write to FIFO
   with open( 'FIFO' ) as fifo:
-    lines = []
+    lines = []          # new list (each write)
     for line in fifo:
       l = line.rstrip() # remove trailing newline
       print( l )
