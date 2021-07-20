@@ -2,11 +2,10 @@
 
 1st terminal
 ```sh
-# create named pipe
+# bash
 mkfifo FIFO
 
-# wait for any write to FIFO
-while true; do
+while true; do # wait for any write to FIFO
   while read line; do
     echo "$line"
   done < FIFO
@@ -14,11 +13,10 @@ done
 
 # python
 import os
+os.mkfifo( 'FIFO' )
 
-FIFO = 'FIFO'
-os.mkfifo( FIFO )
-while True:
-  with open( FIFO ) as fifo:
+while True: # wait for any write to FIFO
+  with open( 'FIFO' ) as fifo:
     for line in fifo:
       print( line )
 ```
