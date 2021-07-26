@@ -7,6 +7,8 @@ length=${#string}                      # 10
 position=$( expr index "$string" '4' ) # 4
 
 # find matched
+[[ 'aa bb cc' == *bb* ]] && echo y || echo none     # no spaces
+[[ 'aa bb cc' == *"a bb"* ]] && echo y || echo none # with spaces
 echo aa bb cc | grep -qw bb && echo matched || echo none
 
 # convert 'string' to 'array' of individual characters: array=(1 2 3 4 5 6 7 8 9 0)
