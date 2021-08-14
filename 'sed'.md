@@ -181,6 +181,10 @@ sed -i 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏ
 
 **multiline variable**  
 ```sh
+var=$( echo "$var" | sed '$!s/$/\\/' )
+sed "/.../ a$var" /path/to/file
+
+# OR
 var='a
 b
 c'
