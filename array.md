@@ -17,6 +17,9 @@ array+=(d)
 declare -A array=( [a]=aa [b]=bb [c]=cc )
 array[d]=dd
 
+# get all keys of associative array
+keysarray=( $( echo "${!array[@]}" | tr ' ' '\n' | sort ) )
+
 # lines with single word, contain no spaces, in each line can be loop directly
 lines='aaa
 bbb
