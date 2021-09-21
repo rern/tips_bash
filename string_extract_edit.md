@@ -66,6 +66,9 @@ tr -s ' ' < file
 echo 'a b  c  d' | tr -d ' ' # abcd
 tr -d ' ' < file
 
+# trim leading and trailing white sapces + squeeze multiplesapces to single
+echo ' a b  c  d ' | xargs # a b c d
+
 # delete trailing empty lines  
 a=$(<file); printf '%s\n' "$a" > file    
 
