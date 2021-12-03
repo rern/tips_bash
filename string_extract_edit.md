@@ -42,6 +42,13 @@ echo 'aaa   bbb ccc' | awk '{ print $2 }'     # bbb (2nd word - multiple spaces)
 echo 'aaa bbb ccc' | cut -d ' ' -f 2          # bbb (< > delimiter)
 echo 'key1="aaa" key2="bbb" | cut -d '"' -f 2 # aaa (<"> delimiter)
 
+# extract file parts
+path=/path/to/dir/file.ext
+dir=$( dirname "$path" )
+file=$( basename "$path" )
+filename=${file%.*} # or $( basename "$path" .${path##*.} )
+fileext=${file##*.} # or ${path##*.}
+
 # edit
 string=123456789012345
 ${#string}         # 15 - length
