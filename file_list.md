@@ -16,7 +16,7 @@ dir0=${dirarray[0]}
 path=/path/to/dir/file.ext
 dir=$( dirname "$path" )
 file=$( basename "$path" )
-filename=${filename%.*}
+filename=${file%.*}
 fileext=${path##*.} # or ${filename##*.}
 ```
 - quote 
