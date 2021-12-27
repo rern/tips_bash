@@ -83,8 +83,8 @@ a=$(<file); printf '%s\n' "$a" > file
 numstring=1.23ab
 echo $numstring | tr -d -c .0-9 # 1.23
 echo $numstring | tr -d -c a-z  # ab
-${numstring//[^0-9.]/} # 1.23 - '//'delete all characters '^'not match '[...]'any of '0 to 9'
-${numstring//[0-9.]/}  # ab - '//'delete all characters match '[...]'any of '0 to 9'
+${numstring//[^0-9.]/}          # 1.23 - '//'delete all characters '^'not match '[...]'any of '0 to 9'
+${numstring//[0-9.]/}           # ab - '//'delete all characters match '[...]'any of '0 to 9'
 
 # extract float number
 float=1.23
