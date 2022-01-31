@@ -4,12 +4,14 @@ optbox=( --colors --no-shadow --no-collapse )
 
 share=$( dialog "${optbox[@]}" --output-fd 1 --nocancel --inputbox "
  Shared path to create:
-" 0 0 )
+" 0 0 $PWD )
+
 rw=$( dialog "${optbox[@]}" --output-fd 1 --nocancel --menu "
- \Z1Permission\Z0:
+ Permission for \Z1$share\Z0:
 " 8 0 0 \
-1 read + write \
-2 read only )
+1 'read + write' \
+2 'read only' )
+
 if [[ $rw == 1 ]]; then
 	permission=666
 	rw=rw
