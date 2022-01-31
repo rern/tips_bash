@@ -7,7 +7,6 @@ bash <( curl -L https://github.com/rern/tips_bash/raw/master/nfsshare.sh )
 ```sh
 pacman -Sy nfs-utils # debian: nfs-kernel-server
 
-# shared directory
 share=/PATH/DIR
 mkdir $share
 chmod -R 777 $share # 777 = rwx
