@@ -24,6 +24,6 @@ fi
 
 mkdir -p $share
 chmod $permission $share
-! grep -q $share /etc/exports && echo "$share 192.168.1.0/24($rw,sync,no_subtree_check)" >> /etc/exports
+! grep -q "$share 192" /etc/exports && echo "$share 192.168.1.0/24($rw,sync,no_subtree_check)" >> /etc/exports
 
 systemctl restart nfs-server # debian: nfs-kernel-server
