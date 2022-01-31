@@ -1,7 +1,7 @@
 ### NFS server
 - Setup script: 
 ```sh
-bash <( curl -L https://github.com/rern/tips_bash/raw/master/nfsserver.sh )
+bash <( curl -L https://github.com/rern/tips_bash/raw/master/nfsshare.sh )
 ```
 
 ```sh
