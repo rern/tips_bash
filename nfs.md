@@ -1,4 +1,9 @@
 ### NFS server
+- Setup script: 
+```sh
+bash <( curl -L https://github.com/rern/tips_bash/raw/master/nfsset.sh )
+```
+
 ```sh
 pacman -Sy nfs-utils # debian: nfs-kernel-server
 
