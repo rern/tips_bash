@@ -23,7 +23,7 @@ fi
 [[ ! -e /usr/bin/nfsconf ]] && pacman -Sy nfs-utils
 
 mkdir -p $share
-chmod -R $permission $share
+chmod $permission $share
 ! grep -q $share /etc/exports && echo "$share 192.168.1.0/24($rw,sync,no_subtree_check)" >> /etc/exports
 
 systemctl restart nfs-server # debian: nfs-kernel-server
