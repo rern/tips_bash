@@ -7,7 +7,6 @@ share=/PATH/DIR
 mkdir $share
 chmod -R 777 $share # 777 = rwx
 echo "$share 192.168.1.0/24(rw,sync,no_subtree_check)" >> /etc/exports
-exportfs -a
 
 systemctl restart nfs-server # debian: systemctl restart nfs-kernel-server
 ```
