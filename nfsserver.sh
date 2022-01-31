@@ -18,7 +18,7 @@ else
 	rw=ro
 fi
 
-[[ ! -e /usr/bin/nfsconf ]] && pacman -Sy nfs-utils # debian: nfs-kernel-server
+[[ ! -e /usr/bin/nfsconf ]] && pacman -Sy nfs-utils
 
 mkdir -p $share
 chmod -R $permission $share
