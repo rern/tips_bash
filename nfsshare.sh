@@ -13,7 +13,7 @@ rw=$( dialog "${optbox[@]}" --output-fd 1 --nocancel --menu "
 2 'read only' )
 
 if [[ $rw == 1 ]]; then
-	permission=666
+	permission=777
 	rw=rw
 else
 	permission=444
