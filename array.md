@@ -38,7 +38,7 @@ for line in "${array[@]}"; do
 done
 
 # convert 'array' to 'multiline string'
-string=$( IFS=$'\n'; echo "${array[@]}" )
+string=$( printf "%s\n" "${array[@]}" )
 
 # convert 'stdout' to 'array' by 'line'
 array=( $( command ) ) # array=( line1 line2 line3 ... )
