@@ -183,24 +183,15 @@ sed -i 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏ
 ```sh
 var=$( echo "$var" | sed '$!s/$/\\/' )
 sed "/.../ a$var" /path/to/file
+```
 
-# OR
-var='a
-b
-c'
-
-# or heredoc - `'` or `"` quote leading 'EOF' = no $ expansion
-var=$( cat << 'EOF'
+**multiline insert**  
+```sh
+# heredoc - `'` or `"` quote leading 'EOF' = no $ expansion
+cat << 'EOF' | sed '/.../ r /dev/stdin' /path/to/file
 use any characters or symbols without escape
 @#&*()'"%-+=/;:!?_^[]{}\|~\<>
 except ^ as 1st character of each line
 closing heredoc line must contains NO other characters
 EOF
-)
-
-# r - read from /dev/stdin ... <<< "$var"
-#  replace
-sed -e '/.../ r /dev/stdin' /path/to/file <<< "$var"
-#  append
-sed -e ' $ r /dev/stdin' /path/to/file <<< "$var"
 ```
