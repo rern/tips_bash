@@ -185,7 +185,7 @@ var=$( echo "$var" | sed '$!s/$/\\/' )
 sed "/.../ a$var" /path/to/file
 ```
 
-**multiline insert**  
+**multiline insert after matched**  
 ```sh
 # heredoc - `'` or `"` quote leading 'EOF' = no $ expansion
 cat << 'EOF' | sed '/.../ r /dev/stdin' /path/to/file
