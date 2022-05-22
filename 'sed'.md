@@ -124,7 +124,7 @@ alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/mas
 - `/.../`   : word  
 - `/[...]/` : character  
 - `s/.../.../`,  `s|...|...|`,`s#...#...#` : delimiter (no escape needed)  
-- `s/.{n}/.../`, `s/(...){n}/.../` : match repeating characters or word`(...)`  
+- `-E 's/.{n}/.../`, `s/(...){n}/.../'` : match repeating characters or word`(...)`  
 all lines - first matched string of each line unless with `g`  
 
 - **non-greedy**  
