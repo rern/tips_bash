@@ -1,8 +1,7 @@
 ### Send running process to background
 - `Ctrl`+`z` - pause process
 - `bg`
-- `jobs` - get process ID
-- `disown -h %ID`
+- `disown -h %1`
 
 ### Bring running process to foreground
 - `jobs` - get process ID
