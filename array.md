@@ -1,8 +1,9 @@
 Array
 ---
 ```sh
-# new array
+# new array - delimiter 'space'
 array=(a b c)
+array=( $( echo "$lines" ) ) # no spaces in each line
 
 # count element
 count=${#array[@]}
@@ -31,17 +32,14 @@ done
 # create array from file
 readarray -t array < $file
 
-# convert 'multiline string' to 'array' (delimiter: newline)
-readarray -t array <<<"$lines"  #   literal \n must be: array=( echo -e "$lines" )
+# convert 'stdout' to 'array' - delimiter '\n'
+readarray -t array <<< $( command ) # from var - readarray -t array <<< "$var"
 for line in "${array[@]}"; do
     echo $line
 done
 
 # convert 'array' to 'multiline string'
 string=$( printf "%s\n" "${array[@]}" )
-
-# convert 'stdout' to 'array' by 'line'
-array=( $( command ) ) # array=( line1 line2 line3 ... )
 
 # split 'string' to 'array' by a delimiter
 string='abc|def|ghi|jk lm'
