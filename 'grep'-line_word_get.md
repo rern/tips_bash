@@ -32,6 +32,6 @@ Remove blank lines
 # empty lines + lines with spaces
 grep -v '^\s*$' file.ext
 
-# empty lines only (not include space only lines)
+# empty lines only (still includes space only lines)
 grep .
 ```
