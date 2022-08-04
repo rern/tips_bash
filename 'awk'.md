@@ -36,10 +36,8 @@ awk -F 'n' '{print $1}' <<<'column1 column2 column3 column4'
 awk -F '[on]' '{print $2}' <<<'column1 column2 column3 column4'
 # > lum
 
-# remove blank lines
+# remove blank lines and space only lines ( grep . remove blank only)
 awk NF
-# or
-grep .
 
 # replace multiple spaces with single
 awk '{$1=$1};1'
