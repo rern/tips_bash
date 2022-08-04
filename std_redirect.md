@@ -6,6 +6,10 @@ Stream
 - `2` stderr
 
 Redirect
+- `>` `<` pass content to / from file
+- `<< EOF` heredoc - set var
+- `<< EOF > file` heredoc - pass content to file
+- `<<<` herestring - pass content to command
 - `command > file` : stdout to `file` (`1>`)
 - `command 2> file` : stderr `2` to `file`
 - `command &> file` : stderr `2` + stdout `1` to `file` (`2>&1`)
