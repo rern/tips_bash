@@ -4,7 +4,7 @@ Stream
 - `0` stdin
 - `1` stdout
 - `2` stderr
-- `> /dev/tty` - non-std - cannot be passed to file or variable
+- `> /dev/tty` - print to screen which cannot be passed directly
 
 Redirect
 - `|` pipe
@@ -22,8 +22,8 @@ Redirect
 - `<<<` herestring - pass content to command
   - `command2 <<< $( command1 )` : multiline stdout to `command2`
   - `command <<< "$var"` : read variable as multiline stdin (here string)
-- `script` - capture everything on terminal
-	- `script -c 'command' file` - capture `> /dev/tty` to file
+- `script` - capture everything on screen
+	- `script -c 'command' file` - `> /dev/tty` to file
 
 accummulate stdout
 ```sh
