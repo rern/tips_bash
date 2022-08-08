@@ -4,6 +4,7 @@ Stream
 - `0` stdin
 - `1` stdout
 - `2` stderr
+- `/dev/tty` - non-std - cannot be passed to file or variable
 
 Redirect
 - `|` pipe
@@ -21,9 +22,8 @@ Redirect
 - `<<<` herestring - pass content to command
   - `command2 <<< $( command1 )` : multiline stdout to `command2`
   - `command <<< "$var"` : read variable as multiline stdin (here string)
-
-`/dev/tty` - Non-std capture
-- `script -c 'command' file` - redirect to file
+- `script` - non-std
+	- `script -c 'command' file` - redirect `/dev/tty` to file
 
 accummulate stdout
 ```sh
