@@ -22,6 +22,9 @@ Redirect
   - `command2 <<< $( command1 )` : multiline stdout to `command2`
   - `command <<< "$var"` : read variable as multiline stdin (here string)
 
+Non-std - `/dev/tty`
+- `script -c 'command' file` - redirect to file
+
 accummulate stdout
 ```sh
 {
