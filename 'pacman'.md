@@ -6,7 +6,10 @@
 - Download only `pacman -Sw PACKAGE`
 - List installed `pacman -Qqe`
 - List files installed `pacman -Ql`
-- Check installed package `pacman -Qi PACKAGE`
+- Check installed package `pacman -Q PACKAGE`
+- Check detail of installed package `pacman -Qi PACKAGE`
+- Search package `pacman -Qs PACKAGE` (can use wildcards)
+- Search package contains command `pacman -Fy COMMAND`
 - Recreate package from installed**  `bacman PACKAGE`
 - Install from file `pacman -U PACKAGE_FILE`
 - Uninstall `pacman -R PACKAGE`
