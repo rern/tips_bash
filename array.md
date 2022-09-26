@@ -17,6 +17,7 @@ array+=(d)
 # create associative array
 declare -A array=( [a]=aa [b]=bb [c]=cc )
 array[d]=dd
+array_a=${array[a]}
 
 # get all keys of associative array
 keysarray=( $( echo "${!array[@]}" | tr ' ' '\n' | sort ) )
