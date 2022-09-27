@@ -10,7 +10,8 @@ pacman -Sy nfs-utils # debian: nfs-kernel-server
 share=/PATH/DIR
 mkdir $share
 chmod -R 777 $share # 777 = rwx
-echo "$share 192.168.1.0/24(rw,sync,no_subtree_check)" >> /etc/exports
+ip=$( ifconfig | grep -m1 inet.*broadcast | awk '{print $2}' )
+echo "$share ${ip%.*}.0/24(rw,sync,no_subtree_check)" >> /etc/exports
 
 systemctl restart nfs-server # debian: nfs-kernel-server
 ```
