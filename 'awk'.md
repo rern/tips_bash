@@ -1,7 +1,10 @@
-`awk` get word by column number
+`awk`
 ---
 
 ```sh
+# test empty file
+[[ ! $( awk NF file ) ]] && echo empty
+
 # replace newline with string
 awk 1 ORS='xx'
 
