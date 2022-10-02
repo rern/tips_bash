@@ -2,7 +2,7 @@
 ---
 
 ```sh
-# test empty file
+# test empty / only white spaces file
 [[ ! $( awk NF file ) ]] && echo empty
 
 # replace newline with string
