@@ -28,10 +28,3 @@ grep -n "text to find" file.ext | cut -f1 -d:
 
 Remove blank lines
 - Use: `awk NF file.ext` instead.
-```sh
-# empty lines + lines with spaces
-grep -v '^\s*$' file.ext
-
-# empty lines only (still includes space only lines - use 'awk NF' for both)
-grep .
-```
