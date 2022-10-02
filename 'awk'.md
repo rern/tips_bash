@@ -3,7 +3,10 @@
 
 ```sh
 # test empty / only white spaces file
-[[ ! $( awk NF file ) ]] && echo empty
+[[ ! $( awk NF file ) ]] && echo true
+
+# remove blank lines and white spaces lines
+awk NF
 
 # replace newline with string
 awk 1 ORS='xx'
@@ -38,9 +41,6 @@ awk -F 'n' '{print $1}' <<<'column1 column2 column3 column4'
 # get string between different delimiters
 awk -F '[on]' '{print $2}' <<<'column1 column2 column3 column4'
 # > lum
-
-# remove blank lines and space only lines (use 'grep .' for blank only)
-awk NF
 
 # replace multiple spaces with single
 awk '{$1=$1};1'
