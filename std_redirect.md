@@ -22,8 +22,8 @@ Redirect
 - `<<<` herestring - pass content to command
   - `command2 <<< $( command1 )` : multiline stdout to `command2`
   - `command <<< "$var"` : read variable as multiline stdin (here string)
-- `script` - capture everything on screen
-	- `script -c 'command' file` - `> /dev/tty` to file
+- `script -c` - capture everything on screen to file. (for commands not stdout to var)
+	- `script -c 'command' file` - capture `/dev/tty` to file
 
 accummulate stdout
 ```sh
