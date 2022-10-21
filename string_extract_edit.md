@@ -74,11 +74,15 @@ tr -s ' ' < file
 echo 'a b  c  d' | tr -d ' ' # abcd
 tr -d ' ' < file
 
+# filter only numbers / non numbers
+echo 123abc456def | tr -dc [0-9] # 123456
+echo 123abc456def | tr -d [0-9]  # abcdef
+
 # trim leading and trailing white sapces + squeeze multiplesapces to single
 echo ' a b  c  d ' | xargs # a b c d
 
 # delete trailing empty lines  
-a=$(<file); printf '%s\n' "$a" > file    
+awk NF file    
 
 # extract only number / non-number
 numstring=1.23ab
