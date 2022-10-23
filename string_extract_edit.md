@@ -6,6 +6,12 @@ string=1234567890
 length=${#string}                      # 10
 position=$( expr index "$string" '4' ) # 4
 
+# multiline to words
+words=$( echo $mutiline )
+
+# words to multiline
+mutiline=$( xargs -n1 <<< $words )
+
 # find matched
 [[ 'aa bb cc' =~ bb ]] && echo y || echo none       # regex
 [[ 'aa bb cc' == *bb* ]] && echo y || echo none     # no spaces
