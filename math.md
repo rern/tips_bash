@@ -39,9 +39,9 @@ printf "%.3f" perl -e "print 1 / 3"       # 0.333
 # jq + printf (much slower)
 printf "%.3f" $( jq -n 1/3 )              # 0.333
 
-# printf - no calculation - append \n for newline ending
+# printf - no calculation - \n for newline ending
 printf "%.0f" 1.25      # 1
 printf "%.1f" 1.25      # 1.2
 printf "%.1f" 1.255     # 1.3
-printf "%.2f" 1.255     # 1.25
+printf "%.2f\n" 1.255     # 1.25
 ```
