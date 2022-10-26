@@ -28,19 +28,15 @@ $(( ( N + n/2 ) / n )) # round nearest
 ```
 
 **Float**  
-Bash cannot do float.
+Bash cannot do float. (python or jq - too slow)
 ```sh
-# perl - no decimal limit
-perl -e "print 1 / 3"                    # 0.333333333333333
-
 # awk + printf
-awk "BEGIN { printf \"%.2f\", 1 / 3 }"   # 0.333
+awk "BEGIN {printf \"%.2f\", 1 / 3}"     # 0.333
 
 # perl + printf
-printf '%.3f' $( perl -e "print 1 / 3" ) # 0.333
-
-# jq + printf (much slower)
-printf '%.3f' $( jq -n 1 / 3 )           # 0.333
+printf '%.3f' $( perl -e "print 1 / 3" ) # 0.333 - a bit slower and longer
+# perl - no decimal limit 
+perl -e "print 1 / 3"                    # 0.333333333333333 - shorter
 
 # printf - no calculation - \n for newline ending
 printf '%.0f' 1.25      # 1
