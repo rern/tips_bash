@@ -30,6 +30,9 @@ $(( ( N + n/2 ) / n )) # round nearest
 **Float**  
 Bash cannot do float.
 ```sh
+# perl - no decimal limit
+perl -e "print 1 / 3"                    # 0.333333333333333
+
 # awk + printf
 awk "BEGIN { printf \"%.2f\", 1 / 3 }"   # 0.333
 
