@@ -30,11 +30,11 @@ $(( ( N + n/2 ) / n )) # round nearest
 **Float**  
 Bash cannot do float.
 ```sh
-# perl
-printf '%.3f' $( perl -e "print 1 / 3" ) # 0.333
-
 # awk + printf
 awk "BEGIN { printf \"%.2f\", 1 / 3 }"   # 0.333
+
+# perl + printf
+printf '%.3f' $( perl -e "print 1 / 3" ) # 0.333
 
 # jq + printf (much slower)
 printf '%.3f' $( jq -n 1 / 3 )           # 0.333
