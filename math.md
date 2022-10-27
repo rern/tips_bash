@@ -31,7 +31,7 @@ $(( ( N + n/2 ) / n )) # round nearest
 Bash cannot do float. (python or jq - too slow)
 ```sh
 # awk + printf
-awk "BEGIN { printf \"%.2f\", 1 / 3 }"   # 0.333
+awk 'BEGIN { printf "%.2f", 1 / 3 }'   # 0.333
 
 # perl + printf - a bit slower and longer
 printf '%.3f' $( perl -e "print 1 / 3" ) # 0.333
