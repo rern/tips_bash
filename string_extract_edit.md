@@ -2,6 +2,9 @@ String extract, edit
 ---
 
 ```sh
+# if file is empty, remove
+[[ ! $( awk NF file ) ]] && rm file
+
 string=1234567890
 length=${#string}                      # 10
 position=$( expr index "$string" '4' ) # 4
