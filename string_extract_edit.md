@@ -87,7 +87,7 @@ tr -d ' ' < file
 echo 123abc456def | tr -dc [0-9] # 123456
 echo 123abc456def | tr -d [0-9]  # abcdef
 
-# trim leading and trailing white sapces + squeeze multiplesapces to single
+# trim leading and trailing white sapces + squeeze multiplesapces to single (not for strings contain quotes, single or double)
 echo ' a b  c  d ' | xargs # a b c d
 
 # delete trailing empty lines  
