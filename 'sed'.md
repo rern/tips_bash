@@ -68,7 +68,7 @@ a\
 \* `<x>`           : `i`, `a`, `d`, `p`, `r`, `c`  
 \* `<n>`           : number    
 - `/.../`            : default delimiter  
-- `\|...|`, `\#...#` : delimiters can be any (but in range search, none default `/` must be escaped)  
+- `\|...|`, `\#...#` : delimiters can be any (but in line search, none default `/` must be escaped)  
   
 - `-n '/.../p'`      : **p**rint line string by matched  
 - `-n '<n>q;d'`      : get line string by line number  
