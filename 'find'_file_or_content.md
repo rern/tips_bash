@@ -24,12 +24,12 @@ grep -rni 'pattern' /path
 #    -i case insensitive
 
 # or
-egrep -ir 'pattern' /path
-egrep -ir --include=*.{ext,ext1} 'pattern' /path
+grep -ir 'pattern' /path
+grep -ir --include=*.{ext,ext1} 'pattern' /path
 
 # 'l' - list of files
-egrep -irl 'pattern' /path
-egrep -irl --include=*.{ext,ext1} 'pattern' /path
+grep -irl 'pattern' /path
+grep -irl --include=*.{ext,ext1} 'pattern' /path
 ```
 
 **Find latest modified**
