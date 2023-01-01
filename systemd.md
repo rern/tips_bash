@@ -82,7 +82,7 @@ systemctl list-unit-files
 
 **list units by filter**  
 ```sh
-systemctl | egrep <unit1|unit2>
+systemctl | grep <unit1\|unit2>
 ```
 
 **list by state** `enabled` / `disabled` / `indirect` / `static`  
