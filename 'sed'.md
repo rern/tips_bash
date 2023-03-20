@@ -149,6 +149,7 @@ sed -i 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏ
 ```
 - `'s|/[^/]*$||'`      : get directory path from from file path
 - `sed 's|.*/||'`      : get filename from file path
+- `sed 's/[^=]*=//'`   : non-greedy get string after 1st `=`
 
 **wildcards**  
 - `.`  : single character or space wildcard  
