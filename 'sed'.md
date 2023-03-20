@@ -144,6 +144,8 @@ all lines - first matched string of each line unless with `g`
 - `'s/a.../&b.../'`     : reuse input as `&` = `a...b...`  
 - `'s/a.../b...&/'`     : `b...a...`  
 - `'s|--\(aaa\)--\(bbb)--|==\1\2==|'` : reuse input parts `\(...\)` as `\n`, `--aaa--bbb--` to `==aaabbb==`  
+- `'s/a.../\L&/'`       : change to lowercase
+- `'s/a.../\U&/'`       : change to uppercase
 - replace each character respectively
 ```sh
 sed -i 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ/aaaaeeeeiiiioooouuuuüüüüAAAAEEEEIIIIOOOOUUUUÜÜÜÜ/' $file
