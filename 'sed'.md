@@ -128,7 +128,8 @@ alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/mas
 all lines - first matched string of each line unless with `g`  
 
 - **non-greedy**  
-	- `echo fa fa-list 2x red hide | sed 's/.* \(fa-[^ ]*\).*/\1/'` : fa-list   
+	- `echo var=abc=de | sed 's/[^=]*=//'` : `abc=de` 
+	- `echo fa fa-list 2x red hide | sed 's/.* \(fa-[^ ]*\).*/\1/'` : `fa-list`  
 	- `cat /path/file | grep 'fa-' | sed 's/.* \(fa-[a-z][^ '"'"'"]*\).*/\1/' | sort -u` : list of `fa-xxx` sorted and `-u` no duplicates   
 	- `echo 123456789012345 | perl -pe 's/2(.*?)5/a\1b/'` : perl - 1a34b6789012345 - `?`=shortest  
   
@@ -149,7 +150,6 @@ sed -i 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏ
 ```
 - `'s|/[^/]*$||'`      : get directory path from from file path
 - `sed 's|.*/||'`      : get filename from file path
-- `sed 's/[^=]*=//'`   : non-greedy get string after 1st `=`
 
 **wildcards**  
 - `.`  : single character or space wildcard  
