@@ -128,6 +128,7 @@ alternative: [simple brace expansion](https://github.com/rern/bash_tips/blob/mas
 all lines - first matched string of each line unless with `g`  
 
 - **non-greedy**  
+	- `echo 192.168.1.123 | sed 's/^\(.*\.\)[^.]*$/\1/'` : `192.168.1.`  
 	- `echo var=abc=de | sed 's/[^=]*=//'` : `abc=de` 
 	- `echo fa fa-list 2x red hide | sed 's/.* \(fa-[^ ]*\).*/\1/'` : `fa-list`  
 	- `cat /path/file | grep 'fa-' | sed 's/.* \(fa-[a-z][^ '"'"'"]*\).*/\1/' | sort -u` : list of `fa-xxx` sorted and `-u` no duplicates   
