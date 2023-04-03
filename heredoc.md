@@ -23,5 +23,10 @@ any characters or symbols without escaping
 EOF
 ```
 
+### Read File `<`
+```sh
+VAR=$( < $FILE )
+```
+
 ### Process Substitution `<( COMMAND )`
 Pipe stdout of multiple commands
