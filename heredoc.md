@@ -1,13 +1,16 @@
-heredoc
----
+### Here Strings `<<<`
+Alternative to `echo "$VAR"`
+```sh
+COMMAND <<< $VAR
+```
 
-any characters or symbols without escape
-
+### Here Documents `<<`
+Any characters or symbols without escape
 - `'` or `"` quotes for starting `'EOF'` = no `$variable` expansion inside
 - omit the quotes allows `$varisble` inside and literal `$` must be escaped
 - ending `EOF` must has neither space nor any other characters
 ```sh
-var=$( cat <<'EOF'
+var=$( cat << 'EOF'
 any characters or symbols without escaping
 @#$&*()'"%-+=/;:!?€£¥_^[]{}§|~\\<>
 EOF
@@ -19,3 +22,6 @@ any characters or symbols without escaping
 @#$&*()'"%-+=/;:!?€£¥_^[]{}§|~\\<>
 EOF
 ```
+
+### Process Substitution `<( COMMAND )`
+Pipe stdout of multiple commands
