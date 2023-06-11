@@ -1,9 +1,15 @@
 `awk`
 ---
-
+in-place: `awk -i inplace `
 ```sh
-# test empty / only white spaces file
-[[ ! $( awk NF file ) ]] && echo true
+# if duplicate lines in file
+awk 'a[$0]++{exit 1}' FILE && echo NO duplicates
+
+# remove duplicate lines
+awk -i inplace '!seen[$0]++' FILE
+
+# test empty / only white spaces in file
+[[ ! $( awk NF FILE ) ]] && echo true
 
 # remove blank lines and white spaces lines
 awk NF
@@ -12,7 +18,7 @@ awk NF
 awk 1 ORS='xx'
 
 # concatenate files with a newline in between
-awk 1 file1.txt file2.txt file3.txt > files.txt
+awk 1 FILE1.txt FILE2.txt FILE3.txt > files.txt
 
 # get column 3
 awk '{print $3}' <<<'column1 column2 column3 column4'
@@ -53,7 +59,4 @@ awk '!a[$0]++'
 
 # get line number 3
 awk 'NR==3'
-
-# (not in-place) replace: /path/to/file.ext > /path/to
-awk -F'/[^/]*$' '{sub("regex", "string")}1' /path/to/stdin
 ```
