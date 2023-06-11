@@ -2,8 +2,8 @@ String extract, edit
 ---
 
 ```sh
-# if file is empty, remove
-[[ ! $( awk NF file ) ]] && rm file
+# if file is empty
+[[ ! $( awk NF FILE ) ]] && echo empty
 
 string=1234567890
 length=${#string}                      # 10
