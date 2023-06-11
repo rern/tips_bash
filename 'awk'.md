@@ -2,14 +2,11 @@
 ---
 in-place: `awk -i inplace `
 ```sh
-# if duplicate lines in file
-awk 'a[$0]++{exit 1}' FILE && echo NO duplicates
+# if duplicate in file     -  remove all duplicate lines
+awk 'a[$0]++{exit 1}' FILE || awk -i inplace '!seen[$0]++' FILE
 
-# remove duplicate lines
-awk -i inplace '!seen[$0]++' FILE
-
-# test empty / only white spaces in file
-[[ ! $( awk NF FILE ) ]] && echo true
+# if empty file
+[[ $( awk NF FILE ) ]] && echo NOT empty or contains only spaces
 
 # remove blank lines and white spaces lines
 awk NF
