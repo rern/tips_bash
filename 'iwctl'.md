@@ -17,7 +17,7 @@ iwctl station wlan0 connect $SSID --passphrase $PASSPHRASE
 # #2 - connect with *.psk ssid profile
 echo "\
 [Security]
-Passphrase=PASSPHRASE
+Passphrase=$PASSPHRASE
 " > /var/lib/iwd/$SSID.psk
 
 # show current status
