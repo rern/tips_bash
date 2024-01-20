@@ -1,6 +1,7 @@
 ### `iwctl`
 - Auto reconnect by default (auto select ssid with optimun signal)
 - `scan` not needed to reconnect saved ssid profiles
+- Once run `iwctl`, `iwd.service` started automatically.
 ```sh
 # start service
 systemctl start iwd
