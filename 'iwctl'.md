@@ -6,14 +6,17 @@
 # start service
 systemctl start iwd
 
+# list wlan devices
+iwctl device list
+
 # scan (run once)
-iwctl station wlan0 scan
+iwctl station $DEVICE scan
 
 # available ssid list
-iwctl station wlan0 get-networks
+iwctl station $DEVICE get-networks
 
 # #1 - connect (saved as /var/lib/iwd/$SSID.psk)
-iwctl station wlan0 connect $SSID --passphrase $PASSPHRASE
+iwctl station $DEVICE connect $SSID --passphrase $PASSPHRASE
 
 # #2 - connect with *.psk ssid profile
 echo "\
@@ -21,14 +24,17 @@ echo "\
 Passphrase=$PASSPHRASE
 " > /var/lib/iwd/$SSID.psk
 
-# show current status
-iwctl station wlan0 show
+# show current connection status
+iwctl station $DEVICE show
+
+# show device info
+iwctl device $DEVICE show
 
 # disconnect
-iwctl station wlan0 disconnect
+iwctl station $DEVICE disconnect
 
 # reconnect
-iwctl station wlan0 connect $SSID
+iwctl station $DEVICE connect $SSID
 
 # list saved ssid profiles
 iwctl known-networks list
