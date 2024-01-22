@@ -2,6 +2,10 @@ String extract, edit
 ---
 
 ```sh
+# print escaped/hidden characters in var
+var=' a \E[1;90m \E[0m\n\E[90m---\n\E[0m\E[1;90m b \n\E[0m\E[90m---\n\E[0m c '
+echo ${var@q}
+
 # if file is empty
 [[ ! $( awk NF FILE ) ]] && echo empty
 
