@@ -11,7 +11,7 @@ systemctl start iwd
 iwctl device list
 
 # scan (run once)
-iwctl station $DEVICE scan
+iwctl station $DEVICE scan [$HIDDEN_SSID]
 
 # available ssid list
 iwctl station $DEVICE get-networks
