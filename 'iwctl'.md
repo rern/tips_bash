@@ -5,8 +5,7 @@
 - `scan` not needed to reconnect saved ssid profiles
 - `iwctl` also starts `iwd.service`
 - Manually configured `/var/lib/iwd/$SSID.psk`
-	- `PreSharedKey` must be included with `Passphrase`
-	- `presharedkey=$( wpa_passphrase "$ssid" "$passphrase" | grep '\spsk=' | cut -d= -f2 )`
+	- `PreSharedKey` must be included: `wpa_passphrase "$ssid" "$passphrase" | grep '\spsk=' | cut -d= -f2`
 
 ```sh
 # start service
