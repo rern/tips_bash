@@ -1,8 +1,13 @@
 ### `iwctl`
-- Auto reconnect by default (auto select ssid with optimun signal)
+
+- Auto reconnect on boot by default (auto select ssid with optimun signal)
+- `disconnect` profile - no auto reconnect (or `AutoConnect=false` in `/var/lib/iwd/$SSID.psk`)
 - `scan` not needed to reconnect saved ssid profiles
-- Once run `iwctl`, `iwd.service` started automatically.
-- Disable autoconnect: `AutoConnect=false` in `/var/lib/iwd/$SSID.psk`
+- `iwctl` also starts `iwd.service`
+- Manually configured `/var/lib/iwd/$SSID.psk`
+	- `PreSharedKey` must be included with `Passphrase`
+	- `presharedkey=$( wpa_passphrase "$ssid" "$passphrase" | grep '\spsk=' | cut -d= -f2 )`
+
 ```sh
 # start service
 systemctl start iwd
