@@ -1,11 +1,8 @@
 ### `iwctl`
 
 - Auto reconnect on boot by default (auto select ssid with optimun signal)
-- `disconnect` profile - no auto reconnect (or `AutoConnect=false` in `/var/lib/iwd/$SSID.psk`)
-- `scan` not needed to reconnect saved ssid profiles
+- `$SSID` must be in `get-networks` to reconnect saved profiles
 - `iwctl` also starts `iwd.service`
-- Manually configured `/var/lib/iwd/$SSID.psk`
-	- `PreSharedKey` must be included: `wpa_passphrase "$ssid" "$passphrase" | grep '\spsk=' | cut -d= -f2`
 - Filter `stdout` color encoded lines: `sed $'s/\e\\[[0-9;:]*[a-zA-Z]//g'`
 
 ```sh
@@ -24,8 +21,10 @@ iwctl station $DEVICE get-networks
 # #1 - connect (to be saved as /var/lib/iwd/$SSID.psk)
 iwctl station $DEVICE [connect|connect-hidden] $SSID --passphrase $PASSPHRASE
 
-# #2 - connect with manually configured profile
+# #2 - connect with pre-configured profile
 echo "\
+# required - both
+# PRESHAREDKEY=$( wpa_passphrase "$ssid" "$passphrase" | grep '\spsk=' | cut -d= -f2 )
 [Security]
 PreSharedKey=$PRESHAREDKEY
 Passphrase=$PASSPHRASE
@@ -46,7 +45,7 @@ iwctl station $DEVICE show
 # show device info
 iwctl device $DEVICE show
 
-# disconnect
+# disconnect - no auto reconnect on boot
 iwctl station $DEVICE disconnect
 
 # reconnect
