@@ -6,6 +6,7 @@
 - `iwctl` also starts `iwd.service`
 - Manually configured `/var/lib/iwd/$SSID.psk`
 	- `PreSharedKey` must be included: `wpa_passphrase "$ssid" "$passphrase" | grep '\spsk=' | cut -d= -f2`
+- Filter `stdout` color encoded lines: `sed $'s/\e\\[[0-9;:]*[a-zA-Z]//g'`
 
 ```sh
 # start service
@@ -23,17 +24,19 @@ iwctl station $DEVICE get-networks
 # #1 - connect (to be saved as /var/lib/iwd/$SSID.psk)
 iwctl station $DEVICE [connect|connect-hidden] $SSID --passphrase $PASSPHRASE
 
-# #2 - connect with *.psk ssid profile
+# #2 - connect with manually configured profile
 echo "\
 [Security]
+PreSharedKey=$PRESHAREDKEY
 Passphrase=$PASSPHRASE
-" > /var/lib/iwd/$SSID.psk
 
-# disable autoconnect (default: true)
-# hidden ssid         (default: false)
-echo "\
+# static ip - optional
+[IPv4]
+Address=$ADDRESS
+Gateway=$GATEWAY
+
+# hidden ssid - optional
 [Settings]
-AutoConnect=false
 Hidden=true
 " >> /var/lib/iwd/$SSID.psk
 
