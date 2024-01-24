@@ -1,3 +1,17 @@
+### `iwd`
+
+`/etc/iwd/main.conf`
+```sh
+[General]
+EnableNetworkConfiguration=true
+
+[Scan]
+DisablePeriodicScan=true
+
+[Network]
+EnableIPv6=false
+```
+
 ### `iwctl`
 
 - Auto reconnect on boot by default (auto select ssid with optimun signal)
