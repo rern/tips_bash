@@ -16,6 +16,7 @@
 - Uninstall with all depends `pacman -Rcns PACKAGE`
 - System wide upgrade `pacman -Syu`
 - Remove outdated packages from cache `pacman -Sc`
+- Get package of a file `pacman -Qo PACKAGE`
 - Package repo 
 	- Latest - https://archlinuxarm.org/packages  
 	- Archive - http://tardis.tiny-vps.com/aarm/  
