@@ -53,6 +53,13 @@ Gateway=$GATEWAY
 Hidden=true
 " >> /var/lib/iwd/$SSID.psk
 
+# if $SSID contains special charaters - filename: =HEX_ENCODE.psk
+if [[ $SSID =~ [^a-zA-Z0-9\ _-] ]]; then
+		filename==$( echo -n "$SSID" \
+						| od -A n -t x1 \
+						| tr -d ' ' )
+fi
+
 # show current connection status
 iwctl station $DEVICE show
 
