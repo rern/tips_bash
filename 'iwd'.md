@@ -36,8 +36,7 @@ iwctl station $DEVICE get-networks
 iwctl station $DEVICE [connect|connect-hidden] $SSID --passphrase $PASSPHRASE
 
 # #2 - connect with pre-configured profile
-echo "\
-# required - both
+# required - both or omit both if no passphrase
 # PRESHAREDKEY=$( wpa_passphrase "$ssid" "$passphrase" | grep '\spsk=' | cut -d= -f2 )
 [Security]
 PreSharedKey=$PRESHAREDKEY
@@ -51,10 +50,11 @@ Gateway=$GATEWAY
 # hidden ssid - optional
 [Settings]
 Hidden=true
-" >> /var/lib/iwd/$SSID.psk
 
-# if $SSID contains special charaters - filename: =HEX_ENCODE.psk
-[[ $SSID =~ [^a-zA-Z0-9\ _-] ]] && filename==$( echo -n "$SSID" | od -A n -t x1 | tr -d ' ' )
+echo "$data" >> /var/lib/iwd/$SSID.psk # .open if no passphrase
+
+# if $SSID contains special charaters - filename: /var/liv/iwd/=HEX_ENCODE.EXT
+[[ $SSID =~ [^a-zA-Z0-9\ _-] ]] && HEX_ENCODE==$( echo -n "$SSID" | od -A n -t x1 | tr -d ' ' )
 
 # show current connection status
 iwctl station $DEVICE show
