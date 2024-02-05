@@ -49,7 +49,7 @@ PreSharedKey=$PRESHAREDKEY
 Passphrase=$PASSPHRASE
 "
 # static ip - optional
-data+=
+data+="
 [IPv4]
 Address=$ADDRESS
 Gateway=$GATEWAY
@@ -59,7 +59,7 @@ data+="
 [Settings]
 Hidden=true
 "
-echo "$data" >> "$PROFILE"
+echo "$data" > "$PROFILE"
 
 # show current connection status
 iwctl station $DEVICE show
@@ -82,9 +82,6 @@ iwctl known-networks $SSID forget
 
 - Process data
 ```sh
-# filename - hex encode ssid with special characters: wifi@r > =776966694072
-[[ $1 =~ [^a-zA-Z0-9\ _-] ]] && hex==$( echo -n "$1" | od -A n -t x1 | tr -d ' ' )
-
 # decode hex filename: =776966694072 > wifi@r
 ssid=${ssid:1}
 while (( ${#ssid} > 0 )); do
