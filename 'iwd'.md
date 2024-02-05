@@ -17,7 +17,6 @@ EnableIPv6=false
 - Auto reconnect on boot by default (auto select ssid with optimun signal)
 - `$SSID` must be in `get-networks` to reconnect saved profiles
 - `iwctl` also starts `iwd.service`
-- Filter `stdout` color encoded lines: `sed $'s/\e\\[[0-9;:]*[a-zA-Z]//g'`
 
 ```sh
 # start service
@@ -79,4 +78,21 @@ iwctl known-networks list
 
 # remove saved profile
 iwctl known-networks $SSID forget
+```
+
+- Process data
+```sh
+# filename - hex encode ssid with special characters: wifi@r > =776966694072
+[[ $1 =~ [^a-zA-Z0-9\ _-] ]] && hex==$( echo -n "$1" | od -A n -t x1 | tr -d ' ' )
+
+# decode hex filename: =776966694072 > wifi@r
+ssid=${ssid:1}
+while (( ${#ssid} > 0 )); do
+	hex+="\x${ssid:0:2}"
+	ssid=${ssid:2}
+done
+ssid=$( echo -e $hex )
+
+# remove color encoded lines
+sed $'s/\e\\[[0-9;:]*[a-zA-Z]//g' <<< $stdout
 ```
