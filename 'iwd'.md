@@ -77,10 +77,10 @@ iwctl known-networks $SSID forget
 - Process data
 ```sh
 # decode hex filename: =776966694072 > wifi@r
-ssid=${ssid:1}
-while (( ${#ssid} > 0 )); do
-	hex+="\x${ssid:0:2}"
-	ssid=${ssid:2}
+name=${filename:1}
+while (( ${#name} > 0 )); do
+	hex+="\x${name:0:2}"
+	name=${name:2}
 done
 ssid=$( echo -e $hex )
 
