@@ -83,7 +83,6 @@ a\
 - `'$ <x>'`          : last line  
 - `'/^a.*b$/ <x>'`   : start with `a` and end with `b`  
 - `'/^\s*$/ <x>'`    : blank lines
-- `':a;/^[ \n]*$/{$d;N;ba}'` : remove trailing blank lines
 
 - `/<1st...>/, /<last...>/ <x>` : matched line range by matched (non-greedy) 
 - `N, N <x>`                    : matched line range by line number  
