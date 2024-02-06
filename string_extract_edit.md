@@ -94,8 +94,12 @@ echo 123abc456def | tr -d [0-9]  # abcdef
 # trim leading and trailing white sapces + squeeze multiplesapces to single (not for strings contain quotes, single or double)
 echo ' a b  c  d ' | xargs # a b c d
 
-# delete trailing empty lines  
+# delete empty lines  
 awk NF file    
+
+# replace double empty lines with single
+perl -00pe0 file
+perl -00pe0 <<< $LINES
 
 # extract only number / non-number
 numstring=1.23ab
