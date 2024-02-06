@@ -31,35 +31,29 @@ iwctl station $DEVICE scan [$HIDDEN_SSID]
 # available ssid list
 iwctl station $DEVICE get-networks
 
-# #1 - connect (to be saved as /var/lib/iwd/$SSID.psk)
-iwctl station $DEVICE [connect|connect-hidden] $SSID --passphrase $PASSPHRASE
-
-# #2 - connect with pre-configured profile
+# (optional) pre-configure before connect with static ip
 if [[ $SSID =~ [^a-zA-Z0-9\ _-] ]]; then # if $SSID contains special charaters
 	HEX_ENCODE=$( echo -n "$SSID" | od -A n -t x1 | tr -d ' ' )
 	PROFILE=/var/lib/iwd/=$HEX_ENCODE.psk
 else
 	PROFILE=/var/lib/iwd/$SSID.psk # .open if no passphrase
 fi
-# required - both or omit both if no passphrase
-PRESHAREDKEY=$( wpa_passphrase "$ssid" "$passphrase" | grep '\spsk=' | cut -d= -f2 )
-data="\
-[Security]
-PreSharedKey=$PRESHAREDKEY
-Passphrase=$PASSPHRASE
-"
-# static ip - optional
-data+="
+echo "\
 [IPv4]
 Address=$ADDRESS
 Gateway=$GATEWAY
-"
-# hidden ssid - optional
-data+="
-[Settings]
-Hidden=true
-"
-echo "$data" > "$PROFILE"
+" > "$PROFILE"
+
+### connect
+# #1 - to be saved as /var/lib/iwd/$SSID.psk
+iwctl station $DEVICE connect $SSID --passphrase $PASSPHRASE
+
+# #2 - to be saved as /var/lib/iwd/$SSID.open
+iwctl station $DEVICE connect $SSID
+
+# #3 - hidden ssid - explicit scan
+iwctl station $DEVICE scan $SSID
+iwctl station $DEVICE connect-hidden $SSID --passphrase $PASSPHRASE
 
 # show current connection status
 iwctl station $DEVICE show
