@@ -17,7 +17,7 @@ EnableIPv6=false
 - Auto reconnect on boot by default (auto select ssid with optimun signal)
 - `$SSID` must be in `get-networks` to reconnect saved profiles
 - `iwctl` also starts `iwd.service`
-- Always scan before connect for more reliable
+- If `DisablePeriodicScan=true`, always scan before connect to ensure connection
 
 ```sh
 # start service
