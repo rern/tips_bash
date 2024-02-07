@@ -7,6 +7,7 @@
 EnableNetworkConfiguration=true
 
 # periodically scans for available networks in disconnected state
+# If disabled, always scan before connect (otherwise not reliable)
 [Scan]
 DisablePeriodicScan=true
 
@@ -20,11 +21,8 @@ EnableIPv6=false
 ### `iwctl`
 
 - Auto reconnect on boot by default (auto select ssid with optimun signal)
-- `$SSID` must be in `get-networks` to reconnect saved profiles
+- `$SSID` must be populated by scan in `get-networks` to connect/reconnect
 - `iwctl` also starts `iwd.service`
-- `DisablePeriodicScan=true`:
-	- If not disabled, auto scan periodically while not connected
-	- If disabled, always scan before connect (otherwise not reliable)
 	
 ```sh
 # start service
@@ -51,6 +49,12 @@ echo "\
 Address=$ADDRESS
 Gateway=$GATEWAY
 " > "$PROFILE"
+
+# disable auto reconnect
+echo "\
+[Settings]
+AutoConnect=false
+" >> "$PROFILE"
 
 ### connect
 # #1 - to be saved as /var/lib/iwd/$SSID.psk
