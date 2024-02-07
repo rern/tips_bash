@@ -2,13 +2,18 @@
 
 `/etc/iwd/main.conf`
 ```sh
+# enable dhcp client
 [General]
 EnableNetworkConfiguration=true
 
+# periodically scans for available networks in disconnected state
 [Scan]
 DisablePeriodicScan=true
 
+# offset priority from wired lan when connect simultaneously
 [Network]
+RoutePriorityOffset=300
+
 EnableIPv6=false
 ```
 
