@@ -96,6 +96,13 @@ while (( ${#name} > 0 )); do
 done
 ssid=$( echo -e $hex )
 
-# remove color encoded lines
-sed $'s/\e\\[[0-9;:]*[a-zA-Z]//g' <<< $stdout
+# remove encoded color from stdout
+sed $'s/\e\\[[0-9;]*m//g' <<< $stdout
+
+# ssid only list
+iwctl station wlan0 get-networks \
+	| sed -e '1,4 d
+	    ' -e $'s/\e\\[[0-9;]*m//g
+	    ' -e 's/^  >/   /' \
+	| awk 'NF{NF-=2}1 && NF'
 ```
