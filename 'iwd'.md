@@ -97,12 +97,10 @@ done
 ssid=$( echo -e $hex )
 
 # remove encoded color from stdout
-sed $'s/\e\\[[0-9;]*m//g' <<< $stdout
+iwctl station wlan0 get-networks | sed $'s/\e\\[[0-9;]*m\**//g'
 
-# ssid only list
+# ssid names only list
 iwctl station wlan0 get-networks \
-	| sed -e '1,4 d
-	    ' -e $'s/\e\\[[0-9;]*m//g
-	    ' -e 's/^  >/   /' \
+	| sed -e '1,4 d' -e $'s/\e\\[[0-9;]*m>*//g' \
 	| awk 'NF{NF-=2}1 && NF'
 ```
