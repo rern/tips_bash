@@ -70,7 +70,8 @@ a\
 - `/.../`            : default delimiter  
 - `\|...|`, `\#...#` : delimiters can be any (but in line search, none default `/` must be escaped)  
   
-- `-n '/.../p'`      : **p**rint line string by matched  
+- `-n '/.../p'`      : **p**rint line string by matched
+- `-n '/.../p; q'`   : **p**rint only 1st line string by matched
 - `'<n>q;d'`      : get line string by line number  
 - `-n '/.../='`      : get line number 
 
