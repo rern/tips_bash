@@ -1,3 +1,29 @@
+### `wpa_supplicant`
+
+- On Debian standard / text mode: No internet, no `nmcli`
+```sh
+export PATH=$PATH:/sbin
+
+# credential
+conf=wpa.conf
+echo p2p_disabled=1 > $conf
+wpa_passphrase SSID PASSWORD >> $conf
+
+#connect
+ip link show # get interface
+wpa_supplicant -B -i INF -c $conf
+dhcpcd INF # obtain ip address
+```
+
+### `nmcli`
+```sh
+ip link show # get interface
+
+nmcli INF wifi rescan
+nmcli INF wifi list
+nmcli INF wifi connect SSID password PASSWORD
+```
+
 ### `netctl` - service
 ```sh
 # profiles
