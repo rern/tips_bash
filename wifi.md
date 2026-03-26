@@ -45,7 +45,7 @@ systemctl enable netctl-auto@wlan0
 netctl status <profile> | grep 'leased\|route via' | sed 's/.* \([0-9]*.[0-9]*.[0-9]*.[0-9]\).*/\1/'
 ```
 
-### `iw` - connect
+### `iw`
 - Faster than `netctl` but there're still issues on Arch Linux Arm
 ```sh
 # status
@@ -64,7 +64,8 @@ iw dev <wlan0> connect [ssid] key [hex_key]
 iw dev <wlan0> disconnect
 ```
 
-### `ip` - interface
+### `ip` 
+- Manage interface
 ```sh
 # status
 ip link
