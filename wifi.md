@@ -1,6 +1,5 @@
 ### `wpa_supplicant`
-
-- On Debian standard / text mode: No internet, no `nmcli`
+- No internet, no `nmcli` *(Debian standard / text mode)*
 ```sh
 export PATH=$PATH:/sbin
 
@@ -11,19 +10,24 @@ wpa_passphrase SSID PASSWORD >> $conf
 
 #connect
 ip link show # get interface
-wpa_supplicant -B -i INF -c $conf
-dhcpcd INF # obtain ip address
+wpa_supplicant -B -i <wlo1> -c $conf
+dhcpcd <wlo1> # obtain ip address
 ```
 
 ### `nmcli`
+- Easiest to use
 ```sh
 nmcli device wifi rescan
 nmcli device wifi list
 nmcli device wifi connect SSID password PASSWORD
 ```
 
-### `netctl` - service
+### `netctl`
+- Light weight, default on Arch Linux Arm
 ```sh
+# interactive connection
+wifi-menu
+
 # profiles
 netctl list
 
@@ -41,8 +45,24 @@ systemctl enable netctl-auto@wlan0
 netctl status <profile> | grep 'leased\|route via' | sed 's/.* \([0-9]*.[0-9]*.[0-9]*.[0-9]\).*/\1/'
 ```
 
-### WiFi connection menu
-`wifi-menu`
+### `iw` - connect
+- Faster than `netctl` but there're still issues on Arch Linux Arm
+```sh
+# status
+iw dev <wlan0> link
+
+# get ssid
+iw dev <wlan0> link | grep SSID | awk '{print $NF}'
+
+# scan
+iwlist <wlan0> scan
+
+# connect
+iw dev <wlan0> connect [ssid] key [hex_key]
+
+# disconnect
+iw dev <wlan0> disconnect
+```
 
 ### `ip` - interface
 ```sh
@@ -70,22 +90,4 @@ ifconfig <wlan0> 0.0.0.0
 ip link set dev <wlan0> [up/down]
 # or
 ifconfig <wlan0> [up/down]
-```
-
-### `iw` - connect
-```sh
-# status
-iw dev <wlan0> link
-
-# get ssid
-iw dev <wlan0> link | grep SSID | awk '{print $NF}'
-
-# scan
-iwlist <wlan0> scan
-
-# connect
-iw dev <wlan0> connect [ssid] key [hex_key]
-
-# disconnect
-iw dev <wlan0> disconnect
 ```
