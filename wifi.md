@@ -19,9 +19,9 @@ dhcpcd INF # obtain ip address
 ```sh
 ip link show # get interface
 
-nmcli INF wifi rescan
-nmcli INF wifi list
-nmcli INF wifi connect SSID password PASSWORD
+nmcli device wifi rescan
+nmcli device wifi list
+nmcli device wifi connect SSID password PASSWORD
 ```
 
 ### `netctl` - service
