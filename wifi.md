@@ -8,10 +8,10 @@ conf=wpa.conf
 echo p2p_disabled=1 > $conf
 wpa_passphrase SSID PASSWORD >> $conf
 
-#connect
-ip link show # get interface
-wpa_supplicant -B -i <wlo1> -c $conf
-dhcpcd <wlo1> # obtain ip address
+# connect
+wl=$( ip link | awk -F':' '/^.: w/ {print $2}' )
+wpa_supplicant -B -i $wl -c $conf
+dhcpcd $wl
 ```
 
 ### `nmcli`
