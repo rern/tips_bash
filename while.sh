@@ -1,9 +1,19 @@
 #!/bin/bash
 
-i=0
-
-while (( i < 50 )); do
-	i=$(( $i + 1 ))
+while (( i < 5 )); do
+	(( i++ ))
 	echo $i
-	sleep 0.1
+	sleep 1
 done
+
+while read line; do
+	echi $line
+done <<< "$lines"
+
+while read line; do
+	echi $line
+done < $file
+
+while read line; do
+	echi $line
+done < <( command )
