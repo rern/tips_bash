@@ -17,15 +17,16 @@
 - Installed:
 	- Version `pacman -Q PACKAGE`
 	- Detail `pacman -Qi PACKAGE`
-- List:
-	- All packages `pacman -Qqe`
-	- Files installed `pacman -Ql PACKAGE`
-	- Depends `pacman -Si PACKAGE | awk -F': ' '/^Depends/ {gsub(/ +/, "\n", $2); print $2}'`
-	- Provides `*.so=version` `*.so=version` ` pacman -Si PACKAGE | grep -E '^Provides|^Version'`
+	- Own command/file `pacman -Qo COMMAND`
+	- List:
+		- All packages `pacman -Qqe`
+		- Files `pacman -Ql PACKAGE`
 - Search:
 	- Name `pacman -Qs PACKAGE` *(`*` wildcards allowed)*
-	- Contains command `pacman -Qo COMMAND`
-	- Contains file `pacman -Fy FILE`
+	- Contains command/file `pacman -F COMMAND`
+	- Detail: `pacman -Si PACKAGE`
+		- Depends `pacman -Si PACKAGE | awk -F': ' '/^Depends/ {gsub(/ +/, "\n", $2); print $2}'`
+		- Provides `*.so=version` `*.so=version` ` pacman -Si PACKAGE | grep -E '^Provides|^Version'`
 
 ### Recreate package from installed
 - `fakepkg PACKAGE`
