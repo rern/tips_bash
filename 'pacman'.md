@@ -29,6 +29,7 @@
 		- Provides `*.so=version` `*.so=version` ` pacman -Si PACKAGE | grep -E '^Provides|^Version'`
 
 ### Checksum
+Verify a package file
 ```sh
 read -p 'Package Name: ' PACKAGE
 repo=$( pacman -Si $PACKAGE | awk '/^Repo/ {print $NF}' )
