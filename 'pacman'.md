@@ -31,10 +31,10 @@
 ### Checksum
 ```sh
 read -p 'Package Name: ' PACKAGE
-read -p 'Repository: '   REPO
+repo=$( pacman -Si $PACKAGE | awk '/^Repo/ {print $NF}' )
 file=$( ls /var/cache/pacman/pkg/$PACKAGE-* )
 sha_file=$( sha256sum $file | awk '{print $1}' )
-sha_db=$( bsdtar xOf /var/lib/pacman/sync/$REPO.db \
+sha_db=$( bsdtar xOf /var/lib/pacman/sync/$repo.db \
 			| sed -n -e "/^$PACKAGE$/,/^%URL/ p" \
 			| sed -n '/^%SHA/ {n;p}' )
 if [[ $sha_file == $sha_db ]]; then
