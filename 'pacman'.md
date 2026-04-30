@@ -28,6 +28,25 @@
 		- Depends `pacman -Si PACKAGE | awk -F': ' '/^Depends/ {gsub(/ +/, "\n", $2); print $2}'`
 		- Provides `*.so=version` `*.so=version` ` pacman -Si PACKAGE | grep -E '^Provides|^Version'`
 
+### Checksum
+```sh
+PACKAGE=pkg_name
+REPO=repo_name
+file=$( ls /var/cache/pacman/pkg/$PACKAGE-* )
+sha_file=$( sha256sum $file | awk '{print $1}' )
+sha_db=$( bsdtar xOf /var/lib/pacman/sync/$REPO.db \
+			| sed -n -e "/^$PACKAGE$/,/^%URL/ p" \
+			| sed -n '/^%SHA/ {n;p}' )
+if [[ $sha_file == $sha_db ]]; then
+	echo -e "\n\e[46m  \e[0m Verified\n"
+else
+	echo -e "\n\e[41m i \e[0m NOT matched !
+$sha_file
+$sha_db
+"
+fi
+```
+
 ### Recreate package from installed
 - `fakepkg PACKAGE`
 
