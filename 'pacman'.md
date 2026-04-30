@@ -31,7 +31,7 @@
 ### Checksum
 ```sh
 read -p 'Package Name: ' PACKAGE
-read -p Repo REPO
+read -p 'Repository: '   REPO
 file=$( ls /var/cache/pacman/pkg/$PACKAGE-* )
 sha_file=$( sha256sum $file | awk '{print $1}' )
 sha_db=$( bsdtar xOf /var/lib/pacman/sync/$REPO.db \
