@@ -16,14 +16,15 @@
 ### Query
 - Installed:
 	- Version `pacman -Q PACKAGE`
+	- Name `pacman -Qs PACKAGE` *(`*` wildcards allowed)*
 	- Detail `pacman -Qi PACKAGE`
 	- Own command/file `pacman -Qo COMMAND`
 	- List:
 		- All packages `pacman -Qqe`
 		- Files `pacman -Ql PACKAGE`
 - Search:
-	- Name `pacman -Qs PACKAGE` *(`*` wildcards allowed)*
 	- Contains command/file `pacman -F COMMAND`
+	- Name `pacman -Ss PACKAGE` *(`*` wildcards allowed)*
 	- Detail: `pacman -Si PACKAGE`
 		- Depends `pacman -Si PACKAGE | awk -F': ' '/^Depends/ {gsub(/ +/, "\n", $2); print $2}'`
 		- Provides `*.so=version` `*.so=version` ` pacman -Si PACKAGE | grep -E '^Provides|^Version'`
@@ -52,5 +53,5 @@ fi
 - `fakepkg PACKAGE`
 
 ### Repositories
-- Latest - https://archlinuxarm.org/packages  
-- Archive - http://tardis.tiny-vps.com/aarm/  
+- Latest - https://archlinuxarm.org/packages
+- Archive - http://tardis.tiny-vps.com/aarm/
